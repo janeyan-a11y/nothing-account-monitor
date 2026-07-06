@@ -1,0 +1,22 @@
+node_modules/
+.env
+*.log
+__pycache__/
+*.pyc
+
+# 账号信息敏感，不提交
+data/accounts.json
+
+# 截图和报告也先不提交（太大 + 敏感）
+screenshots/
+reports/
+
+# 但保留目录结构
+!screenshots/.gitkeep
+!reports/.gitkeep
+
+# 社媒监控 — 敏感/生成文件
+social-monitor/.env
+social-monitor/data/twitter_cookies.json
+social-monitor/data/mentions.json
+social-monitor/data/latest_*.json

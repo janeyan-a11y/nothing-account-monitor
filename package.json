@@ -1,0 +1,45 @@
+{
+  "name": "competitive-analysis",
+  "version": "1.0.0",
+  "description": "Competitive analysis toolkit for mobile system accounts — screenshot capture, AI analysis, and report generation",
+  "main": "src/index.js",
+  "bin": {
+    "competitive-analysis": "./bin/competitive-analysis.js",
+    "comp-analysis": "./bin/competitive-analysis.js"
+  },
+  "files": [
+    "src/lib/",
+    "src/index.js",
+    "src/mcp-server.js",
+    "bin/",
+    "skills/",
+    "prompt_template.md",
+    "README.md"
+  ],
+  "scripts": {
+    "shot": "node src/screenshot_helper.js",
+    "account": "node src/account_manager.js",
+    "report": "node src/generate_report.js",
+    "cli": "node bin/competitive-analysis.js",
+    "mcp": "node src/mcp-server.js",
+    "web": "node server.js",
+    "setup": "npm install"
+  },
+  "keywords": [
+    "competitive-analysis",
+    "adb",
+    "screenshot",
+    "claude",
+    "mcp",
+    "android",
+    "product-management"
+  ],
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.33.0",
+    "commander": "^12.1.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>竞品分析工具</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, 'Microsoft YaHei', sans-serif; background: #0f172a; color: #e2e8f0; min-height:100vh; padding:20px; }
+.container { max-width:900px; margin:0 auto; }
+h1 { font-size:24px; margin-bottom:8px; }
+.subtitle { color:#94a3b8; margin-bottom:24px; }
+.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:16px; }
+.card { background:#1e293b; border-radius:12px; padding:20px; border:1px solid #334155; }
+.card h3 { font-size:16px; margin-bottom:8px; }
+.card p { color:#94a3b8; font-size:13px; margin-bottom:14px; }
+.card button { width:100%; padding:10px; border:none; border-radius:8px; font-size:14px; cursor:pointer; font-weight:600; }
+.btn-primary { background:#3b82f6; color:#fff; }
+.btn-primary:hover { background:#2563eb; }
+.btn-green { background:#10b981; color:#fff; }
+.btn-green:hover { background:#059669; }
+.btn-orange { background:#f59e0b; color:#000; }
+.btn-orange:hover { background:#d97706; }
+.btn-purple { background:#8b5cf6; color:#fff; }
+.btn-purple:hover { background:#7c3aed; }
+.btn-red { background:#ef4444; color:#fff; }
+.btn-red:hover { background:#dc2626; }
+.output { background:#0f172a; border:1px solid #334155; border-radius:12px; padding:16px; margin-top:20px; min-height:200px; max-height:500px; overflow-y:auto; font-family:'Cascadia Code', 'Consolas', monospace; font-size:13px; white-space:pre-wrap; display:none; }
+.output.show { display:block; }
+.status { display:flex; align-items:center; gap:8px; margin-bottom:20px; }
+.dot { width:10px; height:10px; border-radius:50%; }
+.dot.on { background:#10b981; }
+.dot.off { background:#ef4444; }
+.accounts-list { display:none; margin-top:16px; }
+.accounts-list.show { display:block; }
+.account-row { display:flex; justify-content:space-between; align-items:center; padding:10px 14px; background:#1e293b; border-radius:8px; margin-bottom:6px; }
+.account-row .name { font-weight:600; }
+.account-row .type { font-size:12px; padding:2px 8px; border-radius:12px; }
+.account-row .type.registered { background:#065f46; color:#6ee7b7; }
+.account-row .type.unregistered { background:#1e3a5f; color:#93c5fd; }
+.screenshots { margin-top:16px; }
+.ss-item { padding:6px 12px; background:#1e293b; border-radius:6px; margin-bottom:4px; font-family:monospace; font-size:13px; }
+.refresh { color:#60a5fa; cursor:pointer; font-size:12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>&#x1F4F1; 竞品分析工具集</h1>
+  <p class="subtitle">海外手机系统账号 · Passkey 竞品分析</p>
+
+  <div class="status">
+    <span class="dot on" id="deviceDot"></span>
+    <span id="deviceStatus">检测设备中...</span>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>&#x1F4CB; 账号管理</h3>
+      <p>查看所有竞品账号，推送到手机剪贴板</p>
+      <button class="btn-primary" onclick="listAccounts()">查看账号列表</button>
+      <div id="accountsList" class="accounts-list"></div>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F4F2; 推送账号</h3>
+      <p>将账号密码推送到手机剪贴板</p>
+      <select id="competitorSelect" style="width:100%;padding:8px;border-radius:6px;margin-bottom:8px;background:#0f172a;color:#e2e8f0;border:1px solid #334155;">
+        <option value="Google">Google</option>
+        <option value="Apple">Apple</option>
+        <option value="OPPO">OPPO</option>
+        <option value="华为">华为</option>
+        <option value="小米">小米</option>
+        <option value="vivo">vivo</option>
+        <option value="Trip.com">Trip.com</option>
+        <option value="Instagram">Instagram</option>
+        <option value="RedNote">RedNote</option>
+        <option value="WeChat">WeChat</option>
+      </select>
+      <button class="btn-green" onclick="pushAccount()">推送到手机</button>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F4F8; 截图</h3>
+      <p>截取手机当前画面并自动保存</p>
+      <input id="compInput" placeholder="竞品名 (如 Google)" style="width:100%;padding:8px;border-radius:6px;margin-bottom:8px;background:#0f172a;color:#e2e8f0;border:1px solid #334155;" value="Google">
+      <input id="featInput" placeholder="功能名 (如 passkey)" style="width:100%;padding:8px;border-radius:6px;margin-bottom:8px;background:#0f172a;color:#e2e8f0;border:1px solid #334155;" value="passkey">
+      <button class="btn-orange" onclick="takeScreenshot()">&#x1F4F8; 截图</button>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F4C1; 已有截图</h3>
+      <p>查看已保存的竞品截图</p>
+      <button class="btn-purple" onclick="viewScreenshots()">查看截图</button>
+      <div id="screenshotsList" class="screenshots"></div>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F4C4; 生成报告</h3>
+      <p>根据已收集的截图生成分析报告</p>
+      <button class="btn-red" onclick="generateReport()">生成报告</button>
+    </div>
+
+    <div class="card">
+      <h3>&#x1F4F1; 投屏</h3>
+      <p>启动 scrcpy 手机投屏窗口</p>
+      <button class="btn-primary" onclick="launchScrcpy()">启动投屏</button>
+    </div>
+  </div>
+
+  <div id="output" class="output"></div>
+</div>
+
+<script>
+const API_BASE = 'http://localhost:3456';
+
+function showOutput(text) {
+  const el = document.getElementById('output');
+  el.textContent = text;
+  el.classList.add('show');
+}
+
+async function apiCall(action, data = {}) {
+  try {
+    const resp = await fetch(`${API_BASE}/${action}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+    const result = await resp.json();
+    showOutput(result.output || result.error || '完成');
+    return result;
+  } catch(e) {
+    // 如果后端没启动，显示提示
+    showOutput('⚠️ 后端未启动。请先在终端运行: node ~/competitive-analysis/server.js\n\n如果已启动，检查是否在 http://localhost:3456');
+    return null;
+  }
+}
+
+function listAccounts() {
+  apiCall('accounts/list').then(r => {
+    if (r && r.accounts) {
+      const el = document.getElementById('accountsList');
+      el.innerHTML = r.accounts.map(a =>
+        `<div class="account-row">
+          <span><span class="name">${a.competitor}</span> — ${a.email || a.phone || '(未填)'}</span>
+          <span class="type ${a.type}">${a.type === 'registered' ? '已注册' : '未注册'}</span>
+        </div>`
+      ).join('');
+      el.classList.add('show');
+    }
+  });
+}
+
+function pushAccount() {
+  const comp = document.getElementById('competitorSelect').value;
+  apiCall('accounts/push', { competitor: comp });
+}
+
+function takeScreenshot() {
+  const comp = document.getElementById('compInput').value || 'Google';
+  const feat = document.getElementById('featInput').value || 'passkey';
+  apiCall('screenshot', { competitor: comp, feature: feat });
+}
+
+function viewScreenshots() {
+  apiCall('screenshots').then(r => {
+    if (r && r.files) {
+      const el = document.getElementById('screenshotsList');
+      el.innerHTML = r.files.map(f => `<div class="ss-item">&#x1F4F8; ${f}</div>`).join('');
+    }
+  });
+}
+
+function generateReport() {
+  const feat = document.getElementById('featInput').value || 'passkey';
+  apiCall('report', { feature: feat });
+}
+
+function launchScrcpy() {
+  apiCall('scrcpy');
+}
+
+// 检测设备
+async function checkDevice() {
+  try {
+    const resp = await fetch(`${API_BASE}/device`);
+    const data = await resp.json();
+    const dot = document.getElementById('deviceDot');
+    const status = document.getElementById('deviceStatus');
+    if (data.connected) {
+      dot.className = 'dot on';
+      status.textContent = `设备已连接: ${data.device}`;
+    } else {
+      dot.className = 'dot off';
+      status.textContent = '未检测到设备';
+    }
+  } catch(e) {
+    document.getElementById('deviceDot').className = 'dot off';
+    document.getElementById('deviceStatus').textContent = '后端未启动';
+  }
+}
+
+checkDevice();
+setInterval(checkDevice, 5000);
+</script>
+</body>
+</html>

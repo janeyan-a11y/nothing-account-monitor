@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>「账号注销 & 单独注销业务」竞品对比 — 一加 vs 小米</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, "Microsoft YaHei", sans-serif; background: #f0f2f5; color: #333; line-height: 1.8; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
+  h1 { font-size: 28px; text-align: center; margin-bottom: 8px; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 32px; }
+  h2 { font-size: 22px; margin: 40px 0 16px; padding: 12px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 8px; }
+  h3 { font-size: 18px; margin: 24px 0 12px; border-left: 4px solid #667eea; padding-left: 12px; }
+  .card { background: #fff; border-radius: 12px; padding: 24px; margin: 16px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .card-header { font-size: 18px; font-weight: 700; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid #f0f0f0; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+  th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid #eee; }
+  th { background: #263238; color: #fff; font-weight: 600; }
+  tr:hover { background: #f8f8ff; }
+  .compare-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  @media (max-width: 800px) { .compare-row { grid-template-columns: 1fr; } }
+  .verdict { padding: 16px 20px; border-radius: 8px; margin: 16px 0; font-weight: 600; font-size: 16px; }
+  .verdict-win { background: #e8f5e9; color: #2e7d32; border-left: 4px solid #4CAF50; }
+  .verdict-tie { background: #fff3e0; color: #e65100; border-left: 4px solid #FF9800; }
+  .verdict-warn { background: #ffebee; color: #c62828; border-left: 4px solid #f44336; }
+  .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; margin: 2px; }
+  .badge-green { background: #c8e6c9; color: #2e7d32; }
+  .badge-red { background: #ffcdd2; color: #c62828; }
+  .badge-yellow { background: #fff9c4; color: #f57f17; }
+  .badge-blue { background: #bbdefb; color: #1565C0; }
+  .badge-purple { background: #e1bee7; color: #6a1b9a; }
+  pre { background: #263238; color: #aed581; padding: 16px; border-radius: 8px; overflow-x: auto; margin: 12px 0; font-size: 13px; }
+  blockquote { border-left: 4px solid #667eea; padding: 8px 16px; margin: 12px 0; background: #f5f0ff; border-radius: 0 6px 6px 0; }
+  .mermaid { text-align: center; margin: 20px 0; }
+  hr { border: none; border-top: 1px solid #ddd; margin: 24px 0; }
+  .flow-steps { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+  .flow-step { background: #e8eaf6; padding: 8px 16px; border-radius: 6px; font-size: 14px; font-weight: 600; text-align: center; }
+  .flow-arrow { color: #667eea; font-size: 20px; font-weight: bold; }
+  .scorecard { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
+  .score-item { flex: 1; min-width: 100px; text-align: center; background: #fff; border-radius: 12px; padding: 16px 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .score-num { font-size: 36px; font-weight: 800; }
+  .score-label { font-size: 13px; color: #888; }
+  .highlight-box { background: #fffde7; border: 1px solid #ffe082; border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>🔐 「账号注销 & 单独注销业务」竞品对比</h1>
+<p class="subtitle">一加账号 (OnePlus Account) vs 小米账号 (Xiaomi Account) &nbsp;|&nbsp; 📱 App + 🌐 Web 全端 &nbsp;|&nbsp; 2026-06-25</p>
+
+<div class="scorecard">
+  <div class="score-item">
+    <div class="score-num" style="color:#c62828;">1/5</div>
+    <div class="score-label">一加 App 覆盖</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num" style="color:#2e7d32;">4/5</div>
+    <div class="score-label">小米 App 覆盖</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num" style="color:#7b1fa2;">6步</div>
+    <div class="score-label">一加 Web 注销流程</div>
+  </div>
+  <div class="score-item">
+    <div class="score-num" style="color:#FF9800;">90天</div>
+    <div class="score-label">一加冷静期</div>
+  </div>
+</div>
+
+<hr>
+
+<h2>一、分析框架</h2>
+
+<div class="card">
+<table>
+<tr><th width="160">类型</th><th>定义</th><th>示例</th></tr>
+<tr><td><strong>📱 单独注销业务</strong></td><td>不删账号，只解绑/关闭某个服务、设备或第三方关联</td><td>删除已登录设备、解绑 Google、关闭云备份</td></tr>
+<tr><td><strong>🗑️ 注销整个账号</strong></td><td>永久删除整个账号及所有关联数据</td><td>申请注销账号 → 验证 → 冷静期 → 永久删除</td></tr>
+</table>
+</div>
+
+<hr>
+
+<h2>二、整体能力矩阵</h2>
+
+<div class="card">
+<table>
+<tr><th width="140">能力维度</th><th width="240">🟠 一加</th><th width="240">🔵 小米</th><th width="80">优胜</th></tr>
+<tr><td><strong>单独注销设备</strong></td><td><span class="badge badge-red">📱 ❌ 🌐 ❌</span></td><td><span class="badge badge-green">📱 ✅ 🌐 ❌</span></td><td><span class="badge badge-green">小米</span></td></tr>
+<tr><td><strong>解绑第三方账号</strong></td><td><span class="badge badge-yellow">📱 Google(1) 🌐 ✅</span></td><td><span class="badge badge-green">📱 FB+Google(2) 🌐 ✅</span></td><td><span class="badge badge-green">小米</span></td></tr>
+<tr><td><strong>按服务启停</strong></td><td><span class="badge badge-red">📱 ❌ 🌐 ❌</span></td><td><span class="badge badge-green">📱 4个开关 🌐 ❌</span></td><td><span class="badge badge-green">小米</span></td></tr>
+<tr><td><strong>撤销隐私授权</strong></td><td><span class="badge badge-red">📱 ❌ 🌐 ❌</span></td><td><span class="badge badge-green">📱 ✅ 🌐 ❌</span></td><td><span class="badge badge-green">小米</span></td></tr>
+<tr style="background:#fffde7;"><td><strong>注销整个账号</strong></td><td><span class="badge badge-red">📱 ❌</span> <span class="badge badge-purple">🌐 6步流程+90天</span></td><td><span class="badge badge-yellow">📱 帮助中心</span> <span class="badge badge-purple">🌐 直接注销(不可逆)</span></td><td><span class="badge badge-yellow">各有优劣</span></td></tr>
+</table>
+</div>
+
+<hr>
+
+<h2>三、🌐 一加 Web 端注销流程（实操验证）</h2>
+
+<div class="card">
+<p>来源：<code>account.oneplus.com</code> → 登录 → 个人数据管理 → 申请注销。全程 6 步：</p>
+
+<div class="flow-steps">
+  <span class="flow-step">① 个人数据<br>管理</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">② 4项安全<br>验证</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">③ 账号注销<br>声明</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">④ 手机验证<br>(SMS)</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">⑤ 确认<br>协议</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">⑥ 90天<br>冷静期</span>
+</div>
+
+<table>
+<tr><th width="80">步骤</th><th>页面</th><th>核心内容</th></tr>
+<tr><td>①</td><td><strong>个人数据管理</strong></td><td>查询/删除个人数据、实名认证（证件号脱敏 BL82 19******2x4）、删除权限管理</td></tr>
+<tr><td>②</td><td><strong>申请注销账号</strong></td><td>4 项前置验证：账号安全状态 / 资产情况 / 金融权益 / 绑定关系。按钮：「上一步」「申请注销」<br/>提示：<em>"注销账号后，将不再支持恢复，请慎重处理"</em></td></tr>
+<tr><td>③</td><td><strong>账号注销声明</strong></td><td>完整条款（注销前须知 + 注销后的影响 + 数据保留期限 + 免责声明）</td></tr>
+<tr><td>④</td><td><strong>手机验证</strong></td><td>SMS 发送至 +86 134****70，58 秒倒计时。「收不到验证码」「可更换验证方式」</td></tr>
+<tr><td>⑤</td><td><strong>确认弹窗</strong></td><td>确认已阅读并同意《账户协议》和《隐私政策》</td></tr>
+<tr><td>⑥</td><td><strong>注销完成</strong></td><td>页面提示「账号已成功注销」。<strong>实测：</strong>提交后立即注销，重新登录提示「尚未注册」。用户协议 §5.3 承诺的 90 天停用期 + 可撤销<strong>实际未生效</strong> ⚠️</td></tr>
+</table>
+</div>
+
+<div class="verdict verdict-warn">⚠️ 一加注销流程实际 5 步（非 6 步），用户协议承诺 90 天停用期但未实现，提交后账号立即删除。App 端无入口。</div>
+
+<hr>
+
+<h2>四、📱 手机 App 端对比</h2>
+
+<h3>A. 单独注销设备</h3>
+<div class="compare-row">
+<div class="card">
+<div class="card-header">🟠 一加：❌ 无</div>
+<p style="text-align:center;font-size:48px;">❌</p>
+<p style="color:#888;text-align:center;">无法查看或注销已登录设备</p>
+</div>
+<div class="card">
+<div class="card-header">🔵 小米：✅ 设备列表+删除</div>
+<table><tr><td>POCO M7 5G</td><td><span class="badge badge-blue">当前设备</span></td></tr><tr><td>Edge Browser</td><td><span class="badge badge-red">可删除</span></td></tr></table>
+<p style="font-size:13px;color:#888;">删除设备 → 弹窗确认："删除后此设备将无法访问账号云服务数据"</p>
+</div>
+</div>
+
+<h3>B. 解绑第三方</h3>
+<div class="compare-row">
+<div class="card">
+<div class="card-header">🟠 一加：1项</div>
+<table><tr><td>Google</td><td><span class="badge badge-green">Unlink</span></td></tr></table>
+</div>
+<div class="card">
+<div class="card-header">🔵 小米：2项</div>
+<table><tr><td>Facebook</td><td><span class="badge badge-yellow">未绑定</span></td></tr><tr><td>Google</td><td><span class="badge badge-yellow">未绑定</span></td></tr></table>
+</div>
+</div>
+
+<h3>C. 按服务启停</h3>
+<div class="compare-row">
+<div class="card"><div class="card-header">🟠 一加：❌</div></div>
+<div class="card">
+<div class="card-header">🔵 小米：4个开关</div>
+<table><tr><td>☁️ 云备份</td><td><span class="badge badge-red">关闭</span></td></tr><tr><td>📱 查找设备</td><td><span class="badge badge-red">关闭</span></td></tr><tr><td>🗑️ 回收站</td><td>管理</td></tr><tr><td>🔄 云同步</td><td>立即同步</td></tr></table>
+</div>
+</div>
+
+<hr>
+
+<h2>五、全维度对比总表</h2>
+
+<div class="card">
+<table>
+<tr><th width="160">能力维度</th><th width="250">🟠 一加</th><th width="250">🔵 小米</th><th width="80">优胜</th></tr>
+<tr><td><strong>单独注销设备</strong></td><td>📱❌ 🌐❌</td><td>📱✅ 设备列表+删除 🌐❌</td><td><span class="badge badge-green">小米</span></td></tr>
+<tr><td><strong>解绑第三方账号</strong></td><td>📱Google(1) 🌐✅</td><td>📱FB+Google(2) 🌐✅</td><td><span class="badge badge-green">小米</span></td></tr>
+<tr><td><strong>按服务启停</strong></td><td>📱❌ 🌐❌</td><td>📱✅ 4个开关 🌐❌</td><td><span class="badge badge-green">小米</span></td></tr>
+<tr><td><strong>撤销隐私授权</strong></td><td>📱❌ 🌐❌</td><td>📱✅ 🌐❌</td><td><span class="badge badge-green">小米</span></td></tr>
+<tr><td><strong>注销账号(App)</strong></td><td>📱❌ 无入口</td><td>📱⚠️ 帮助中心→Web</td><td><span class="badge badge-yellow">小米</span></td></tr>
+<tr><td><strong>注销账号(Web)</strong></td><td>🌐✅ 6步流程</td><td>🌐✅ 直接注销</td><td><span class="badge badge-yellow">各有优劣</span></td></tr>
+<tr><td><strong>注销冷静期</strong></td><td>🌐⚠️ 协议写90天，实测立即注销</td><td>🌐❌ 不可逆</td><td><span class="badge badge-yellow">持平</span></td></tr>
+<tr><td><strong>会员/订阅注销</strong></td><td>📱❌ 🌐❌</td><td>📱⚠️ 米金无注销 🌐❌</td><td><span class="badge badge-yellow">持平</span></td></tr>
+</table>
+</div>
+
+<hr>
+
+<h2>六、总结</h2>
+
+<div class="card">
+<div class="highlight-box">
+<strong>🔑 核心结论：</strong><br/><br/>
+<ul>
+<li><strong>一加关键缺陷：</strong>用户协议 §5.3 承诺 90 天停用期 + 登录可撤销，但实测提交注销后立即永久删除，重新登录提示「尚未注册」——协议与实际实现不一致</li>
+<li><strong>一加劣势：</strong>App 端「单独注销业务」能力严重不足（仅支持解绑 Google），无设备管理、无服务启停、无注销入口</li>
+<li><strong>小米优势：</strong>App 端覆盖 4/5 维度（设备/授权/服务/隐私），是国内竞品中的领先水平</li>
+<li><strong>小米劣势：</strong>Web 端注销不可逆，无冷静期保护，用户一旦误操作无法挽回</li>
+<li><strong>改进建议：</strong>一加应在 App 内至少增加「登录设备管理」和「注销账号入口」（跳转 Web 确认），补齐行业标配</li>
+</ul>
+</div>
+</div>
+
+<hr>
+<p style="text-align:center;color:#999;font-size:13px;">
+  📸 App 截图实测于 OnePlus 9 Pro / Xiaomi POCO M7 5G &nbsp;|&nbsp;
+  🌐 Web 截图实测于 account.oneplus.com &nbsp;|&nbsp;
+  报告生成: 2026-06-25
+</p>
+
+</div>
+<script>mermaid.initialize({startOnLoad:true,theme:'default',securityLevel:'loose'});</script>
+</body>
+</html>

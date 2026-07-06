@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "competitive-analysis": {
+      "command": "node",
+      "args": ["src/mcp-server.js"],
+      "env": {
+        "ANTHROPIC_API_KEY": "${ANTHROPIC_API_KEY}"
+      }
+    },
+    "android-adb": {
+      "command": "npx",
+      "args": ["-y", "@landicefu/android-adb-mcp-server"],
+      "env": {},
+      "disabled": false
+    },
+    "mcp-vision": {
+      "command": "uvx",
+      "args": ["mcp-vision"],
+      "env": {
+        "SILICONFLOW_API_KEY": "${SILICONFLOW_API_KEY}",
+        "MCP_OCR_PROVIDER": "siliconflow"
+      }
+    },
+    "agents-html-hub": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "http://172.30.5.62:3100/mcp", "--allow-http"]
+    },
+    "x-twitter": {
+      "command": "npx",
+      "args": ["-y", "@realaman90/x-mcp"],
+      "env": {
+        "X_API_KEY": "${X_API_KEY}",
+        "X_API_SECRET": "${X_API_SECRET}",
+        "X_BEARER_TOKEN": "${X_BEARER_TOKEN}",
+        "X_ACCESS_TOKEN": "${X_ACCESS_TOKEN}",
+        "X_ACCESS_TOKEN_SECRET": "${X_ACCESS_TOKEN_SECRET}"
+      },
+      "disabled": true
+    }
+  }
+}

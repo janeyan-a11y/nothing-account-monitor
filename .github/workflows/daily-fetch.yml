@@ -1,0 +1,40 @@
+# GitHub Actions — 每日社媒舆情抓取
+# 每天 UTC 0:00 自动运行，抓取各平台 Nothing Account 讨论
+
+name: Daily Social Monitor
+
+on:
+  schedule:
+    - cron: "17 0 * * *" # UTC 0:17 (避开整点高峰)
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  fetch-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: social-monitor
+        run: pip install requests
+
+      - name: Run fetch
+        working-directory: social-monitor
+        run: python run.py
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs
+          publish_branch: gh-pages
+          keep_files: false
+          commit_message: "Auto: daily social monitor update [skip ci]"

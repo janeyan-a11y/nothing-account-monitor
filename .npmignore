@@ -1,0 +1,26 @@
+# 敏感数据
+.env
+data/accounts.json
+
+# 运行时生成
+screenshots/
+reports/
+
+# 开发文件
+.mcp.json
+agent.html
+templates.html
+
+# 兼容层（仅开发用）
+src/account_manager.js
+src/screenshot_helper.js
+src/generate_report.js
+src/analyze_screenshots.js
+server.js
+start.js
+
+# 其他
+node_modules/
+.git/
+.gitignore
+*.log

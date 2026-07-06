@@ -1,0 +1,8 @@
+{
+  "enabledMcpjsonServers": [
+    "android-adb",
+    "mcp-vision",
+    "competitive-analysis",
+    "agents-html-hub"
+  ]
+}

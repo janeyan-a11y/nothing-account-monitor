@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>竞品分析 Prompt 模板</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, 'Microsoft YaHei', sans-serif; background: #0f172a; color: #e2e8f0; min-height:100vh; }
+.tabs { display:flex; background:#1e293b; border-bottom:2px solid #334155; position:sticky; top:0; z-index:10; }
+.tab { padding:14px 20px; cursor:pointer; font-size:14px; border:none; background:none; color:#94a3b8; border-bottom:3px solid transparent; transition:all .2s; }
+.tab:hover { color:#e2e8f0; }
+.tab.active { color:#60a5fa; border-bottom-color:#3b82f6; }
+.content { display:none; padding:24px; max-width:900px; margin:0 auto; }
+.content.active { display:block; }
+h2 { font-size:20px; margin-bottom:8px; }
+.desc { color:#94a3b8; margin-bottom:20px; font-size:14px; }
+.prompt-box { background:#1e293b; border:1px solid #334155; border-radius:12px; padding:20px; font-family:'Cascadia Code','Consolas',monospace; font-size:13px; white-space:pre-wrap; line-height:1.7; position:relative; }
+.copy-btn { position:absolute; top:12px; right:12px; padding:6px 14px; background:#3b82f6; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:12px; }
+.copy-btn:hover { background:#2563eb; }
+.copy-btn.copied { background:#10b981; }
+.usage { margin-top:16px; padding:12px 16px; background:#1e3a5f; border-radius:8px; border-left:3px solid #3b82f6; font-size:13px; color:#93c5fd; }
+.template-label { display:inline-block; padding:4px 10px; border-radius:12px; font-size:11px; font-weight:600; margin-bottom:12px; }
+.label-daily { background:#065f46; color:#6ee7b7; }
+.label-compare { background:#7c2d12; color:#fca5a5; }
+.label-quick { background:#1e3a5f; color:#93c5fd; }
+.label-folder { background:#4a1942; color:#e9d5ff; }
+</style>
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('t1')">模板一：单竞品分析</button>
+  <button class="tab" onclick="switchTab('t2')">模板二：全量对比</button>
+  <button class="tab" onclick="switchTab('t3')">模板三：截图整理</button>
+  <button class="tab" onclick="switchTab('t4')">模板四：快速分析</button>
+  <button class="tab" onclick="switchTab('t5')">项目背景预设</button>
+</div>
+
+<!-- 模板一 -->
+<div id="t1" class="content active">
+  <span class="template-label label-daily">日常使用</span>
+  <h2>单竞品分析</h2>
+  <p class="desc">每体验完一个竞品后使用。将下方内容复制到 Claude Code 对话框，替换花括号内容。</p>
+  <div class="prompt-box" id="p1">
+<span class="copy-btn" onclick="copyPrompt('p1', this)">复制</span>我正在做海外手机系统账号的竞品分析。
+
+## 背景
+- 产品方向：海外手机系统账号
+- 本次分析能力：{功能名称，如"第三方账号绑定"}
+- 目标竞品：{竞品名称，如"谷歌账号"}
+- 竞品分类：{系统账号类 / 海外C端账号类}
+
+## 截图说明
+以下是按照操作顺序排列的截图。请分析：
+
+[此处粘贴截图，按操作顺序排列]
+
+## 分析要求
+
+### 1. 路径还原
+还原完整的操作路径，用箭头链式表示：
+例：设置 → 账号 → Google账号 → 关联账号 → 添加第三方账号
+
+### 2. 分流程详细说明
+对每个截图，说明：
+- 这是哪个步骤
+- 页面上的关键元素
+- 用户的可能的操作选择
+- 分类到以下阶段之一：入口 / 开启 / 关闭 / 使用 / 分支
+
+### 3. 分支场景梳理
+如果有分支场景，请说明：
+- 分支触发条件（如：已登录 vs 未登录）
+- 分支 A 的完整路径和处理方式
+- 分支 B 的完整路径和处理方式
+- 每个分支对应的截图编号
+
+### 4. 流程图
+用 Mermaid flowchart 语法画出该竞品的完整流程，必须包含所有分支。
+
+### 5. 小结
+- 该竞品的亮点（体验好的地方）
+- 该竞品的痛点（体验差的地方）
+- 和我们产品的差异</div>
+  <div class="usage">💡 <b>使用时机</b>：每体验完一个竞品后用。复制到 Claude Code 对话框，把截图粘贴进去。</div>
+</div>
+
+<!-- 模板二 -->
+<div id="t2" class="content">
+  <span class="template-label label-compare">版本收尾</span>
+  <h2>全量对比报告</h2>
+  <p class="desc">所有竞品分析完后，汇总生成对比报告。</p>
+  <div class="prompt-box" id="p2">
+<span class="copy-btn" onclick="copyPrompt('p2', this)">复制</span>我正在做海外手机系统账号的竞品分析，现在所有竞品已经分析完毕，请帮我生成综合对比报告。
+
+## 背景
+- 分析能力：{功能名称，如"邮箱注册"}
+- 分析日期：{日期}
+
+## 各竞品分析结果
+以下是各竞品的单独分析（请基于汇总信息生成对比）：
+
+{粘贴每个竞品的分析结果，或者列出各竞品的核心要点}
+
+## 输出要求
+
+### 一、功能对比总表
+| 对比维度 | Google | Apple | OPPO | 华为 | 小米 | vivo | Trip.com | Instagram | RedNote | WeChat |
+|----------|--------|-------|------|------|------|------|----------|-----------|---------|--------|
+| 入口路径 | | | | | | | | | | |
+| 是否支持关闭 | | | | | | | | | | |
+| 注册登录门槛 | | | | | | | | | | |
+| 分支场景数 | | | | | | | | | | |
+| 隐私设置粒度 | | | | | | | | | | |
+| 异常处理方式 | | | | | | | | | | |
+| 最大亮点 | | | | | | | | | | |
+| 最大痛点 | | | | | | | | | | |
+
+### 二、横向对比总结
+1. 系统账号类的共性做法
+2. C端账号类的共性做法
+3. 两类的差异点
+
+### 三、设计建议
+1. 推荐产品设计的流程图（Mermaid）
+2. 设计理由（对标来源）
+3. 与竞品的差异化
+
+### 四、结论</div>
+  <div class="usage">💡 <b>使用时机</b>：该功能全部竞品体验完成后使用。</div>
+</div>
+
+<!-- 模板三 -->
+<div id="t3" class="content">
+  <span class="template-label label-quick">体验中即时使用</span>
+  <h2>快速截图整理</h2>
+  <p class="desc">边体验边截图时，快速让 AI 帮你整理和命名。</p>
+  <div class="prompt-box" id="p3">
+<span class="copy-btn" onclick="copyPrompt('p3', this)">复制</span>以下是 {竞品名称} 的 {功能名称} 操作截图。
+
+截图顺序就是我操作的顺序，请帮我整理：
+
+1. 给每张截图生成一个描述性的文件名
+2. 按分支路径把截图分组
+3. 标注每组的路径说明
+4. 标注分支条件和跳转关系
+
+截图如下：
+[粘贴截图]</div>
+  <div class="usage">💡 <b>使用时机</b>：每截完一个竞品的图，马上粘贴整理。</div>
+</div>
+
+<!-- 模板四 -->
+<div id="t4" class="content">
+  <span class="template-label label-folder">文件夹批量分析</span>
+  <h2>从截图文件夹快速分析</h2>
+  <p class="desc">截图已存在文件夹中，一次性生成完整分析。</p>
+  <div class="prompt-box" id="p4">
+<span class="copy-btn" onclick="copyPrompt('p4', this)">复制</span>请分析 {竞品名称} 的「{功能名称}」功能。
+
+## 操作说明
+我的操作路径是：
+{简要描述操作过程：例如"设置→账号→注册→输入已注册邮箱→看到报错提示"}
+
+## 截图
+[把截图文件夹里的图按顺序粘贴到这里]
+
+## 请输出
+### 路径还原（用 → 箭头）
+### 分步骤截图说明表
+| 步骤 | 截图 | 说明 | 分支归属 |
+|------|------|------|----------|
+### 分支场景
+### 流程图（Mermaid）
+### 体验总结（3句话）</div>
+  <div class="usage">💡 <b>使用时机</b>：截图已经全部在文件夹里，一次性分析。</div>
+</div>
+
+<!-- 项目背景 -->
+<div id="t5" class="content">
+  <span class="template-label label-daily">Claude Project 预设</span>
+  <h2>项目背景知识</h2>
+  <p class="desc">复制到 Claude Project 的 Project Knowledge 中，后续每次对话自动获得上下文。</p>
+  <div class="prompt-box" id="p5">
+<span class="copy-btn" onclick="copyPrompt('p5', this)">复制</span># 项目背景
+我是海外手机系统账号的产品经理。我们产品需要对标的竞品分为两类：
+
+## 系统账号类（6个）
+1. 谷歌账号 (Google Account)
+2. 苹果账号 (Apple ID / iCloud)
+3. OPPO系统账号 (HeyTap)
+4. 华为账号 (Huawei ID)
+5. 小米账号 (Xiaomi Account)
+6. vivo账号 (vivo Account)
+
+## 海外C端账号类（4个）
+1. Trip.com
+2. Instagram
+3. RedNote (小红书国际版)
+4. WeChat (微信)
+
+## 分析维度
+每次竞品分析覆盖以下维度：
+- 入口路径：从哪里进入该功能
+- 开启流程：如何开启
+- 关闭流程：是否支持关闭、如何关闭
+- 使用流程：开启后如何触发使用
+- 分支场景：不同条件下的分支路径及处理方式
+- 异常处理：错误状态的处理方式
+
+## 输出格式
+- 路径用 → 箭头链式表示
+- 流程图用 Mermaid flowchart 语法
+- 对比表用 Markdown 表格
+- 所有分析用中文输出</div>
+  <div class="usage">💡 <b>使用方式</b>：打开 Claude Project 设置 → Project Knowledge → 粘贴上方内容。</div>
+</div>
+
+<script>
+function switchTab(id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.content').forEach(c => c.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelector(`[onclick="switchTab('${id}')"]`).classList.add('active');
+}
+
+function copyPrompt(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.textContent.replace(/复制\n?/, '').trim();
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ 已复制';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = '复制'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
+</body>
+</html>
