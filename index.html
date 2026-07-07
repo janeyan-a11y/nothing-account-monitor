@@ -56,29 +56,18 @@
   .top-authors li { margin-bottom: 4px; }
 
   .footer { text-align:center; color:#ccc; font-size:0.75rem; padding:24px; }
-
-  /* 翻译按钮 */
-  .translate-bar { display:flex; justify-content:flex-end; margin-bottom:16px; }
-  .btn-translate { padding:8px 18px; border:1px solid #2563eb; border-radius:6px; background:#fff; color:#2563eb; cursor:pointer; font-size:0.9rem; transition:all .2s; }
-  .btn-translate:hover { background:#2563eb; color:#fff; }
-  .btn-translate.active { background:#2563eb; color:#fff; }
-  .btn-translate:disabled { opacity:0.5; cursor:wait; }
 </style>
 </head>
 <body>
 <div class="container">
 
   <h1>🔍 Nothing Account 社媒舆情看板</h1>
-  <div class="subtitle">最后更新: 2026-07-07 02:56 UTC · 监控来源: Reddit + Nothing Community + YouTube + Bluesky · 每日自动刷新</div>
-
-  <div class="translate-bar">
-    <button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button>
-  </div>
+  <div class="subtitle">最后更新: 2026-07-07 06:03 UTC · 监控来源: Reddit + Nothing Community · 每日自动刷新</div>
 
   <!-- 统计卡片 -->
   <div class="stats-grid">
     <div class="stat-card">
-      <div class="number">34</div>
+      <div class="number">8</div>
       <div class="label">累计抓取</div>
     </div>
     <div class="stat-card">
@@ -86,12 +75,12 @@
       <div class="label">今日新增</div>
     </div>
     <div class="stat-card">
-      <div class="number">26.6</div>
+      <div class="number">21.8</div>
       <div class="label">平均点赞</div>
     </div>
     <div class="stat-card">
       <div class="label" style="margin-top:4px;">平台分布</div>
-      <div style="margin-top:8px;"><span class="stat-chip">Bluesky: 20</span><span class="stat-chip">Nothing Community: 3</span><span class="stat-chip">YouTube: 8</span><span class="stat-chip">Reddit: 3</span></div>
+      <div style="margin-top:8px;"><span class="stat-chip">Nothing Community: 2</span><span class="stat-chip">Reddit: 3</span><span class="stat-chip">YouTube: 3</span></div>
     </div>
   </div>
 
@@ -106,13 +95,13 @@
               <div class="bar-label">07-01</div>
             </div>
             <div class="bar-col">
-              <div class="bar-value">2</div>
+              <div class="bar-value">1</div>
               <div class="bar-fill" style="height:100%"></div>
               <div class="bar-label">07-02</div>
             </div>
             <div class="bar-col">
-              <div class="bar-value">2</div>
-              <div class="bar-fill" style="height:100%"></div>
+              <div class="bar-value">0</div>
+              <div class="bar-fill" style="height:4%"></div>
               <div class="bar-label">07-03</div>
             </div>
             <div class="bar-col">
@@ -126,7 +115,7 @@
               <div class="bar-label">07-05</div>
             </div>
             <div class="bar-col">
-              <div class="bar-value">2</div>
+              <div class="bar-value">1</div>
               <div class="bar-fill" style="height:100%"></div>
               <div class="bar-label">07-06</div>
             </div>
@@ -140,32 +129,13 @@
   <!-- Top 作者 -->
   <div class="top-authors">
     <h3>📢 影响力 Top 作者</h3>
-    <ol><li><strong>はなぐろ</strong> @hanaguro.bsky.social — 1 条 · 0 followers</li><li><strong>removal-feel-imply</strong> @removal-feel-imply — 1 条 · 0 followers</li><li><strong>AanjeloSalgado</strong> @AanjeloSalgado — 1 条 · 0 followers</li><li><strong>Tech Lucknowi</strong> @Tech Lucknowi — 1 条 · 0 followers</li><li><strong>Scbadiver</strong> @Scbadiver — 1 条 · 0 followers</li></ol>
+    <ol><li><strong>removal-feel-imply</strong> @removal-feel-imply — 1 条 · 0 followers</li><li><strong>Scbadiver</strong> @Scbadiver — 1 条 · 0 followers</li><li><strong>SpareChange_117</strong> @SpareChange_117 — 1 条 · 0 followers</li><li><strong>du-bist-git-genug</strong> @du-bist-git-genug — 1 条 · 0 followers</li><li><strong>Akash_Meher</strong> @Akash_Meher — 1 条 · 0 followers</li></ol>
   </div>
 
   <!-- 最新提及 -->
   <div class="mentions-section">
-    <h3>📋 最新提及 (34 条)</h3>
+    <h3>📋 最新提及 (8 条)</h3>
     
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>はなぐろ</strong>
-                  <span class="username">@hanaguro.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-07-06 14:37 UTC</span>
-              </div>
-              <div class="mention-text">[PGX] 2026年のAI搭載スマホ4機種を徹底検証。文章生成はiPhoneが優れ、翻訳はPixelが最高。電話応対や録音文字起こしではGalaxyの話者認識やPixelの精度が評価された。AI代理機能ではNothingのEssential Spaceが最も実用的だった。総合的には、独自AIとGeminiを併用し機能不足を補完するGalaxyがバランス良く、最も使い勝手が良かったと結論付けた。 https://www.gizmodo.jp/article/ai-phone-crossreview-jzk/</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/hanaguro.bsky.social/post/3mpxepf7yjy2b" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-community">Nothing Community</span>
@@ -192,48 +162,6 @@ I know there is a couple other posts regarding this and the solution seems to be
 
             <div class="mention-card">
               <div class="mention-header">
-                <span class="platform-badge platform-community">Nothing Community</span>
-                <span class="author">
-                  <strong>AanjeloSalgado</strong>
-                  <span class="username">@AanjeloSalgado</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-07-03 19:47 UTC</span>
-              </div>
-              <div class="mention-text">Hasn&#39;t been able to use Essential Space since a few days ago. Any idea why and how to actually fix?
-
-Yes, I’ve tried turning it off and on again (the phone, app, login)</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 1</span>
-                <a href="https://nothing.community/d/59351-59351-hasnt-been-able-to-use-essential-space-since-a-few-days-ago-any-idea-why-and-how-to-actually-fix" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">YouTube</span>
-                <span class="author">
-                  <strong>Tech Lucknowi</strong>
-                  <span class="username">@Tech Lucknowi</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-07-03 11:30 UTC</span>
-              </div>
-              <div class="mention-text">How to Remove Gmail Account From Android Phone | Mobile Se Gmail Id Kaise Hataye | Gmail Delete
-
-hello and jai hind everyone How to Remove Gmail Account From Android Phone | Mobile Se Gmail Id Kaise Hataye | Gmail ...</div>
-              <div class="mention-footer">
-                <span>❤ 3</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://www.youtube.com/watch?v=r4aKD994UDU" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
                 <span class="platform-badge platform-reddit">Reddit</span>
                 <span class="author">
                   <strong>Scbadiver</strong>
@@ -250,94 +178,6 @@ This article discusses how Nothing Technology Limited failed to file its account
                 <span>🔄 0</span>
                 <span>💬 23</span>
                 <a href="https://www.reddit.com/r/NothingTech/comments/1ulkvqt/nothing_fails_to_file_accounts_months_after/" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">YouTube</span>
-                <span class="author">
-                  <strong>GSM EXPERTS</strong>
-                  <span class="username">@GSM EXPERTS</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-07-02 08:49 UTC</span>
-              </div>
-              <div class="mention-text">NOTHING Phone 2A Plus (A142P) Android 14/15 FRP Bypass  - nothing 2a plus frp bypass
-
-NOTHING Phone 2A Plus Google Account Remove | Android 15 FRP Bypass Latest If you&#39;re looking for the latest NOTHING ...</div>
-              <div class="mention-footer">
-                <span>❤ 4</span>
-                <span>🔄 0</span>
-                <span>💬 1</span>
-                <a href="https://www.youtube.com/watch?v=9CTBvwdaIdI" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">YouTube</span>
-                <span class="author">
-                  <strong>Gsm Talib</strong>
-                  <span class="username">@Gsm Talib</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-06-29 12:30 UTC</span>
-              </div>
-              <div class="mention-text">Nothing Phone 3a FRP Bypass 2026 | Nothing Phone 3a Hard Reset | Latest Security Patch
-
-In this video, you&#39;ll learn how to perform a hard reset and remove the Google account (FRP) on the Nothing Phone 3a using the ...</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://www.youtube.com/watch?v=l7RKeYddhGs" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">YouTube</span>
-                <span class="author">
-                  <strong>Sohail TECH</strong>
-                  <span class="username">@Sohail TECH</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-06-29 10:30 UTC</span>
-              </div>
-              <div class="mention-text">Nothing Phone 4b is Coming - The Best Midrange Smartphone ?
-
-Nothing Phone 4b is Coming - The Best Midrange Smartphone ? Follow me on Instagram 1st account ...</div>
-              <div class="mention-footer">
-                <span>❤ 3</span>
-                <span>🔄 0</span>
-                <span>💬 2</span>
-                <a href="https://www.youtube.com/watch?v=aiQgArd9-y8" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>Nothing Firmware</strong>
-                  <span class="username">@nothingfirmware.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-06-29 09:25 UTC</span>
-              </div>
-              <div class="mention-text">🚨 New Update Rolled Out!
-
-📱 Product: Essential Space
-🔄 Version: 2.0.9
-
-📥 Download:
-https://play.google.com/store/apps/details?id=com.nothing.ntessentialspace</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/nothingfirmware.bsky.social/post/3mpg6766guc25" target="_blank" class="source-link">查看原文 →</a>
               </div>
             </div>
 
@@ -401,429 +241,6 @@ while adding gmail account from settings it show Exchange instead of gmail how c
                 <span>🔄 0</span>
                 <span>💬 2</span>
                 <a href="https://nothing.community/d/58370-58370-gmail-account-add-problem" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>Nothing Firmware</strong>
-                  <span class="username">@nothingfirmware.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-06-11 07:04 UTC</span>
-              </div>
-              <div class="mention-text">🚨 New Update Rolled Out!
-
-📱 Product: Essential Space
-🔄 Version: 2.0.6
-
-📥 Download:
-https://play.google.com/store/apps/details?id=com.nothing.ntessentialspace</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/nothingfirmware.bsky.social/post/3mnynwvfqyb2t" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>LoboCompras &amp; Coñas Inc.</strong>
-                  <span class="username">@lobocompras.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-06-02 13:34 UTC</span>
-              </div>
-              <div class="mention-text">Nothing Phone (3a) 128 GB - Handy mit Essential Space, 50-MP-Hauptkamera, 32-MP-Frontkamera, 30-facher Ultra-Zoom, 8 GB RAM, Langer Akkulaufzeit und 6,77 Zoll Flexibles FHD+ AMOLED-Display - Schwarz
-
-📉 Baja de 329,00 a 270,27€
-
-💶 Ahorro: 58,73€ (18%)
-
-🔗 https://amzlink.to/az0DXbn4MLGgX</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/lobocompras.bsky.social/post/3mncpjvnfe52s" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>kinoto</strong>
-                  <span class="username">@kizdollark.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-28 02:14 UTC</span>
-              </div>
-              <div class="mention-text">Essential space、使わないからNothingを買ってすぐオフにしたんですがかといって電源ボタン下についてるEssentialキーを他のショートカットになにも割り振れないから不要なボタンでしかなく　柔軟じゃないなあ…</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/kizdollark.bsky.social/post/3mmux7a23ec2l" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>omisotookoge</strong>
-                  <span class="username">@omisotookoge.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-28 02:03 UTC</span>
-              </div>
-              <div class="mention-text">新しいスマンホホ、色々不具合多いしAI機能強制停止にしたはずなのにEssential Space(AI機能）に新しい録音が保存されました　って通知が来てて　は…？勝手に有効になってる？勝手に録音されてる？何？ってなってかなり嫌悪感がありました　Nothing　割と気に入ってたのに結構がっかりだな…</div>
-              <div class="mention-footer">
-                <span>❤ 11</span>
-                <span>🔄 3</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/omisotookoge.bsky.social/post/3mmuwm2o6lk2c" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>omisotookoge</strong>
-                  <span class="username">@omisotookoge.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-26 00:14 UTC</span>
-              </div>
-              <div class="mention-text">Android OSのgeminiが起動してNothingのEssential Spaceが起動してSimejiのAIが起動してLINEのAIが起動してみたいになってさ、本当に何、本当になんなの、やめてよってなってる　それの無効化を調べるのに時間がかかって結局完全オフはできませんとか言われると本当に嫌なんです</div>
-              <div class="mention-footer">
-                <span>❤ 17</span>
-                <span>🔄 4</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/omisotookoge.bsky.social/post/3mmppl3htw22l" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>nikki 🔜 egg</strong>
-                  <span class="username">@dotnet.dog</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-25 07:54 UTC</span>
-              </div>
-              <div class="mention-text">Nothing doing the Essential Key thing is like the Samsung Bixby button situation all over again
-
-Essential Space is just too proprietary and isn&#39;t useful enough to justify the inability to bind the key to literally anything else</div>
-              <div class="mention-footer">
-                <span>❤ 17</span>
-                <span>🔄 0</span>
-                <span>💬 1</span>
-                <a href="https://bsky.app/profile/dotnet.dog/post/3mmnyrjr5gs2b" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>LoboCompras &amp; Coñas Inc.</strong>
-                  <span class="username">@lobocompras.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-16 10:04 UTC</span>
-              </div>
-              <div class="mention-text">Nothing Phone (3a) 128 GB - Handy mit Essential Space, 50-MP-Hauptkamera, 32-MP-Frontkamera, 30-facher Ultra-Zoom, 8 GB RAM, Langer Akkulaufzeit und 6,77 Zoll Flexibles FHD+ AMOLED-Display - Schwarz
-
-📉 Baja de 329,00 a 229,00€
-
-💶 Ahorro: 100,00€ (30%)
-
-🔗 https://amzlink.to/az0DXbn4MLGgX</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/lobocompras.bsky.social/post/3mlxltl6xk22w" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>Laura Chiarello Arts 🇮🇹 🇪🇺 🇺🇦</strong>
-                  <span class="username">@laurachiarello.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-15 15:58 UTC</span>
-              </div>
-              <div class="mention-text">UPDATE
-I wrote to #Nothing Support, they were very kind and quick and suggested some things to do, which seem to have solved my problems with the -wonderful- Essential Space app (fingers crossed🤞)
-Nothing is sooo cool!😊🔝</div>
-              <div class="mention-footer">
-                <span>❤ 2</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/laurachiarello.bsky.social/post/3mlvp5rzwxk2w" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>涼風 さぷり@訓練中</strong>
-                  <span class="username">@supple-smartphone.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-12 00:47 UTC</span>
-              </div>
-              <div class="mention-text">今回の新モデル、個人的には「Essential Space」の機能に大注目しています！スマホってただ高性能なだけでなく、日々のちょっとした面倒をどれだけスマートに解決してくれるかが大切ですよね。Nothingらしい遊び心と実用性のバランスが絶妙で、使う人の生活をどれだけ楽しくしてくれるのか、今からワクワクが止まりません！皆さんのスマホ選びの参考になれば嬉しいです。</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/supple-smartphone.bsky.social/post/3mlmkvb246g27" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>涼風 さぷり@訓練中</strong>
-                  <span class="username">@supple-smartphone.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-12 00:47 UTC</span>
-              </div>
-              <div class="mention-text">Nothingから新スマホ「Phone (4a)」と「Pro」が登場！驚きの140倍ズームカメラや、メモや文字起こしが瞬時にできる独自機能「Essential Space」など、ワクワクする機能が盛りだくさんです。コスパも抜群で、2026年大注目の2台を詳しくレビューしました！皆さんはどちらのモデルが気になりますか？ぜひチェックしてみてくださいね。
-
-#Nothing #Phone4a #スマホ #ガジェット #新製品
-
-#さぷり通信</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 1</span>
-                <a href="https://bsky.app/profile/supple-smartphone.bsky.social/post/3mlmkvax57s2v" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>infoek.cz</strong>
-                  <span class="username">@infoekcz.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-05-04 08:12 UTC</span>
-              </div>
-              <div class="mention-text">Essential Space umí zálohování. Nechcete čekat na aktualizaci? 
-
-infoek.cz/essential-sp...
-
-Essential Space can backup. Don&#39;t want to wait for an update?
-
-infoek-cz.translate.goog/essential-sp...
-
-#EssentialSpace #Nothing #NothingOS #NothingPhone #Tech</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/infoekcz.bsky.social/post/3mkz7yqtaj22c" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>ITmatters - Tech News Platform</strong>
-                  <span class="username">@itmatterss.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-04-28 17:52 UTC</span>
-              </div>
-              <div class="mention-text">Nothing Essential Space now supports cloud backups and cross-device sync. Notes, screenshots, and summaries can move across supported Nothing and CMF phones automatically. A quiet but important software shift.
-
-itmatterss.in/latest-post/...
-
-#Nothing #EssentialSpace #AndroidUpdate</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/itmatterss.bsky.social/post/3mkl5nc3t4c2i" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>Jetstream</strong>
-                  <span class="username">@blog-jetstream.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-04-28 04:26 UTC</span>
-              </div>
-              <div class="mention-text">「Essential Space」待望のクラウドバックアップ対応 » Jetstream jetstream.blog/2026/04/28/e... 
-
-➡️ 「Essential Space」アプリが待望のクラウドバックアップに対応
-➡️ 複数デバイス間でメモや録音、AI 要約などのデータ同期が可能に
-➡️ 「Essential Key」を搭載する 2025 年以降のモデルで利用可能
-
-#Nothing #EssentialSpace #Android
-
-詳細はこちら👇</div>
-              <div class="mention-footer">
-                <span>❤ 1</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/blog-jetstream.bsky.social/post/3mkjqlzqpr22y" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>HelenTech</strong>
-                  <span class="username">@helentech.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-04-28 02:05 UTC</span>
-              </div>
-              <div class="mention-text">Nothing、「Essential Space」のクラウドバックアップ機能を展開。対象デバイス間のデータ移行に対応 helentech.jp/news-android...</div>
-              <div class="mention-footer">
-                <span>❤ 1</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/helentech.bsky.social/post/3mkjiofva4c25" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>Android Authority</strong>
-                  <span class="username">@androidauthority.com</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-04-27 15:41 UTC</span>
-              </div>
-              <div class="mention-text">Nothing upgrades Essential Space with a feature it should’ve had ages ago</div>
-              <div class="mention-footer">
-                <span>❤ 1</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/androidauthority.com/post/3mkiftyuibl2x" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>infoek.cz</strong>
-                  <span class="username">@infoekcz.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-04-27 11:09 UTC</span>
-              </div>
-              <div class="mention-text">☁️ Essential Space od Nothingu konečně umí cloudové zálohy 
-
-infoek.cz/essential-sp...
-
-☁️  Nothing Essential Space finally supports cloud backups
-
-infoek-cz.translate.goog/essential-sp...
-
-#Nothing #NothingPhone #NothingOS #EssentialSpace #Tech</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/infoekcz.bsky.social/post/3mkhwmzlbck24" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>ぶちナース</strong>
-                  <span class="username">@buchinurse.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-04-15 15:58 UTC</span>
-              </div>
-              <div class="mention-text">記事の要約: 「Nothing Phone (4a)」および「(4a) Pro」が日本市場に上陸しました。価格は標準モデルの8GB／128GBが5万8800円、8GB／256GBが6万4800円、上位モデルの12GB／256GBが7万9800円で、いずれもFeliCa（おサイフケータイ）に対応しています。これらのモデルは、独自のAI機能「Essential Space」を搭載しており、特に「Essential Key」を使ってメモや音声メモを簡単に保存できる点が特徴です。また、シースルーデザインを採用し、望遠を含む3眼カメラも搭載されています。新製品の発表は4月15日に行われ、「ピンクなのは…</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/buchinurse.bsky.social/post/3mjkb6rq5ak2t" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">Bluesky</span>
-                <span class="author">
-                  <strong>LoboCompras &amp; Coñas Inc.</strong>
-                  <span class="username">@lobocompras.bsky.social</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-04-03 11:04 UTC</span>
-              </div>
-              <div class="mention-text">Nothing Phone (3a) 128 GB - Handy mit Essential Space, 50-MP-Hauptkamera, 32-MP-Frontkamera, 30-facher Ultra-Zoom, 8 GB RAM, Langer Akkulaufzeit und 6,77 Zoll Flexibles FHD+ AMOLED-Display - Weiß
-
-📉 Baja de 329,00 a 229,00€
-
-💶 Ahorro: 100,00€ (30%)
-
-🔗 https://amzlink.to/az01p6Czcqi3K</div>
-              <div class="mention-footer">
-                <span>❤ 0</span>
-                <span>🔄 0</span>
-                <span>💬 0</span>
-                <a href="https://bsky.app/profile/lobocompras.bsky.social/post/3mill5f4ntu25" target="_blank" class="source-link">查看原文 →</a>
-              </div>
-            </div>
-
-            <div class="mention-card">
-              <div class="mention-header">
-                <span class="platform-badge platform-community">YouTube</span>
-                <span class="author">
-                  <strong>Ludi</strong>
-                  <span class="username">@Ludi</span>
-                  <span class="followers">0 followers</span>
-                </span>
-                <span class="time">2026-02-25 19:00 UTC</span>
-              </div>
-              <div class="mention-text">A Giant Problem… Was It All for Nothing?
-
-Episode 4 of my snowflake account: Bossinbound, the boss area only ironman. Full series playlist: ...</div>
-              <div class="mention-footer">
-                <span>❤ 672</span>
-                <span>🔄 0</span>
-                <span>💬 102</span>
-                <a href="https://www.youtube.com/watch?v=BS9n35h5r0Y" target="_blank" class="source-link">查看原文 →</a>
               </div>
             </div>
 
@@ -896,61 +313,5 @@ Hello friend me es video me bataya hu ki age aap ka Phone me Fix Your account wi
   </div>
 
 </div>
-
-<script>
-let translated = false;
-const TRANSLATE_API = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&dt=t&q=';
-
-async function toggleTranslate() {
-  const btn = document.getElementById('btnTranslate');
-  const texts = document.querySelectorAll('.mention-text');
-
-  if (translated) {
-    // 切回原文
-    texts.forEach(el => {
-      if (el.dataset.original) {
-        el.textContent = el.dataset.original;
-        el.removeAttribute('data-original');
-      }
-    });
-    btn.textContent = '🌐 翻译成中文';
-    btn.classList.remove('active');
-    translated = false;
-  } else {
-    // 翻译成中文
-    btn.textContent = '⏳ 翻译中...';
-    btn.disabled = true;
-
-    for (const el of texts) {
-      const original = el.textContent.trim();
-      if (!original || original.length < 5) continue;
-
-      // 保存原文
-      if (!el.dataset.original) {
-        el.dataset.original = original;
-      }
-
-      try {
-        const resp = await fetch(TRANSLATE_API + encodeURIComponent(original.substring(0, 1500)));
-        const data = await resp.json();
-        const translated = data[0]
-          .filter(x => x[0])
-          .map(x => x[0])
-          .join('');
-        if (translated) {
-          el.textContent = translated;
-        }
-      } catch(e) {
-        // 翻译失败保留原文
-      }
-    }
-
-    btn.textContent = '🔤 显示原文';
-    btn.classList.add('active');
-    btn.disabled = false;
-    translated = true;
-  }
-}
-</script>
 </body>
 </html>
