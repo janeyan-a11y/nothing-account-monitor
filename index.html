@@ -56,13 +56,21 @@
   .top-authors li { margin-bottom: 4px; }
 
   .footer { text-align:center; color:#ccc; font-size:0.75rem; padding:24px; }
+  .translate-bar { display:flex; justify-content:flex-end; margin-bottom:16px; }
+  .btn-translate { padding:8px 18px; border:1px solid #2563eb; border-radius:6px; background:#fff; color:#2563eb; cursor:pointer; font-size:0.9rem; transition:all .2s; }
+  .btn-translate:hover { background:#2563eb; color:#fff; }
+  .btn-translate.active { background:#2563eb; color:#fff; }
+  .btn-translate:disabled { opacity:0.5; cursor:wait; }
 </style>
 </head>
 <body>
 <div class="container">
 
   <h1>🔍 Nothing Account 社媒舆情看板</h1>
-  <div class="subtitle">最后更新: 2026-07-08 08:43 UTC · 监控来源: Reddit + Nothing Community · 每日自动刷新</div>
+  <div class="subtitle">最后更新: 2026-07-08 08:45 UTC · 监控来源: Reddit + Community + YouTube + Bluesky · 每日自动刷新</div>
+  <div class="translate-bar">
+    <button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button>
+  </div>
 
   <!-- 统计卡片 -->
   <div class="stats-grid">
@@ -329,5 +337,33 @@ Hello friend me es video me bataya hu ki age aap ka Phone me Fix Your account wi
   </div>
 
 </div>
+
+<script>
+var _t = false;
+var _api = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&dt=t&q=';
+async function toggleTranslate() {
+  var b = document.getElementById('btnTranslate');
+  var els = document.querySelectorAll('.mention-text');
+  if (_t) {
+    els.forEach(function(el) { if (el.dataset.o) { el.textContent = el.dataset.o; el.removeAttribute('data-o'); } });
+    b.textContent = '🌐 翻译成中文'; b.classList.remove('active'); _t = false;
+  } else {
+    b.textContent = '翻译中...'; b.disabled = true;
+    for (var i = 0; i < els.length; i++) {
+      var el = els[i];
+      var orig = el.textContent.trim();
+      if (!orig || orig.length < 5) continue;
+      if (!el.dataset.o) el.dataset.o = orig;
+      try {
+        var r = await fetch(_api + encodeURIComponent(orig.substring(0, 1500)));
+        var d = await r.json();
+        var t = d[0].filter(function(x){return x[0]}).map(function(x){return x[0]}).join('');
+        if (t) el.textContent = t;
+      } catch(e) {}
+    }
+    b.textContent = '🔤 显示原文'; b.classList.add('active'); b.disabled = false; _t = true;
+  }
+}
+</script>
 </body>
 </html>
