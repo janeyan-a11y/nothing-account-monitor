@@ -1,0 +1,2437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nothing Account 账号基线 — 思维导图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Microsoft YaHei", "PingFang SC", -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: #f0f2f5; color: #333; min-height: 100vh;
+  }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff; padding: 16px 24px; display: flex; align-items: center;
+    justify-content: space-between; position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+  }
+  .header h1 { font-size: 20px; font-weight: 600; }
+  .header .meta { font-size: 12px; opacity: 0.7; }
+  .header input {
+    padding: 8px 16px; border: 1px solid rgba(255,255,255,0.2); border-radius: 20px;
+    background: rgba(255,255,255,0.1); color: #fff; font-size: 14px; width: 240px;
+    outline: none; transition: border-color 0.2s;
+  }
+  .header input:focus { border-color: rgba(255,255,255,0.5); }
+  .header input::placeholder { color: rgba(255,255,255,0.4); }
+  .header .btn-group { display: flex; gap: 8px; }
+  .header button {
+    background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px; padding: 6px 14px; cursor: pointer; font-size: 13px;
+    transition: background 0.2s;
+  }
+  .header button:hover { background: rgba(255,255,255,0.2); }
+
+  /* Mind Map Container */
+  .mindmap-container {
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 40px 20px; gap: 0; min-height: calc(100vh - 64px);
+    overflow-x: auto;
+  }
+
+  /* Root Center */
+  .root-center {
+    flex-shrink: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: flex-start;
+    padding-top: 60px; width: 220px; text-align: center;
+  }
+  .root-label {
+    background: linear-gradient(135deg, #1a1a2e, #0f3460);
+    color: #fff; font-size: 18px; font-weight: 700; padding: 18px 24px;
+    border-radius: 12px; box-shadow: 0 4px 20px rgba(15,52,96,0.3);
+    cursor: default; white-space: nowrap;
+  }
+  .root-subtitle { font-size: 11px; color: #999; margin-top: 8px; }
+
+  /* Columns */
+  .column { flex-shrink: 0; padding: 0 20px; }
+  .column-left { text-align: right; }
+  .column-right { text-align: left; }
+  .column-title {
+    font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 16px;
+    padding-bottom: 8px; border-bottom: 2px solid #e0e0e0;
+  }
+  .column-left .column-title { text-align: right; }
+
+  /* Tree */
+  .tree-root { list-style: none; }
+  .tree-item { list-style: none; margin: 0; padding: 0; }
+
+  details > summary {
+    cursor: pointer; list-style: none; display: flex; align-items: center;
+    gap: 6px; padding: 5px 10px; margin: 2px 0; border-radius: 6px;
+    transition: background 0.15s; white-space: nowrap;
+  }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary:hover { background: #e8ecf1; }
+  details[open] > summary { font-weight: 600; }
+
+  .tree-label {
+    font-size: 13px; line-height: 1.5; color: #333;
+  }
+  .tree-children {
+    list-style: none; margin-left: 24px; border-left: 2px solid #d0d5dd;
+    padding-left: 12px;
+  }
+
+  /* Node styles by depth */
+  .root-node { }
+  .section-node > .tree-label {
+    font-size: 15px; font-weight: 700; color: #1a1a2e;
+    background: linear-gradient(135deg, #f0f4ff, #e8ecf5);
+    padding: 8px 14px; border-radius: 8px;
+  }
+  .category-node > .tree-label {
+    font-size: 14px; font-weight: 600; color: #2d3a4a;
+  }
+  .sub-node > .tree-label {
+    font-size: 13px; color: #444;
+  }
+  .leaf-node > .tree-label {
+    font-size: 12px; color: #666;
+  }
+
+  /* Badges */
+  .badge {
+    font-size: 11px; padding: 1px 6px; border-radius: 10px; margin-right: 4px;
+    display: inline-block; font-weight: 500;
+  }
+  .badge-future { background: #fff3cd; color: #856404; }
+
+  /* Highlight search matches */
+  .tree-label.highlight {
+    background: #fff9c4 !important; border-radius: 4px;
+  }
+  .tree-label.dim {
+    opacity: 0.3;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .mindmap-container { flex-direction: column; align-items: center; }
+    .root-center { padding-top: 20px; }
+    .header input { width: 140px; }
+
+    .tree-children { margin-left: 12px; padding-left: 8px; }
+  }
+
+  /* Print */
+  @media print {
+    .header { position: static; }
+    body { font-size: 11px; }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #f0f2f5; }
+  ::-webkit-scrollbar-thumb { background: #c0c0c0; border-radius: 3px; }
+
+  /* Connector lines on the left side */
+  .column-left .tree-children {
+    border-left: none; border-right: 2px solid #d0d5dd;
+    padding-left: 0; padding-right: 12px; margin-left: 0; margin-right: 24px;
+  }
+  .column-left .tree-label {
+    direction: rtl; text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div>
+        <h1>🧠 Nothing Account 账号基线</h1>
+        <div class="meta">438 节点 · 合并 v1.0 + v2.0 PRD · 已区分中国区/海外/APP/Web/出端 · 🔄标记=二期规划</div>
+    </div>
+    <div class="btn-group">
+        <input type="text" id="search" placeholder="🔍 搜索节点…" oninput="doSearch()">
+        <button onclick="expandAll()">⬇ 全部展开</button>
+        <button onclick="collapseAll()">⬆ 折叠到一级</button>
+        <button onclick="resetView()">🔄 重置</button>
+    </div>
+</div>
+
+<div class="mindmap-container" id="mindmap">
+    <div class="root-center">
+    <div class="root-label">Nothing Account 账号基线</div>
+    <div class="root-subtitle">438 个节点 | v1.0 + v2.0 PRD</div>
+</div>
+    <div class="column column-left">
+    <h2 class="column-title">中国区 (CN)</h2>
+    <ul class="tree-root"><li class="tree-item section-node side-left" data-id="n_fb519b44" data-depth="1">
+    <details open>
+        <summary class="tree-label" title="中国区 (CN)">中国区 (CN)</summary>
+        <ul class="tree-children"><li class="tree-item category-node" data-id="n_aad5ea09" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="Nothing 客户端 (Nothing Phone)">Nothing 客户端 (Nothing Phone)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_910b0e49" data-depth="3">
+    <details >
+        <summary class="tree-label" title="注册">注册</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_89699ab8" data-depth="4">
+    <details >
+        <summary class="tree-label" title="邮箱注册">邮箱注册</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_bf988344" data-depth="4">
+    <details >
+        <summary class="tree-label" title="流程: 输入邮箱 → 发送验证码 → 输入6位验证码 → 设置密码 → 完成注册">流程: 输入邮箱 → 发送验证码 → 输入6位验证码 → 设置密码 → 完成注册</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_a9cafd20" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证码规格: 6位数字, 60秒有效">验证码规格: 6位数字, 60秒有效</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_44813312" data-depth="4">
+    <details >
+        <summary class="tree-label" title="发送限制: 同Email 60分钟内12次, 同IP 1分钟内10次">发送限制: 同Email 60分钟内12次, 同IP 1分钟内10次</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_23de04e8" data-depth="4">
+    <details >
+        <summary class="tree-label" title="异常: 验证码错误→"Incorrect verification code"">异常: 验证码错误→"Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_3210c677" data-depth="4">
+    <details >
+        <summary class="tree-label" title="异常: 错误达上限→"Too many failed attempts. Verification is suspended temporarily. Please try again in one hour." (暂停1小时)">异常: 错误达上限→"Too many failed attempts. Verification is suspended temporarily. P...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_7628c4df" data-depth="4">
+    <details >
+        <summary class="tree-label" title="异常: 获取次数上限→点击获取验证码前弹窗拦截, "The number of attempts to obtain a verification code has exceeded the limit. Please try again after one hour."">异常: 获取次数上限→点击获取验证码前弹窗拦截, "The number of attempts to obtain a verification cod...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_7b339619" data-depth="4">
+    <details >
+        <summary class="tree-label" title="异常: 请求过于频繁→"Requested too many times, please try again later"">异常: 请求过于频繁→"Requested too many times, please try again later"</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_6e506281" data-depth="4">
+    <details >
+        <summary class="tree-label" title="手机号注册">手机号注册</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_01099709" data-depth="4">
+    <details >
+        <summary class="tree-label" title="流程: 输入手机号 → 发送短信验证码 → 输入验证码 → 设置密码">流程: 输入手机号 → 发送短信验证码 → 输入验证码 → 设置密码</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_fbed71dd" data-depth="4">
+    <details >
+        <summary class="tree-label" title="仅中国区支持">仅中国区支持</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_3e5b51fd" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录">登录</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_6f008546" data-depth="4">
+    <details >
+        <summary class="tree-label" title="邮箱+密码登录">邮箱+密码登录</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_d7902bca" data-depth="4">
+    <details >
+        <summary class="tree-label" title="信任设备: 密码正确→直接登录; 密码错误≥3次(服务端计算)→触发二次验证">信任设备: 密码正确→直接登录; 密码错误≥3次(服务端计算)→触发二次验证</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_d157d6d6" data-depth="4">
+    <details >
+        <summary class="tree-label" title="非信任设备: 输入密码正确→触发二次验证(全屏验证码弹窗)">非信任设备: 输入密码正确→触发二次验证(全屏验证码弹窗)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_070da3ac" data-depth="4">
+    <details >
+        <summary class="tree-label" title="非信任设备定义: 旧设备已登录+新设备登录(本地/异地)">非信任设备定义: 旧设备已登录+新设备登录(本地/异地)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_f4b7dbe0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="异常处理">异常处理</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_86c252e1" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证码错误1-10次: "Incorrect verification code", 可继续尝试">验证码错误1-10次: "Incorrect verification code", 可继续尝试</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_39de2740" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误达上限: "Too many failed attempts. Verification is suspended temporarily. Please try again in one hour." (仍在验证码界面)">错误达上限: "Too many failed attempts. Verification is suspended temporarily. Plea...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_0411188a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发账号锁: 返回登录页重新登录→直接弹窗拦截→"For security reasons, login is temporarily suspended due to too many failed attempts. Please try again in one hour." →不进入验证码界面">触发账号锁: 返回登录页重新登录→直接弹窗拦截→"For security reasons, login is temporarily suspended...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_146f3ff7" data-depth="4">
+    <details >
+        <summary class="tree-label" title="获取验证码次数达上限: 同界面继续点击→"The number of attempts to obtain a verification code has exceeded the limit. Please try again after one hour."">获取验证码次数达上限: 同界面继续点击→"The number of attempts to obtain a verification code has...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_acec1fd7" data-depth="4">
+    <details >
+        <summary class="tree-label" title="请求过于频繁: "Requested too many times, please try again later"">请求过于频繁: "Requested too many times, please try again later"</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_2ac3c057" data-depth="4">
+    <details >
+        <summary class="tree-label" title="手机号+验证码登录">手机号+验证码登录</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_a2a994ae" data-depth="4">
+    <details >
+        <summary class="tree-label" title="仅中国区, 保持现状">仅中国区, 保持现状</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_70f46d69" data-depth="4">
+    <details >
+        <summary class="tree-label" title="有非授信设备二次验证兜底">有非授信设备二次验证兜底</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_7fb4f260" data-depth="4">
+    <details >
+        <summary class="tree-label" title="第三方账号登录 (Google / Apple)">第三方账号登录 (Google / Apple)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_16b8dc74" data-depth="4">
+    <details >
+        <summary class="tree-label" title="安全性高, 跳过非授信设备二次校验">安全性高, 跳过非授信设备二次校验</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_3cfdf93a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="但如开启2FA则需校验 (国内不支持2FA, 实际不涉及)">但如开启2FA则需校验 (国内不支持2FA, 实际不涉及)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_67133426" data-depth="4">
+    <details >
+        <summary class="tree-label" title="APP端展示2FA设置入口, 体验与邮箱登录一致">APP端展示2FA设置入口, 体验与邮箱登录一致</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_cc7b2857" data-depth="3">
+    <details >
+        <summary class="tree-label" title="SSO (统登统退)">SSO (统登统退)</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_68c99dc4" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Nothing设备上所有Nothing应用统一登录/退出">Nothing设备上所有Nothing应用统一登录/退出</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ca9789d1" data-depth="4">
+    <details >
+        <summary class="tree-label" title="涉及模块: Settings / Nothing X / Essential Space / Share Widget">涉及模块: Settings / Nothing X / Essential Space / Share Widget</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_da5d791b" data-depth="4">
+    <details >
+        <summary class="tree-label" title="升级策略: 先升级先用, 未升级不触发">升级策略: 先升级先用, 未升级不触发</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_6fdab752" data-depth="4">
+    <details >
+        <summary class="tree-label" title="实现SSO后: 账号升级即可使用">实现SSO后: 账号升级即可使用</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_6d98fce9" data-depth="4">
+    <details >
+        <summary class="tree-label" title="NothingAccount将上架谷歌商店, 可静默更新, 无需等OTA">NothingAccount将上架谷歌商店, 可静默更新, 无需等OTA</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_33087d3a" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA (二次验证) — ❌ 中国区不支持">2FA (二次验证) — ❌ 中国区不支持</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_2ff9bbde" data-depth="4">
+    <details >
+        <summary class="tree-label" title="国内账号中心不支持2FA功能">国内账号中心不支持2FA功能</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_e94d8e1d" data-depth="4">
+    <details >
+        <summary class="tree-label" title="不支持开启/关闭(管理态)">不支持开启/关闭(管理态)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_b913238e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="不支持登录时触发(运行态)">不支持登录时触发(运行态)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_d1cdfa2e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="手机号用户: 手机号+验证码登录保持现状">手机号用户: 手机号+验证码登录保持现状</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_15a9a684" data-depth="4">
+    <details >
+        <summary class="tree-label" title="邮箱用户: 有非授信设备二次验证兜底即可">邮箱用户: 有非授信设备二次验证兜底即可</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_694a243f" data-depth="3">
+    <details >
+        <summary class="tree-label" title="非授信设备二次验证">非授信设备二次验证</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_c66554e6" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发场景">触发场景</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_e4c3ac99" data-depth="4">
+    <details >
+        <summary class="tree-label" title="邮箱登录时检测到非信任设备→全屏验证码弹窗">邮箱登录时检测到非信任设备→全屏验证码弹窗</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_94066ad9" data-depth="4">
+    <details >
+        <summary class="tree-label" title="信任设备密码错误≥3次→全屏验证码弹窗">信任设备密码错误≥3次→全屏验证码弹窗</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_52f69f42" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证方式: 发送6位验证码到注册邮箱">验证方式: 发送6位验证码到注册邮箱</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_a5fca7c6" data-depth="4">
+    <details >
+        <summary class="tree-label" title="涉及的端: Nothing客户端 ✅ | 出端APP ✅ | Web端 ✅">涉及的端: Nothing客户端 ✅ | 出端APP ✅ | Web端 ✅</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_d989d34f" data-depth="4">
+    <details >
+        <summary class="tree-label" title="正常提示: "Verification — Enter the 6-digit code sent to xx****@nothing.tech to verify identity. Didn't receive the code? Send again (XXs)"">正常提示: "Verification — Enter the 6-digit code sent to xx****@nothing.tech to v...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_61971d6d" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误1-10次: "Incorrect verification code", 可继续尝试重发">错误1-10次: "Incorrect verification code", 可继续尝试重发</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_7e0d2025" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误达上限(界面内继续点): "Too many failed attempts. Verification is suspended temporarily. Please try again in one hour."">错误达上限(界面内继续点): "Too many failed attempts. Verification is suspended temporari...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_6e8e9e9f" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误上限后返回再触发: 重新登录→直接弹窗拦截→不进入验证码界面">错误上限后返回再触发: 重新登录→直接弹窗拦截→不进入验证码界面</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9f8382b4" data-depth="4">
+    <details >
+        <summary class="tree-label" title="获取验证码次数达上限(界面内继续点): 同"错误次数达上限"提示">获取验证码次数达上限(界面内继续点): 同"错误次数达上限"提示</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_5fabcb35" data-depth="4">
+    <details >
+        <summary class="tree-label" title="获取次数上限后返回再触发: 返回到登录页点下一步→弹出"Too many failed attempts"→点Understand回到登录页">获取次数上限后返回再触发: 返回到登录页点下一步→弹出"Too many failed attempts"→点Understand回到登录页</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_dcabd602" data-depth="4">
+    <details >
+        <summary class="tree-label" title="请求过于频繁: 弹出"Requested too many times, please try again later"→点Understand后关闭弹窗回到上一步">请求过于频繁: 弹出"Requested too many times, please try again later"→点Understand后关闭弹窗...</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_d0b63f18" data-depth="3">
+    <details >
+        <summary class="tree-label" title="退出账号">退出账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_91c352e1" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发二次校验 (仅Nothing客户端)">触发二次校验 (仅Nothing客户端)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_782fda29" data-depth="4">
+    <details >
+        <summary class="tree-label" title="设备锁屏密码校验 (v1.0): 有锁屏密码→需输入密码(指纹/图案/数字/人脸); 无密码→直接退出">设备锁屏密码校验 (v1.0): 有锁屏密码→需输入密码(指纹/图案/数字/人脸); 无密码→直接退出</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9f0f9a6b" data-depth="4">
+    <details >
+        <summary class="tree-label" title="出端场景/Web端退出时无需二次校验">出端场景/Web端退出时无需二次校验</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_4a80743b" data-depth="4">
+    <details >
+        <summary class="tree-label" title="确认弹窗文案模板: "Are you sure you want to sign out? You'll need to sign in again to use xxx" (xxx由入口业务方可配)">确认弹窗文案模板: "Are you sure you want to sign out? You'll need to sign in again to...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_b4d966ea" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Settings入口退出文案: "以下应用将退出账号: NothingX: 退出后, 本设备将无法使用手表和健身等功能"">Settings入口退出文案: "以下应用将退出账号: NothingX: 退出后, 本设备将无法使用手表和健身等功能"</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_eeb6307d" data-depth="4">
+    <details >
+        <summary class="tree-label" title="未绑定设备通用提示: "You'll be logged out of all Nothing services and apps signed in with this account on this device."">未绑定设备通用提示: "You'll be logged out of all Nothing services and apps signed in w...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_6624026a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="二次验证弹窗: 发送6位邮箱验证码, 验证通过后退出">二次验证弹窗: 发送6位邮箱验证码, 验证通过后退出</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_0a81ff58" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证码错误→"Incorrect verification code"">验证码错误→"Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_cc87f43f" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误达上限→退出弹窗仍触发, 但验证码空白不可输入, 提示"验证码错误次数过多, 请稍后重试"">错误达上限→退出弹窗仍触发, 但验证码空白不可输入, 提示"验证码错误次数过多, 请稍后重试"</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9b3d8b45" data-depth="4">
+    <details >
+        <summary class="tree-label" title="获取次数上限→点Understand关闭所有弹窗回到账号中心首页">获取次数上限→点Understand关闭所有弹窗回到账号中心首页</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_4ef26c33" data-depth="4">
+    <details >
+        <summary class="tree-label" title="点退出→确认弹窗→二次验证弹窗→验证通过→退出到登录页">点退出→确认弹窗→二次验证弹窗→验证通过→退出到登录页</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_5d668204" data-depth="3">
+    <details >
+        <summary class="tree-label" title="删除账号">删除账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_52b6ced3" data-depth="4">
+    <details >
+        <summary class="tree-label" title="入口: 隐私中心 → Delete Account">入口: 隐私中心 → Delete Account</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_0f52238d" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发二次验证弹窗 (所有端: Nothing客户端 ✅ | 出端APP ✅ | Web端 ✅)">触发二次验证弹窗 (所有端: Nothing客户端 ✅ | 出端APP ✅ | Web端 ✅)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_37fd31a7" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证通过→调用浏览器跳转删除请求表单">验证通过→调用浏览器跳转删除请求表单</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_7638a59a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="中国区表单: https://www.wenjuan.com/s/UZBZJvooJIb/">中国区表单: https://www.wenjuan.com/s/UZBZJvooJIb/</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ca45697e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="异常: 错误达上限→仍触发弹窗但不下发验证码(空白不可输入)">异常: 错误达上限→仍触发弹窗但不下发验证码(空白不可输入)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_7f8ba15c" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误上限后再触发→返回再点时弹窗提示1小时后再试">错误上限后再触发→返回再点时弹窗提示1小时后再试</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_1156ed27" data-depth="3">
+    <details >
+        <summary class="tree-label" title="隐私中心">隐私中心</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_bc6dbe68" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Nothing Phone上完整版">Nothing Phone上完整版</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_cfbd081c" data-depth="4">
+    <details >
+        <summary class="tree-label" title="需显示: Privacy Policy, User Agreement, Open Source Licenses, Delete Account">需显示: Privacy Policy, User Agreement, Open Source Licenses, Delete Account</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_000455a4" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Privacy Policy: 调用浏览器跳转 https://nothing.tech/pages/privacy-policy">Privacy Policy: 调用浏览器跳转 https://nothing.tech/pages/privacy-policy</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ad163666" data-depth="4">
+    <details >
+        <summary class="tree-label" title="User Agreement: Nothing X沿用已有版本; 其他App(如Playground上国区)再制定对应条款">User Agreement: Nothing X沿用已有版本; 其他App(如Playground上国区)再制定对应条款</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_861196d7" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Open Source License: 新页面加载, App库锁定后Gradle库清单再梳理">Open Source License: 新页面加载, App库锁定后Gradle库清单再梳理</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_544f24e9" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Delete Account: 二次验证→浏览器打开删除表单">Delete Account: 二次验证→浏览器打开删除表单</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_d9a42ee0" data-depth="3">
+    <details >
+        <summary class="tree-label" title="设备信任管理">设备信任管理</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_ce176c53" data-depth="4">
+    <details >
+        <summary class="tree-label" title="设备置信度: 区分信任设备/非信任设备">设备置信度: 区分信任设备/非信任设备</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_8634d219" data-depth="4">
+    <details >
+        <summary class="tree-label" title="信任设备标记: 已成功登录过的设备">信任设备标记: 已成功登录过的设备</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_d33d8441" data-depth="4">
+    <details >
+        <summary class="tree-label" title="非信任设备: 新设备首次登录, 异地登录">非信任设备: 新设备首次登录, 异地登录</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_c1c5c436" data-depth="3">
+    <details >
+        <summary class="tree-label" title="忘记密码">忘记密码</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_cf63a0e9" data-depth="4">
+    <details >
+        <summary class="tree-label" title="沿用当前Email方式: 发送重置密码邮件">沿用当前Email方式: 发送重置密码邮件</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_b9065dc0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="第三方登录忘记密码: 🔄二期规划修改密码功能, 第一期走FAQ"><span class="badge badge-future">🔄二期</span> 第三方登录忘记密码: 🔄二期规划修改密码功能, 第一期走FAQ</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_498f0ce2" data-depth="3">
+    <details >
+        <summary class="tree-label" title="独立验证码UI">独立验证码UI</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_1ecff201" data-depth="4">
+    <details >
+        <summary class="tree-label" title="布局四区域">布局四区域</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_169059ea" data-depth="4">
+    <details >
+        <summary class="tree-label" title="红色区域: 标题固定">红色区域: 标题固定</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_4b519b9e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="蓝色区域: 验证码功能说明(业务调用方可配置, Account读取)">蓝色区域: 验证码功能说明(业务调用方可配置, Account读取)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_e53bb7a1" data-depth="4">
+    <details >
+        <summary class="tree-label" title="绿色区域: 验证码输入区, 功能逻辑与当前一致">绿色区域: 验证码输入区, 功能逻辑与当前一致</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_4c0fdd76" data-depth="4">
+    <details >
+        <summary class="tree-label" title="黄色区域: 倒计时或重发操作区">黄色区域: 倒计时或重发操作区</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_cc45d732" data-depth="4">
+    <details >
+        <summary class="tree-label" title="页面返回逻辑">页面返回逻辑</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9db67002" data-depth="4">
+    <details >
+        <summary class="tree-label" title="返回键: 返回业务方调用页面">返回键: 返回业务方调用页面</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_14989185" data-depth="4">
+    <details >
+        <summary class="tree-label" title="多任务: 进程显示为Account, 杀进程=验证UI及Account APP退出(进程常驻)">多任务: 进程显示为Account, 杀进程=验证UI及Account APP退出(进程常驻)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_7931bd60" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证Pass: 返回业务方调用页面">验证Pass: 返回业务方调用页面</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_3b929a45" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: 归属地修改"><span class="badge badge-future">🔄二期</span> 🔄二期: 归属地修改</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_e847caf9" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: 手机验证码 (Only for China)"><span class="badge badge-future">🔄二期</span> 🔄二期: 手机验证码 (Only for China)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_956f4a7f" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: WhatsApp验证码接入"><span class="badge badge-future">🔄二期</span> 🔄二期: WhatsApp验证码接入</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_1359b088" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: 第三方登录忘记&amp;修改密码友好提示"><span class="badge badge-future">🔄二期</span> 🔄二期: 第三方登录忘记&amp;修改密码友好提示</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_d4bcff23" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="出端 APP (非Nothing手机)">出端 APP (非Nothing手机)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_191a7281" data-depth="3">
+    <details >
+        <summary class="tree-label" title="适用App">适用App</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_b00bf162" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Nothing X / Playground / Essential Space / Community 等">Nothing X / Playground / Essential Space / Community 等</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_dd0862d4" data-depth="4">
+    <details >
+        <summary class="tree-label" title="账号作为业务附属能力整体打包发布">账号作为业务附属能力整体打包发布</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_df29c7cd" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录">登录</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_49fe6285" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发二次验证条件: 业务已携带最新版本账号发布 ✅">触发二次验证条件: 业务已携带最新版本账号发布 ✅</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_2e7accac" data-depth="4">
+    <details >
+        <summary class="tree-label" title="未携带最新版本: 不触发二次验证">未携带最新版本: 不触发二次验证</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_93dbb4ca" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA — ❌ 中国区不支持">2FA — ❌ 中国区不支持</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_d34e9f4c" data-depth="4">
+    <details >
+        <summary class="tree-label" title="同Nothing客户端, 不支持">同Nothing客户端, 不支持</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_c5084432" data-depth="3">
+    <details >
+        <summary class="tree-label" title="退出账号">退出账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_5a8c1f17" data-depth="4">
+    <details >
+        <summary class="tree-label" title="❌ 不触发二次校验 (本次需求不涉及出端退出二次验证)">❌ 不触发二次校验 (本次需求不涉及出端退出二次验证)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_1c42e2a8" data-depth="3">
+    <details >
+        <summary class="tree-label" title="删除账号">删除账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_55866e9a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发二次验证弹窗 → 跳转问卷网表单">触发二次验证弹窗 → 跳转问卷网表单</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2b8b6d5b" data-depth="3">
+    <details >
+        <summary class="tree-label" title="隐私中心 — 精简版">隐私中心 — 精简版</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_084f2713" data-depth="4">
+    <details >
+        <summary class="tree-label" title="需显示: Privacy Policy, User Agreement, Delete Account">需显示: Privacy Policy, User Agreement, Delete Account</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_115c7987" data-depth="4">
+    <details >
+        <summary class="tree-label" title="无需显示: 已收集个人信息清单, 第三方共享个人信息清单, 第三方SDK, 开源许可证, 版本信息">无需显示: 已收集个人信息清单, 第三方共享个人信息清单, 第三方SDK, 开源许可证, 版本信息</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_86e8c9e6" data-depth="4">
+    <details >
+        <summary class="tree-label" title="原因: 业务隐私协议已包含账号相关内容, 账号中心无需重复展示">原因: 业务隐私协议已包含账号相关内容, 账号中心无需重复展示</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_4afa653e" data-depth="3">
+    <details >
+        <summary class="tree-label" title="SDK 切换逻辑">SDK 切换逻辑</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_461dbcdb" data-depth="4">
+    <details >
+        <summary class="tree-label" title="account SDK可用 → 走account SDK">account SDK可用 → 走account SDK</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_523d86d8" data-depth="4">
+    <details >
+        <summary class="tree-label" title="account SDK不可用(非Nothing手机) → 切换至flutter SDK">account SDK不可用(非Nothing手机) → 切换至flutter SDK</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_23afb3a2" data-depth="4">
+    <details >
+        <summary class="tree-label" title="if/else判断放在NothingX本体(非flutter SDK内部)">if/else判断放在NothingX本体(非flutter SDK内部)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_27303aa5" data-depth="3">
+    <details >
+        <summary class="tree-label" title="升级策略">升级策略</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_78c6f9c6" data-depth="4">
+    <details >
+        <summary class="tree-label" title="业务已升级+账号未升级 → 跟随该设备该业务入口现有体验">业务已升级+账号未升级 → 跟随该设备该业务入口现有体验</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_e5a7b590" data-depth="4">
+    <details >
+        <summary class="tree-label" title="账号已升级+业务未升级(未实现SSO) → 跟随现有体验">账号已升级+业务未升级(未实现SSO) → 跟随现有体验</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_bc7144c4" data-depth="4">
+    <details >
+        <summary class="tree-label" title="账号已升级+业务未升级(已实现SSO) → 进入最新版本账号中心, 可查看最新内容">账号已升级+业务未升级(已实现SSO) → 进入最新版本账号中心, 可查看最新内容</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_c7f5ade1" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="Web 端">Web 端</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_18c23e14" data-depth="3">
+    <details >
+        <summary class="tree-label" title="全局规则: 不区分CN和Intl">全局规则: 不区分CN和Intl</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_fef94ed9" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录">登录</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_d2d17a62" data-depth="4">
+    <details >
+        <summary class="tree-label" title="邮箱登录: 非授信设备二次验证 ✅">邮箱登录: 非授信设备二次验证 ✅</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ec325845" data-depth="4">
+    <details >
+        <summary class="tree-label" title="2FA运行态: 邮箱登录如已开启2FA→触发2FA验证 ✅">2FA运行态: 邮箱登录如已开启2FA→触发2FA验证 ✅</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_34671ba8" data-depth="4">
+    <details >
+        <summary class="tree-label" title="第三方账号登录: 不触发2FA (Web端账号中心不呈现2FA入口)">第三方账号登录: 不触发2FA (Web端账号中心不呈现2FA入口)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_ee3782dd" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA">2FA</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_6220513e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="管理态: ❌ Web端统一隐藏2FA入口 (非针对第三方账号)">管理态: ❌ Web端统一隐藏2FA入口 (非针对第三方账号)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_47ed17de" data-depth="4">
+    <details >
+        <summary class="tree-label" title="运行态: 如已在APP端开启2FA, Web端登录时触发; 第三方登录不触发">运行态: 如已在APP端开启2FA, Web端登录时触发; 第三方登录不触发</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_a12784e1" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Web端已升级+客户端未升级: 用户在Web开启2FA→客户端无法关闭">Web端已升级+客户端未升级: 用户在Web开启2FA→客户端无法关闭</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_f8b7081f" data-depth="3">
+    <details >
+        <summary class="tree-label" title="删除账号">删除账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_1075e59b" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发二次验证弹窗 → 跳转浏览器表单">触发二次验证弹窗 → 跳转浏览器表单</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_91c96627" data-depth="4">
+    <details >
+        <summary class="tree-label" title="中国区跳问卷网">中国区跳问卷网</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_cb28871c" data-depth="3">
+    <details >
+        <summary class="tree-label" title="隐私中心">隐私中心</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_eac9e7b0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="增加协议入口: Nothing账号用户协议, Nothing账号隐私声明">增加协议入口: Nothing账号用户协议, Nothing账号隐私声明</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_fa096889" data-depth="4">
+    <details >
+        <summary class="tree-label" title="三大板块: Profile / Security / Privacy">三大板块: Profile / Security / Privacy</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ff5dc8a0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Security板块: Two factor authentication开关">Security板块: Two factor authentication开关</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_2d042eba" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Privacy板块: Privacy Policy, User Agreement">Privacy板块: Privacy Policy, User Agreement</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_d9aff490" data-depth="3">
+    <details >
+        <summary class="tree-label" title="退出账号">退出账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_07ffef6e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="❌ 无需二次校验">❌ 无需二次校验</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_9dd31ac6" data-depth="3">
+    <details >
+        <summary class="tree-label" title="升级策略">升级策略</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_5f444da1" data-depth="4">
+    <details >
+        <summary class="tree-label" title="已升级的端先触发, 未升级保持旧版本体验">已升级的端先触发, 未升级保持旧版本体验</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_df7652b0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Web端先升级→已升级功能可用, 未升级端不受影响">Web端先升级→已升级功能可用, 未升级端不受影响</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+</div><div class="column column-right">
+    <h2 class="column-title">海外 (Intl)</h2>
+    <ul class="tree-root"><li class="tree-item section-node side-right" data-id="n_d9b51805" data-depth="1">
+    <details open>
+        <summary class="tree-label" title="海外 (Intl)">海外 (Intl)</summary>
+        <ul class="tree-children"><li class="tree-item category-node" data-id="n_5f3eb460" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="Nothing 客户端 (Nothing Phone)">Nothing 客户端 (Nothing Phone)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_80511392" data-depth="3">
+    <details >
+        <summary class="tree-label" title="注册">注册</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_209f0eef" data-depth="4">
+    <details >
+        <summary class="tree-label" title="邮箱注册 (同中国区流程)">邮箱注册 (同中国区流程)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_8f62c81e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="流程: 输入邮箱 → 发送验证码 → 输入6位验证码 → 设置密码">流程: 输入邮箱 → 发送验证码 → 输入6位验证码 → 设置密码</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_c46b483e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证码: 6位数字, 60秒有效">验证码: 6位数字, 60秒有效</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_990f223c" data-depth="4">
+    <details >
+        <summary class="tree-label" title="发送限制: 同Email 60分钟内12次, 同IP 1分钟内10次">发送限制: 同Email 60分钟内12次, 同IP 1分钟内10次</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_1a2ea75c" data-depth="4">
+    <details >
+        <summary class="tree-label" title="❌ 无手机号注册">❌ 无手机号注册</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_5e7d53dc" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录">登录</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_e4030cc2" data-depth="4">
+    <details >
+        <summary class="tree-label" title="邮箱+密码登录 (同中国区流程)">邮箱+密码登录 (同中国区流程)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_1345c367" data-depth="4">
+    <details >
+        <summary class="tree-label" title="信任设备: 密码错误≥3次→触发二次验证">信任设备: 密码错误≥3次→触发二次验证</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_0256c63a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="非信任设备: 密码正确后→触发二次验证">非信任设备: 密码正确后→触发二次验证</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_83e71890" data-depth="4">
+    <details >
+        <summary class="tree-label" title="第三方账号登录 (Google / Apple)">第三方账号登录 (Google / Apple)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_b7efb342" data-depth="4">
+    <details >
+        <summary class="tree-label" title="跳过非授信设备二次校验 (安全性高)">跳过非授信设备二次校验 (安全性高)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ac4dc210" data-depth="4">
+    <details >
+        <summary class="tree-label" title="但如开启2FA→触发2FA验证">但如开启2FA→触发2FA验证</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_750bd3d3" data-depth="4">
+    <details >
+        <summary class="tree-label" title="APP端展示2FA设置入口, 体验与邮箱登录一致">APP端展示2FA设置入口, 体验与邮箱登录一致</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_39b2b99b" data-depth="3">
+    <details >
+        <summary class="tree-label" title="SSO (统登统退)">SSO (统登统退)</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_83d7bed8" data-depth="4">
+    <details >
+        <summary class="tree-label" title="同中国区">同中国区</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_945ebec1" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA (二次验证) ✅ 完整支持">2FA (二次验证) ✅ 完整支持</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_4d9998ed" data-depth="4">
+    <details >
+        <summary class="tree-label" title="管理态 (开启/关闭)">管理态 (开启/关闭)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_be614d63" data-depth="4">
+    <details >
+        <summary class="tree-label" title="默认值: 关闭">默认值: 关闭</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9cd47f33" data-depth="4">
+    <details >
+        <summary class="tree-label" title="开启流程: 点击开启2FA → 发送验证码到邮箱 → 输入6位验证码 → 验证成功→开启; 验证失败→保持关闭">开启流程: 点击开启2FA → 发送验证码到邮箱 → 输入6位验证码 → 验证成功→开启; 验证失败→保持关闭</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_cc6e8329" data-depth="4">
+    <details >
+        <summary class="tree-label" title="关闭流程: 点击关闭2FA → 发送验证码到邮箱 → 输入6位验证码 → 验证成功→关闭; 验证失败→保持打开">关闭流程: 点击关闭2FA → 发送验证码到邮箱 → 输入6位验证码 → 验证成功→关闭; 验证失败→保持打开</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_88fdc484" data-depth="4">
+    <details >
+        <summary class="tree-label" title="所有端均可管理: Nothing客户端 ✅ | 出端APP ✅ | Web端(管理态隐藏但开关同步)">所有端均可管理: Nothing客户端 ✅ | 出端APP ✅ | Web端(管理态隐藏但开关同步)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_055c6d4c" data-depth="4">
+    <details >
+        <summary class="tree-label" title="2FA开关跟账号走, 不跟设备走; 多端状态同步">2FA开关跟账号走, 不跟设备走; 多端状态同步</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_712703a0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="原子化操作: Server端排队逻辑, 多设备不可同时操作">原子化操作: Server端排队逻辑, 多设备不可同时操作</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_7cfa7cdd" data-depth="4">
+    <details >
+        <summary class="tree-label" title="退出账号后60秒内重新登录→允许; 刚开启2FA→允许立即关闭">退出账号后60秒内重新登录→允许; 刚开启2FA→允许立即关闭</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9a94d299" data-depth="4">
+    <details >
+        <summary class="tree-label" title="运行态 (登录时触发)">运行态 (登录时触发)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_10e0b337" data-depth="4">
+    <details >
+        <summary class="tree-label" title="已开启2FA的账号登录时→触发2FA二次验证(全屏)">已开启2FA的账号登录时→触发2FA二次验证(全屏)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_4768340a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="所有端均生效: Nothing客户端 ✅ | 出端APP ✅ | Web端(邮箱登录触发, 三方登录不触发)">所有端均生效: Nothing客户端 ✅ | 出端APP ✅ | Web端(邮箱登录触发, 三方登录不触发)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9b26eedb" data-depth="4">
+    <details >
+        <summary class="tree-label" title="正常提示: "Verification — Two factor authentication — Enter the 6-digit code sent to xx****@nothing.tech"">正常提示: "Verification — Two factor authentication — Enter the 6-digit code sent...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_2e3a0f58" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误1-10次: "Incorrect verification code"">错误1-10次: "Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_f875f889" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误达上限: "Too many failed attempts. Verification is suspended temporarily. Please try again in one hour."">错误达上限: "Too many failed attempts. Verification is suspended temporarily. Plea...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_2971a227" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发账号锁: 重新登录→直接弹窗拦截">触发账号锁: 重新登录→直接弹窗拦截</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_39bfcb8a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="异常处理 (同非授信设备)">异常处理 (同非授信设备)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_118fd4fa" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证码错误→提示重试">验证码错误→提示重试</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_af145507" data-depth="4">
+    <details >
+        <summary class="tree-label" title="错误达上限→暂停1小时">错误达上限→暂停1小时</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_8b3130e1" data-depth="4">
+    <details >
+        <summary class="tree-label" title="获取验证码次数上限→弹窗拦截">获取验证码次数上限→弹窗拦截</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_f12933b7" data-depth="4">
+    <details >
+        <summary class="tree-label" title="请求过于频繁→提示稍后再试">请求过于频繁→提示稍后再试</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_44faec97" data-depth="4">
+    <details >
+        <summary class="tree-label" title="验证码规格">验证码规格</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_b4c9f6c3" data-depth="4">
+    <details >
+        <summary class="tree-label" title="6位数字, 60秒有效">6位数字, 60秒有效</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_5c853651" data-depth="4">
+    <details >
+        <summary class="tree-label" title="发送限制: 同Email 60分钟内12次, 同IP 1分钟内10次">发送限制: 同Email 60分钟内12次, 同IP 1分钟内10次</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_142fe389" data-depth="4">
+    <details >
+        <summary class="tree-label" title="场景: 开启2FA(弹窗) / 关闭2FA(弹窗)">场景: 开启2FA(弹窗) / 关闭2FA(弹窗)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_8b969086" data-depth="3">
+    <details >
+        <summary class="tree-label" title="非授信设备二次验证">非授信设备二次验证</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_38f64e07" data-depth="4">
+    <details >
+        <summary class="tree-label" title="同中国区完整流程">同中国区完整流程</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_7184d428" data-depth="3">
+    <details >
+        <summary class="tree-label" title="退出账号">退出账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_d46ed15b" data-depth="4">
+    <details >
+        <summary class="tree-label" title="仅Nothing客户端退出触发二次校验">仅Nothing客户端退出触发二次校验</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_5fbcda96" data-depth="4">
+    <details >
+        <summary class="tree-label" title="同中国区完整流程">同中国区完整流程</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_a55bea0c" data-depth="3">
+    <details >
+        <summary class="tree-label" title="删除账号">删除账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_209bed68" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发二次验证弹窗 → 跳转浏览器表单">触发二次验证弹窗 → 跳转浏览器表单</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_2b347e22" data-depth="4">
+    <details >
+        <summary class="tree-label" title="海外表单: https://docs.google.com/forms/d/e/1FAIpQLScpIGeFODh4d-SaaBrRmq5juLCQ9kQsp96a813XPAIhMaMrVg/viewform">海外表单: https://docs.google.com/forms/d/e/1FAIpQLScpIGeFODh4d-SaaBrRmq5juLCQ9kQ...</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_8a3a20fc" data-depth="4">
+    <details >
+        <summary class="tree-label" title="异常处理同中国区">异常处理同中国区</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_7bd16234" data-depth="3">
+    <details >
+        <summary class="tree-label" title="隐私中心">隐私中心</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_6d703dc7" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Nothing Phone上完整intl版本">Nothing Phone上完整intl版本</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ad7f1d61" data-depth="4">
+    <details >
+        <summary class="tree-label" title="需显示: Privacy Policy, User Agreement, Open Source Licenses, Delete Account">需显示: Privacy Policy, User Agreement, Open Source Licenses, Delete Account</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_5582cc15" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Privacy Policy: https://nothing.tech/pages/privacy-policy">Privacy Policy: https://nothing.tech/pages/privacy-policy</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_08d5c919" data-depth="4">
+    <details >
+        <summary class="tree-label" title="User Agreement: https://nothing.tech/pages/user-agreement (海外版本)">User Agreement: https://nothing.tech/pages/user-agreement (海外版本)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_c4b5380b" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Open Source License: 新页面加载">Open Source License: 新页面加载</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_c26c719a" data-depth="3">
+    <details >
+        <summary class="tree-label" title="引导开启2FA">引导开启2FA</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_61c3fe22" data-depth="4">
+    <details >
+        <summary class="tree-label" title="前提: 用户未开启2FA">前提: 用户未开启2FA</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_22c55240" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发场景举例">触发场景举例</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9d2b2b60" data-depth="4">
+    <details >
+        <summary class="tree-label" title="非信任设备登录">非信任设备登录</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_add2be84" data-depth="4">
+    <details >
+        <summary class="tree-label" title="高危用户数据操作 (数据删除, 数据导出)">高危用户数据操作 (数据删除, 数据导出)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9773cb68" data-depth="4">
+    <details >
+        <summary class="tree-label" title="业务方触发敏感操作 (订阅支付, 退订)">业务方触发敏感操作 (订阅支付, 退订)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_39e2a567" data-depth="4">
+    <details >
+        <summary class="tree-label" title="流程">流程</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_bddc4b17" data-depth="4">
+    <details >
+        <summary class="tree-label" title="引导页面: 说明危险操作+打开2FA的必要性">引导页面: 说明危险操作+打开2FA的必要性</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_3d550391" data-depth="4">
+    <details >
+        <summary class="tree-label" title="打开流程: 与用户主动进入Settings开启流程一致">打开流程: 与用户主动进入Settings开启流程一致</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_2393351c" data-depth="4">
+    <details >
+        <summary class="tree-label" title="打开完毕: 返回正确结果给调用方, 业务方流程继续, 无需再验证一次">打开完毕: 返回正确结果给调用方, 业务方流程继续, 无需再验证一次</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_e0854424" data-depth="4">
+    <details >
+        <summary class="tree-label" title="返回按钮: 返回业务方页面(非账号页面)">返回按钮: 返回业务方页面(非账号页面)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_db7b3b32" data-depth="4">
+    <details >
+        <summary class="tree-label" title="已登录设备: 业务场景触发引导, 引导逻辑放业务App, Account提供SDK">已登录设备: 业务场景触发引导, 引导逻辑放业务App, Account提供SDK</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_d5b9a164" data-depth="4">
+    <details >
+        <summary class="tree-label" title="新设备登录: 即使没开2FA, 新设备登录时触发二次校验">新设备登录: 即使没开2FA, 新设备登录时触发二次校验</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_29c383dc" data-depth="3">
+    <details >
+        <summary class="tree-label" title="小红点逻辑">小红点逻辑</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_0c93b9c1" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Settings Icon小红点: 新功能推出或重要功能更新时高亮提醒">Settings Icon小红点: 新功能推出或重要功能更新时高亮提醒</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ec65a3c0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="显示逻辑">显示逻辑</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_c649545f" data-depth="4">
+    <details >
+        <summary class="tree-label" title="标记为可增加红点的功能(新功能/有更新的功能)">标记为可增加红点的功能(新功能/有更新的功能)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_bce7a19e" data-depth="4">
+    <details >
+        <summary class="tree-label" title="用户登录账号中心首次看到该功能→标注红点">用户登录账号中心首次看到该功能→标注红点</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_6da42ebb" data-depth="4">
+    <details >
+        <summary class="tree-label" title="用户不点击→红点不消失">用户不点击→红点不消失</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ed39d16b" data-depth="4">
+    <details >
+        <summary class="tree-label" title="支持展示红点的功能需可配置(随版本)">支持展示红点的功能需可配置(随版本)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_fde045d4" data-depth="4">
+    <details >
+        <summary class="tree-label" title="消失逻辑">消失逻辑</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_779797ff" data-depth="4">
+    <details >
+        <summary class="tree-label" title="账号维度: 一个功能对一个账号显示一次, 点击即消失">账号维度: 一个功能对一个账号显示一次, 点击即消失</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_4af17ea3" data-depth="4">
+    <details >
+        <summary class="tree-label" title="跨设备同步: 任意设备点击后, 该功能红点对所有设备消失">跨设备同步: 任意设备点击后, 该功能红点对所有设备消失</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9da10e24" data-depth="4">
+    <details >
+        <summary class="tree-label" title="清数据/恢复出厂设置后: 已点击过则不再显示">清数据/恢复出厂设置后: 已点击过则不再显示</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_9fc8261f" data-depth="4">
+    <details >
+        <summary class="tree-label" title="红点API: 服务端新增接口提供状态逻辑, 按账号维度管理, 无法本地存储">红点API: 服务端新增接口提供状态逻辑, 按账号维度管理, 无法本地存储</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2962c6fc" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: 归属地修改"><span class="badge badge-future">🔄二期</span> 🔄二期: 归属地修改</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_824aaa6d" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: WhatsApp验证码接入"><span class="badge badge-future">🔄二期</span> 🔄二期: WhatsApp验证码接入</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_b66e8795" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="出端 APP (非Nothing手机)">出端 APP (非Nothing手机)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_453bc1a3" data-depth="3">
+    <details >
+        <summary class="tree-label" title="适用App">适用App</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_a6c4a170" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Nothing X / Playground / Essential Space 等">Nothing X / Playground / Essential Space 等</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_69f9d9cd" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录">登录</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_5b4737c0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发二次验证: 业务已携带最新版本账号 ✅">触发二次验证: 业务已携带最新版本账号 ✅</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_3806d3d7" data-depth="4">
+    <details >
+        <summary class="tree-label" title="未携带最新版本: 不触发二次验证">未携带最新版本: 不触发二次验证</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_646beee9" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA ✅">2FA ✅</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_315f663a" data-depth="4">
+    <details >
+        <summary class="tree-label" title="业务已携带最新版本账号: 管理态(可管理2FA) ✅ + 运行态(登录触发2FA) ✅">业务已携带最新版本账号: 管理态(可管理2FA) ✅ + 运行态(登录触发2FA) ✅</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_8f8ab198" data-depth="4">
+    <details >
+        <summary class="tree-label" title="业务未携带最新版本: 不可管理2FA, 不触发2FA">业务未携带最新版本: 不可管理2FA, 不触发2FA</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2f0c0648" data-depth="3">
+    <details >
+        <summary class="tree-label" title="退出账号">退出账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_9966bf86" data-depth="4">
+    <details >
+        <summary class="tree-label" title="❌ 不触发二次校验 (本次需求不涉及)">❌ 不触发二次校验 (本次需求不涉及)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_9b937ea7" data-depth="3">
+    <details >
+        <summary class="tree-label" title="删除账号">删除账号</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_9df61046" data-depth="4">
+    <details >
+        <summary class="tree-label" title="触发二次验证弹窗 → 跳转Google Forms">触发二次验证弹窗 → 跳转Google Forms</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_6dad3b63" data-depth="3">
+    <details >
+        <summary class="tree-label" title="隐私中心 — intl精简版">隐私中心 — intl精简版</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_895eca53" data-depth="4">
+    <details >
+        <summary class="tree-label" title="需显示: Privacy Policy, User Agreement, Delete Account">需显示: Privacy Policy, User Agreement, Delete Account</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_9042b1a5" data-depth="3">
+    <details >
+        <summary class="tree-label" title="SDK 切换逻辑">SDK 切换逻辑</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_8aa6e300" data-depth="4">
+    <details >
+        <summary class="tree-label" title="同中国区出端">同中国区出端</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_e7c2a4e7" data-depth="3">
+    <details >
+        <summary class="tree-label" title="升级策略">升级策略</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_5f0e4328" data-depth="4">
+    <details >
+        <summary class="tree-label" title="业务已升级+账号未升级 → 跟随现有体验">业务已升级+账号未升级 → 跟随现有体验</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_bc791677" data-depth="4">
+    <details >
+        <summary class="tree-label" title="账号已升级+业务未升级(已实现SSO) → 使用最新版本账号中心">账号已升级+业务未升级(已实现SSO) → 使用最新版本账号中心</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_00c65a79" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="Web 端">Web 端</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_22c8a9ac" data-depth="3">
+    <details >
+        <summary class="tree-label" title="全局规则: 不区分CN和Intl">全局规则: 不区分CN和Intl</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_0ca74f5f" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录">登录</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_7fe8aebd" data-depth="4">
+    <details >
+        <summary class="tree-label" title="邮箱登录: 非授信设备二次验证 ✅ + 2FA运行态(如已开启) ✅">邮箱登录: 非授信设备二次验证 ✅ + 2FA运行态(如已开启) ✅</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_53340503" data-depth="4">
+    <details >
+        <summary class="tree-label" title="第三方账号登录: 不触发2FA">第三方账号登录: 不触发2FA</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_d41a8d8f" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA">2FA</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_14db4b13" data-depth="4">
+    <details >
+        <summary class="tree-label" title="管理态: ❌ 统一隐藏2FA入口(非针对第三方账号隐藏)">管理态: ❌ 统一隐藏2FA入口(非针对第三方账号隐藏)</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_8f224c9f" data-depth="4">
+    <details >
+        <summary class="tree-label" title="运行态: 已开启2FA则邮箱登录时触发; 第三方登录不触发">运行态: 已开启2FA则邮箱登录时触发; 第三方登录不触发</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_ab2e9334" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Web端已升级+客户端未升级: 用户Web端开启2FA→客户端无法关闭; 客户端登录不触发2FA">Web端已升级+客户端未升级: 用户Web端开启2FA→客户端无法关闭; 客户端登录不触发2FA</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_30cfa48a" data-depth="3">
+    <details >
+        <summary class="tree-label" title="账号中心">账号中心</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_b9347b08" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Profile板块: 姓名, 邮箱">Profile板块: 姓名, 邮箱</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_810ca0e0" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Security板块: Two factor authentication开关">Security板块: Two factor authentication开关</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_dbe55a22" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Privacy板块: Privacy Policy, User Agreement">Privacy板块: Privacy Policy, User Agreement</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_e4b38147" data-depth="4">
+    <details >
+        <summary class="tree-label" title="不区分CN和Intl">不区分CN和Intl</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item sub-node" data-id="n_befe0f44" data-depth="3">
+    <details >
+        <summary class="tree-label" title="升级策略">升级策略</summary>
+        <ul class="tree-children"><li class="tree-item leaf-node" data-id="n_ee9ee197" data-depth="4">
+    <details >
+        <summary class="tree-label" title="Web端已升级+客户端未升级: 已升级功能可用, 未升级端不受影响">Web端已升级+客户端未升级: 已升级功能可用, 未升级端不受影响</summary>
+        
+    </details>
+</li><li class="tree-item leaf-node" data-id="n_79c1af79" data-depth="4">
+    <details >
+        <summary class="tree-label" title="用户如在Web端开启2FA, 客户端登录时提示识别到新版本需升级(前期可不强制)">用户如在Web端开启2FA, 客户端登录时提示识别到新版本需升级(前期可不强制)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+</div><div class="column column-right">
+    <h2 class="column-title">通用 (跨区域)</h2>
+    <ul class="tree-root"><li class="tree-item section-node side-right" data-id="n_07bd9483" data-depth="1">
+    <details open>
+        <summary class="tree-label" title="通用 (跨区域)">通用 (跨区域)</summary>
+        <ul class="tree-children"><li class="tree-item category-node" data-id="n_d50244ce" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="密码规则 (v1.0+)">密码规则 (v1.0+)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_531b88ef" data-depth="3">
+    <details >
+        <summary class="tree-label" title="用户端要求: 8-30 characters, 至少1个大写字母+1个小写字母+1个数字+1个特殊符号">用户端要求: 8-30 characters, 至少1个大写字母+1个小写字母+1个数字+1个特殊符号</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_de918eda" data-depth="3">
+    <details >
+        <summary class="tree-label" title="服务端限制: 加密后6-30位">服务端限制: 加密后6-30位</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_4ba61ce4" data-depth="3">
+    <details >
+        <summary class="tree-label" title="密码错误≥3次(服务端计算)→触发二次验证">密码错误≥3次(服务端计算)→触发二次验证</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_f6cd8e3d" data-depth="3">
+    <details >
+        <summary class="tree-label" title="无账号禁用功能, 错误次数超限不会暂停账号">无账号禁用功能, 错误次数超限不会暂停账号</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_a6bc7b99" data-depth="3">
+    <details >
+        <summary class="tree-label" title="修改密码后: 其他设备token失效, 需重新登录">修改密码后: 其他设备token失效, 需重新登录</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_1c15644e" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="速率限制细则 (v1.0 服务端规则)">速率限制细则 (v1.0 服务端规则)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_647242f5" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录: 同Email 60分钟内最多12次; 同IP 1分钟内最多60次">登录: 同Email 60分钟内最多12次; 同IP 1分钟内最多60次</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_d9525695" data-depth="3">
+    <details >
+        <summary class="tree-label" title="注册: 同IP 60分钟内最多12次">注册: 同IP 60分钟内最多12次</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_da0e546e" data-depth="3">
+    <details >
+        <summary class="tree-label" title="忘记密码: 同Email 60分钟内最多12次; 同IP 1分钟内最多10次">忘记密码: 同Email 60分钟内最多12次; 同IP 1分钟内最多10次</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_ac6f0ccc" data-depth="3">
+    <details >
+        <summary class="tree-label" title="邮件验证码发送&amp;验证: 同Email 60分钟内最多12次; 同IP 1分钟内最多10次">邮件验证码发送&amp;验证: 同Email 60分钟内最多12次; 同IP 1分钟内最多10次</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_60c608b3" data-depth="3">
+    <details >
+        <summary class="tree-label" title="账号不会因错误次数而被暂停使用">账号不会因错误次数而被暂停使用</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_357ef230" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="设备登录限制 (v1.0)">设备登录限制 (v1.0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_33a5ad9e" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Nothing X / CMF watch: 仅限1台设备登录">Nothing X / CMF watch: 仅限1台设备登录</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_5407c786" data-depth="3">
+    <details >
+        <summary class="tree-label" title="在新设备登录→上一台设备token自动失效">在新设备登录→上一台设备token自动失效</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_37095fe2" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Nothing Phone 上可多台设备登录同账号(不同业务App通过SSO)">Nothing Phone 上可多台设备登录同账号(不同业务App通过SSO)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_c93f098d" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="语言与邮件支持 (v1.0)">语言与邮件支持 (v1.0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_082d6a8d" data-depth="3">
+    <details >
+        <summary class="tree-label" title="邮件类型: Verify Account(验证账号) / Welcome(欢迎) / Reset Password(重置密码)">邮件类型: Verify Account(验证账号) / Welcome(欢迎) / Reset Password(重置密码)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_126aefcc" data-depth="3">
+    <details >
+        <summary class="tree-label" title="支持语言: 英语, 西班牙语, 德语, 意大利语, 法语, 日语, 韩语, 繁体中文(台湾), 泰语, 阿拉伯语">支持语言: 英语, 西班牙语, 德语, 意大利语, 法语, 日语, 韩语, 繁体中文(台湾), 泰语, 阿拉伯语</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_185706c0" data-depth="3">
+    <details >
+        <summary class="tree-label" title="列表没有的语言默认使用English">列表没有的语言默认使用English</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_843d3efc" data-depth="3">
+    <details >
+        <summary class="tree-label" title="阿拉伯语邮件模板对应英文内容">阿拉伯语邮件模板对应英文内容</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_aeed1e9e" data-depth="3">
+    <details >
+        <summary class="tree-label" title="语言代码参考: http://www.lingoes.net/zh/translator/langcode.htm">语言代码参考: http://www.lingoes.net/zh/translator/langcode.htm</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_2d00bf73" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="用户信息字段规则 (v1.0)">用户信息字段规则 (v1.0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_9352066d" data-depth="3">
+    <details >
+        <summary class="tree-label" title="头像: 限图片类型, 不超过2MB">头像: 限图片类型, 不超过2MB</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_97f1bbe7" data-depth="3">
+    <details >
+        <summary class="tree-label" title="first_name / last_name: 最长32个字符">first_name / last_name: 最长32个字符</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_740b3b72" data-depth="3">
+    <details >
+        <summary class="tree-label" title="username: 数据库唯一, 仅支持a-z0-9_- (小写字母/数字/中横线/下划线), 不支持大写">username: 数据库唯一, 仅支持a-z0-9_- (小写字母/数字/中横线/下划线), 不支持大写</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_8f0e59eb" data-depth="3">
+    <details >
+        <summary class="tree-label" title="昵称: 少于20个characters; 不符合规则→保持原昵称不变">昵称: 少于20个characters; 不符合规则→保持原昵称不变</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_46f78e6e" data-depth="3">
+    <details >
+        <summary class="tree-label" title="昵称含无效字符→红色提示 "Nickname contains an invalid character" (简体中文: "昵称包含无效字符")">昵称含无效字符→红色提示 "Nickname contains an invalid character" (简体中文: "昵称包含无效字符")</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_cad87240" data-depth="3">
+    <details >
+        <summary class="tree-label" title="客户端+服务端双重校验禁用字符">客户端+服务端双重校验禁用字符</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_e8acc76f" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="账号信息记录 (v1.0)">账号信息记录 (v1.0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_72f6086a" data-depth="3">
+    <details >
+        <summary class="tree-label" title="一期: 记录当前设备所在国家/地区(用于Shared Widget判断分享图片版权)">一期: 记录当前设备所在国家/地区(用于Shared Widget判断分享图片版权)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_696b51d6" data-depth="3">
+    <details >
+        <summary class="tree-label" title="后续: 设备使用语言, 登录设备信息(手机型号含非Nothing手机, PC/Mac)">后续: 设备使用语言, 登录设备信息(手机型号含非Nothing手机, PC/Mac)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_736a6b54" data-depth="3">
+    <details >
+        <summary class="tree-label" title="预留通用接口: 接入App/Widget可按规范提交需记录的信息字段">预留通用接口: 接入App/Widget可按规范提交需记录的信息字段</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_21b2b86c" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="Account 被禁用处理 (v1.0)">Account 被禁用处理 (v1.0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_dce29b66" data-depth="3">
+    <details >
+        <summary class="tree-label" title="用户手动禁用Nothing Account→SDK提供报错弹框">用户手动禁用Nothing Account→SDK提供报错弹框</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_1edccf6c" data-depth="3">
+    <details >
+        <summary class="tree-label" title="UI标题: "Account disabled notification" / "Nothing账号提醒"">UI标题: "Account disabled notification" / "Nothing账号提醒"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_dfa00d51" data-depth="3">
+    <details >
+        <summary class="tree-label" title="UI内容: "Nothing account is disabled. Please enable it and try again." / "Nothing账号被禁用, 请启用后重试。"">UI内容: "Nothing account is disabled. Please enable it and try again." / "Nothi...</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_453a2921" data-depth="3">
+    <details >
+        <summary class="tree-label" title="按钮: Cancel(取消) / Go to settings(跳转设置页)">按钮: Cancel(取消) / Go to settings(跳转设置页)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_f02d1491" data-depth="3">
+    <details >
+        <summary class="tree-label" title="三方App自行判断弹框弹出时机">三方App自行判断弹框弹出时机</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_4d6cc64c" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="Profile 页面配置 (v1.0)">Profile 页面配置 (v1.0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_9586f579" data-depth="3">
+    <details >
+        <summary class="tree-label" title="各业务可配置在Profile页面的入口(参考Experimental features实验室功能)">各业务可配置在Profile页面的入口(参考Experimental features实验室功能)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_6e8f3c59" data-depth="3">
+    <details >
+        <summary class="tree-label" title="配置信息: 图标, 名称, summary, 跳转入口链接">配置信息: 图标, 名称, summary, 跳转入口链接</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_5b05d8aa" data-depth="3">
+    <details >
+        <summary class="tree-label" title="文案需支持多语言">文案需支持多语言</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_32773d14" data-depth="3">
+    <details >
+        <summary class="tree-label" title="支持修改头像和昵称">支持修改头像和昵称</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_79b0e918" data-depth="3">
+    <details >
+        <summary class="tree-label" title="❌ Google Account入口已删除(原支持online config开关, 默认开启, 未登录跳Google sign in, 已登录跳Settings&gt;Google)">❌ Google Account入口已删除(原支持online config开关, 默认开启, 未登录跳Google sign in, 已登录跳Setti...</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_668bebc8" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="SSO 接入方 (v1.0)">SSO 接入方 (v1.0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_c9162ad5" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Nothing X app">Nothing X app</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_26787619" data-depth="3">
+    <details >
+        <summary class="tree-label" title="CMF watch app">CMF watch app</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2887b66f" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Shared widget (一期优先支持)">Shared widget (一期优先支持)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_a4df9c9a" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Community widget">Community widget</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_4b3b888e" data-depth="3">
+    <details >
+        <summary class="tree-label" title="未登录→调起Nothing account登录; 未注册→进入注册流程">未登录→调起Nothing account登录; 未注册→进入注册流程</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_adb77561" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="Source 规范 (P0)">Source 规范 (P0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_ed8dfe0f" data-depth="3">
+    <details >
+        <summary class="tree-label" title="nothing_x: Nothing X 首次注册">nothing_x: Nothing X 首次注册</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_fea53dcc" data-depth="3">
+    <details >
+        <summary class="tree-label" title="playground: Playground 首次注册">playground: Playground 首次注册</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_b1ba82e2" data-depth="3">
+    <details >
+        <summary class="tree-label" title="essential_space: Essential Space 首次注册">essential_space: Essential Space 首次注册</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_b5800faa" data-depth="3">
+    <details >
+        <summary class="tree-label" title="community: Community 首次注册">community: Community 首次注册</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_409824a3" data-depth="3">
+    <details >
+        <summary class="tree-label" title="website: WebSite 首次注册">website: WebSite 首次注册</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_04f66ea0" data-depth="3">
+    <details >
+        <summary class="tree-label" title="os_Account: Account 首次注册">os_Account: Account 首次注册</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_e3648936" data-depth="3">
+    <details >
+        <summary class="tree-label" title="share_widget: ShareWidget 首次注册">share_widget: ShareWidget 首次注册</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_13f203d2" data-depth="3">
+    <details >
+        <summary class="tree-label" title="其他: 应用名称作为source">其他: 应用名称作为source</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_09a02f45" data-depth="3">
+    <details >
+        <summary class="tree-label" title="规则: 第一次注册成功时配置, 当前已有字段后续统一清洗">规则: 第一次注册成功时配置, 当前已有字段后续统一清洗</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_59904cd5" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="Location 字段 (P0)">Location 字段 (P0)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_727bbd30" data-depth="3">
+    <details >
+        <summary class="tree-label" title="精度: 国家&amp;区域">精度: 国家&amp;区域</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_047c4f20" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Nothing X提供接口: NAC签发token→调用Nothing X获取location→返回到客户端">Nothing X提供接口: NAC签发token→调用Nothing X获取location→返回到客户端</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_67e93651" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Header: X-Aud-Nothing-X-Location: Paris">Header: X-Aud-Nothing-X-Location: Paris</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_8167bdab" data-depth="3">
+    <details >
+        <summary class="tree-label" title="新用户: 按country映射到location并生成">新用户: 按country映射到location并生成</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_16313a3e" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄未来: 某版本去掉header, 改为通过token判断location">🔄未来: 某版本去掉header, 改为通过token判断location</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_6b841c95" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="验证码策略">验证码策略</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_fedf7401" data-depth="3">
+    <details >
+        <summary class="tree-label" title="第一期: Email OTP">第一期: Email OTP</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_f99f9979" data-depth="3">
+    <details >
+        <summary class="tree-label" title="不用SMS: 触达率低, 安全性低, 成本高">不用SMS: 触达率低, 安全性低, 成本高</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2c5ecee6" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: WhatsApp (占有率高但接入复杂, 商业化论证ROI后再接入)"><span class="badge badge-future">🔄二期</span> 🔄二期: WhatsApp (占有率高但接入复杂, 商业化论证ROI后再接入)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_4d0bbf2d" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: 手机验证码 (Only for China)"><span class="badge badge-future">🔄二期</span> 🔄二期: 手机验证码 (Only for China)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_7c9ee03d" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="二次验证码规格 (全局)">二次验证码规格 (全局)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_d6bf3395" data-depth="3">
+    <details >
+        <summary class="tree-label" title="验证码: 6位数字">验证码: 6位数字</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2dfd49e5" data-depth="3">
+    <details >
+        <summary class="tree-label" title="有效时长: 60秒">有效时长: 60秒</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_86f6c353" data-depth="3">
+    <details >
+        <summary class="tree-label" title="发送限制">发送限制</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_a7358316" data-depth="3">
+    <details >
+        <summary class="tree-label" title="相同Email: 60分钟内12次请求">相同Email: 60分钟内12次请求</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_852bd13b" data-depth="3">
+    <details >
+        <summary class="tree-label" title="相同IP: 1分钟内10次请求">相同IP: 1分钟内10次请求</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_fd465128" data-depth="3">
+    <details >
+        <summary class="tree-label" title="60秒内只发一次: 即使上一次成功也不重复发送">60秒内只发一次: 即使上一次成功也不重复发送</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_9d4d78ac" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误次数达上限(10次)→触发1小时锁定">错误次数达上限(10次)→触发1小时锁定</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_c7203a53" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="安全模型">安全模型</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_3a9ba98c" data-depth="3">
+    <details >
+        <summary class="tree-label" title="生命周期管理">生命周期管理</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_defcf659" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录: 信任设备密码错误≥3次 / 非信任设备(本地/异地)">登录: 信任设备密码错误≥3次 / 非信任设备(本地/异地)</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_ac6c9620" data-depth="3">
+    <details >
+        <summary class="tree-label" title="密码修改: Email方式忘记密码">密码修改: Email方式忘记密码</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_cc3e1fbb" data-depth="3">
+    <details >
+        <summary class="tree-label" title="🔄二期: 归属地修改"><span class="badge badge-future">🔄二期</span> 🔄二期: 归属地修改</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_be4b19ee" data-depth="3">
+    <details >
+        <summary class="tree-label" title="业务支持">业务支持</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_377ea294" data-depth="3">
+    <details >
+        <summary class="tree-label" title="订阅: 体验结束/未结束启动订阅→二次验证">订阅: 体验结束/未结束启动订阅→二次验证</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2cd9a142" data-depth="3">
+    <details >
+        <summary class="tree-label" title="退订/退款: 终止订阅服务→二次验证">退订/退款: 终止订阅服务→二次验证</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_fa646936" data-depth="3">
+    <details >
+        <summary class="tree-label" title="合规&amp;安全">合规&amp;安全</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_6013cbb1" data-depth="3">
+    <details >
+        <summary class="tree-label" title="数据导出: 用户触发导出个人数据→二次验证">数据导出: 用户触发导出个人数据→二次验证</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2b5efcca" data-depth="3">
+    <details >
+        <summary class="tree-label" title="账号注销: 最终确认注销验证→二次验证">账号注销: 最终确认注销验证→二次验证</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_2bda7cae" data-depth="3">
+    <details >
+        <summary class="tree-label" title="撤销隐私同意: 二次验证确认本人操作">撤销隐私同意: 二次验证确认本人操作</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_d00567e1" data-depth="3">
+    <details >
+        <summary class="tree-label" title="变更2FA信息: 开启/关闭2FA→二次验证">变更2FA信息: 开启/关闭2FA→二次验证</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_b97c9edb" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="升级策略 (统一原则: 先升级先用)">升级策略 (统一原则: 先升级先用)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_af3888e4" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Nothing设备">Nothing设备</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_40c2eb04" data-depth="3">
+    <details >
+        <summary class="tree-label" title="业务已升级+账号未升级 → 跟随该业务入口现有体验">业务已升级+账号未升级 → 跟随该业务入口现有体验</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_25d8530e" data-depth="3">
+    <details >
+        <summary class="tree-label" title="账号已升级+业务未升级(未实现SSO) → 跟随现有体验">账号已升级+业务未升级(未实现SSO) → 跟随现有体验</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_bdefc985" data-depth="3">
+    <details >
+        <summary class="tree-label" title="账号已升级+业务未升级(已实现SSO) → 最新账号中心, 查看最新内容">账号已升级+业务未升级(已实现SSO) → 最新账号中心, 查看最新内容</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_271536f1" data-depth="3">
+    <details >
+        <summary class="tree-label" title="非Nothing设备">非Nothing设备</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_021fe760" data-depth="3">
+    <details >
+        <summary class="tree-label" title="业务已携带最新账号 → 最新账号中心内容">业务已携带最新账号 → 最新账号中心内容</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_954ce636" data-depth="3">
+    <details >
+        <summary class="tree-label" title="业务未携带最新 → 跟随现有体验">业务未携带最新 → 跟随现有体验</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_08f7826d" data-depth="3">
+    <details >
+        <summary class="tree-label" title="各功能差异">各功能差异</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_558ad70c" data-depth="3">
+    <details >
+        <summary class="tree-label" title="退出账号: 已升级端先触发, 未升级保持旧版">退出账号: 已升级端先触发, 未升级保持旧版</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_4831f123" data-depth="3">
+    <details >
+        <summary class="tree-label" title="登录二次验证: 已升级端触发, 未升级不触发">登录二次验证: 已升级端触发, 未升级不触发</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_3ad39018" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA管理态: 已升级可用, 未升级不展示">2FA管理态: 已升级可用, 未升级不展示</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_96505666" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA运行态: 已升级端触发, 未升级不触发">2FA运行态: 已升级端触发, 未升级不触发</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_977cd23a" data-depth="3">
+    <details >
+        <summary class="tree-label" title="独立二次验证: 已升级端触发, 未升级不触发">独立二次验证: 已升级端触发, 未升级不触发</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_f257c663" data-depth="3">
+    <details >
+        <summary class="tree-label" title="隐私中心: 先升级先查看新版">隐私中心: 先升级先查看新版</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_75a5bfbe" data-depth="3">
+    <details >
+        <summary class="tree-label" title="NothingAccount上架谷歌商店后可静默更新, 无需等OTA">NothingAccount上架谷歌商店后可静默更新, 无需等OTA</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_f654479e" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="API 接口">API 接口</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_e3fd3bc2" data-depth="3">
+    <details >
+        <summary class="tree-label" title="POST api/auth/login_v2">POST api/auth/login_v2</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_420aefc5" data-depth="3">
+    <details >
+        <summary class="tree-label" title="POST api/auth/register_v2">POST api/auth/register_v2</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_547f7af5" data-depth="3">
+    <details >
+        <summary class="tree-label" title="Response Header: X-Aud-Nothing-X-Location">Response Header: X-Aud-Nothing-X-Location</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_75a74df7" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA开关 API: 提供打开/关闭接口">2FA开关 API: 提供打开/关闭接口</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_72d6566d" data-depth="3">
+    <details >
+        <summary class="tree-label" title="红点 API: 服务端新增接口, 按账号维度管理">红点 API: 服务端新增接口, 按账号维度管理</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_17c50917" data-depth="3">
+    <details >
+        <summary class="tree-label" title="接口认证偶发401: 旧代码问题, 同步token到kafka后旧refresh token延迟失效">接口认证偶发401: 旧代码问题, 同步token到kafka后旧refresh token延迟失效</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_e7137a57" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="其他规则">其他规则</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_cf11d346" data-depth="3">
+    <details >
+        <summary class="tree-label" title="退出账号后60秒内重新登录: 允许">退出账号后60秒内重新登录: 允许</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_1d29e0db" data-depth="3">
+    <details >
+        <summary class="tree-label" title="刚开启2FA允许立即关闭">刚开启2FA允许立即关闭</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_e645af5f" data-depth="3">
+    <details >
+        <summary class="tree-label" title="多端同时2FA操作: 逻辑上不允许, Server端原子化操作">多端同时2FA操作: 逻辑上不允许, Server端原子化操作</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_36fc1d84" data-depth="3">
+    <details >
+        <summary class="tree-label" title="2FA开关: 同步跟账号走, 不跟设备走">2FA开关: 同步跟账号走, 不跟设备走</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_8e159264" data-depth="3">
+    <details >
+        <summary class="tree-label" title="底部按钮位置: 固定不随内容滑动">底部按钮位置: 固定不随内容滑动</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_4a747444" data-depth="3">
+    <details >
+        <summary class="tree-label" title="正确验证码未超时: 即使之前输错过也可以用">正确验证码未超时: 即使之前输错过也可以用</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_2b12f4f3" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="🔄二期: 第三方登录忘记&amp;修改密码友好提示"><span class="badge badge-future">🔄二期</span> 🔄二期: 第三方登录忘记&amp;修改密码友好提示</summary>
+        
+    </details>
+</li><li class="tree-item category-node" data-id="n_6e967577" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="🔄二期: 归属地修改 (触发二次验证)"><span class="badge badge-future">🔄二期</span> 🔄二期: 归属地修改 (触发二次验证)</summary>
+        
+    </details>
+</li><li class="tree-item category-node" data-id="n_dc6dc628" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="🔄二期: 手机验证码 (Only for China, 成本模拟中)"><span class="badge badge-future">🔄二期</span> 🔄二期: 手机验证码 (Only for China, 成本模拟中)</summary>
+        
+    </details>
+</li><li class="tree-item category-node" data-id="n_4afe1d84" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="🔄二期: WhatsApp验证码 (ROI论证后接入)"><span class="badge badge-future">🔄二期</span> 🔄二期: WhatsApp验证码 (ROI论证后接入)</summary>
+        
+    </details>
+</li><li class="tree-item category-node" data-id="n_83417e84" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="🔄二期: 修改密码功能 (第一期走FAQ)"><span class="badge badge-future">🔄二期</span> 🔄二期: 修改密码功能 (第一期走FAQ)</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+</div><div class="column column-right">
+    <h2 class="column-title">验证码异常场景速查表</h2>
+    <ul class="tree-root"><li class="tree-item section-node side-right" data-id="n_bcb01905" data-depth="1">
+    <details open>
+        <summary class="tree-label" title="验证码异常场景速查表">验证码异常场景速查表</summary>
+        <ul class="tree-children"><li class="tree-item category-node" data-id="n_8776d041" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="登录时非授信设备二次验证">登录时非授信设备二次验证</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_6e4b0b2a" data-depth="3">
+    <details >
+        <summary class="tree-label" title="正常: "Enter the 6-digit code sent to xx****@nothing.tech" + 60s倒计时重发">正常: "Enter the 6-digit code sent to xx****@nothing.tech" + 60s倒计时重发</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_d96286dd" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误1-10次: "Incorrect verification code"">错误1-10次: "Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_b5910443" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误达上限(界面内): "Too many failed attempts. Verification is suspended temporarily. Please try again in one hour."">错误达上限(界面内): "Too many failed attempts. Verification is suspended temporarily....</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_0c9b61b1" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误上限后返回再触发: 重新登录→弹窗→"For security reasons, login is temporarily suspended due to too many failed attempts. Please try again in one hour." →不进入验证码界面">错误上限后返回再触发: 重新登录→弹窗→"For security reasons, login is temporarily suspended due...</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_4e7d2b59" data-depth="3">
+    <details >
+        <summary class="tree-label" title="获取上限(界面内): 同错误达上限">获取上限(界面内): 同错误达上限</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_c6d2382c" data-depth="3">
+    <details >
+        <summary class="tree-label" title="获取上限后返回再触发: 回到登录页点下一步→弹窗拦截">获取上限后返回再触发: 回到登录页点下一步→弹窗拦截</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_698aefab" data-depth="3">
+    <details >
+        <summary class="tree-label" title="请求过于频繁: "Requested too many times, please try again later" →点Understand消失">请求过于频繁: "Requested too many times, please try again later" →点Understand消失</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_79292bf1" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="2FA二次验证 (仅海外)">2FA二次验证 (仅海外)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_26a1e37a" data-depth="3">
+    <details >
+        <summary class="tree-label" title="正常: "Two factor authentication — Enter the 6-digit code sent to xx****@nothing.tech"">正常: "Two factor authentication — Enter the 6-digit code sent to xx****@nothin...</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_c7a80ace" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误1-10次: "Incorrect verification code"">错误1-10次: "Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_b2d745d4" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误达上限: "Too many failed attempts. Verification is suspended temporarily. Please try again in one hour."">错误达上限: "Too many failed attempts. Verification is suspended temporarily. Plea...</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_61b7aa2b" data-depth="3">
+    <details >
+        <summary class="tree-label" title="触发账号锁: 重新登录→弹窗拦截">触发账号锁: 重新登录→弹窗拦截</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_2583d857" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="退出账号二次验证 (仅Nothing客户端)">退出账号二次验证 (仅Nothing客户端)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_8cc38682" data-depth="3">
+    <details >
+        <summary class="tree-label" title="正常: 同登录非授信设备验证码">正常: 同登录非授信设备验证码</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_b27b8286" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误1-10次: "Incorrect verification code"">错误1-10次: "Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_4a45df49" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误达上限: 仍弹窗但不下发验证码(空白不可输入) + "验证码错误次数过多, 请稍后重试" + Understand→关闭回首页">错误达上限: 仍弹窗但不下发验证码(空白不可输入) + "验证码错误次数过多, 请稍后重试" + Understand→关闭回首页</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_7729a794" data-depth="3">
+    <details >
+        <summary class="tree-label" title="获取上限后: "The number of attempts to obtain a verification code has exceeded the limit. Please try again after one hour." + Understand→关闭回首页">获取上限后: "The number of attempts to obtain a verification code has exceeded the...</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_40823cb5" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="注册验证码">注册验证码</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_67ca0ea6" data-depth="3">
+    <details >
+        <summary class="tree-label" title="正常: 同登录验证码流程">正常: 同登录验证码流程</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_1e9d33cb" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误1-10次: "Incorrect verification code"">错误1-10次: "Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_46c64620" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误达上限: 输入邮箱号点继续前就弹窗拦截: "验证码错误次数过多, 请稍后重试"">错误达上限: 输入邮箱号点继续前就弹窗拦截: "验证码错误次数过多, 请稍后重试"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_ffbfacca" data-depth="3">
+    <details >
+        <summary class="tree-label" title="获取上限后: 点继续前弹窗: "The number of attempts to obtain a verification code has exceeded the limit. Please try again after one hour."">获取上限后: 点继续前弹窗: "The number of attempts to obtain a verification code has exce...</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_db9feb66" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="开启/关闭2FA验证码 (仅海外)">开启/关闭2FA验证码 (仅海外)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_7f24f5f2" data-depth="3">
+    <details >
+        <summary class="tree-label" title="正常: "New code sent" → 输入验证码">正常: "New code sent" → 输入验证码</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_e1ede268" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误1-10次: "Incorrect verification code"">错误1-10次: "Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_7f626b39" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误达上限: 点击开启/关闭时即弹窗→"验证码错误次数过多, 请稍后重试"">错误达上限: 点击开启/关闭时即弹窗→"验证码错误次数过多, 请稍后重试"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_263c2be7" data-depth="3">
+    <details >
+        <summary class="tree-label" title="获取上限后: 弹窗: "The number of attempts to obtain a verification code has exceeded the limit. Please try again after one hour."">获取上限后: 弹窗: "The number of attempts to obtain a verification code has exceeded...</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li><li class="tree-item category-node" data-id="n_e2fb6c4c" data-depth="2">
+    <details open>
+        <summary class="tree-label" title="删除账号验证码 (所有端)">删除账号验证码 (所有端)</summary>
+        <ul class="tree-children"><li class="tree-item sub-node" data-id="n_f41eff07" data-depth="3">
+    <details >
+        <summary class="tree-label" title="正常: "New code sent" → 输入验证码">正常: "New code sent" → 输入验证码</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_201a407d" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误1-10次: "Incorrect verification code"">错误1-10次: "Incorrect verification code"</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_15ae10ba" data-depth="3">
+    <details >
+        <summary class="tree-label" title="错误达上限: 仍弹窗但不下发验证码(空白不可输入) + "验证码错误次数过多, 请稍后重试" + Understand→关闭">错误达上限: 仍弹窗但不下发验证码(空白不可输入) + "验证码错误次数过多, 请稍后重试" + Understand→关闭</summary>
+        
+    </details>
+</li><li class="tree-item sub-node" data-id="n_a2a073ae" data-depth="3">
+    <details >
+        <summary class="tree-label" title="获取上限后: Understand→关闭弹窗">获取上限后: Understand→关闭弹窗</summary>
+        
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+    </details>
+</li></ul>
+</div>
+</div>
+
+<script>
+// --- Search ---
+function doSearch() {
+    const q = document.getElementById('search').value.trim().toLowerCase();
+    const labels = document.querySelectorAll('.tree-label');
+    if (!q) {
+        labels.forEach(l => { l.classList.remove('highlight', 'dim'); });
+        return;
+    }
+    labels.forEach(l => {
+        if (l.textContent.toLowerCase().includes(q)) {
+            l.classList.add('highlight');
+            l.classList.remove('dim');
+            // Expand ancestors
+            let el = l.closest('details');
+            while (el) {
+                el.open = true;
+                el = el.parentElement.closest('details');
+            }
+            // Scroll into view
+            l.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            l.classList.remove('highlight');
+            l.classList.add('dim');
+        }
+    });
+}
+
+// --- Expand/Collapse all ---
+function expandAll() {
+    document.querySelectorAll('details').forEach(d => d.open = true);
+}
+function collapseAll() {
+    document.querySelectorAll('details').forEach(d => {
+        const depth = parseInt(d.closest('.tree-item')?.dataset?.depth || '0');
+        if (depth >= 1) d.open = false;
+    });
+}
+function resetView() {
+    document.getElementById('search').value = '';
+    document.querySelectorAll('.tree-label').forEach(l => l.classList.remove('highlight', 'dim'));
+    // Collapse deeper nodes, expand shallow
+    document.querySelectorAll('details').forEach(d => {
+        const depth = parseInt(d.closest('.tree-item')?.dataset?.depth || '0');
+        d.open = depth < 2;
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// --- Keyboard shortcuts ---
+document.addEventListener('keydown', e => {
+    if ((e.key === 'f' || e.key === 'F') && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        document.getElementById('search').focus();
+    }
+    if (e.key === 'Escape') {
+        resetView();
+    }
+});
+
+console.log('✅ Nothing Account 账号基线思维导图已就绪');
+console.log('   节点总数: 438');
+console.log('   💡 点击 ▶ 展开/折叠 | Ctrl+F 搜索 | 全部展开/折叠按钮');
+</script>
+</body>
+</html>

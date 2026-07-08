@@ -1,0 +1,228 @@
+mindmap
+  root((Nothing Account 账号基线))
+        中国区 （CN）
+            Nothing 客户端 （Nothing Phone）
+                注册
+                登录
+                SSO （统登统退）
+                2FA （二次验证） — ❌ 中国区不支持
+                非授信设备二次验证
+                退出账号
+                删除账号
+                隐私中心
+                设备信任管理
+                忘记密码
+                独立验证码UI
+                🔄二期： 归属地修改
+                🔄二期： 手机验证码 （Only for China）
+                🔄二期： WhatsApp验证码接入
+                🔄二期： 第三方登录忘记&修改密码友好提示
+            出端 APP （非Nothing手机）
+                适用App
+                登录
+                2FA — ❌ 中国区不支持
+                退出账号
+                删除账号
+                隐私中心 — 精简版
+                SDK 切换逻辑
+                升级策略
+            Web 端
+                全局规则： 不区分CN和Intl
+                登录
+                2FA
+                删除账号
+                隐私中心
+                退出账号
+                升级策略
+        海外 （Intl）
+            Nothing 客户端 （Nothing Phone）
+                注册
+                登录
+                SSO （统登统退）
+                2FA （二次验证） ✅ 完整支持
+                非授信设备二次验证
+                退出账号
+                删除账号
+                隐私中心
+                引导开启2FA
+                小红点逻辑
+                🔄二期： 归属地修改
+                🔄二期： WhatsApp验证码接入
+            出端 APP （非Nothing手机）
+                适用App
+                登录
+                2FA ✅
+                退出账号
+                删除账号
+                隐私中心 — intl精简版
+                SDK 切换逻辑
+                升级策略
+            Web 端
+                全局规则： 不区分CN和Intl
+                登录
+                2FA
+                账号中心
+                升级策略
+        通用 （跨区域）
+            密码规则 （v1.0+）
+                用户端要求： 8-30 characters, 至少1个大写字母+1个小写字母+1个数字+1个...
+                服务端限制： 加密后6-30位
+                密码错误≥3次（服务端计算）→触发二次验证
+                无账号禁用功能, 错误次数超限不会暂停账号
+                修改密码后： 其他设备token失效, 需重新登录
+            速率限制细则 （v1.0 服务端规则）
+                登录： 同Email 60分钟内最多12次; 同IP 1分钟内最多60次
+                注册： 同IP 60分钟内最多12次
+                忘记密码： 同Email 60分钟内最多12次; 同IP 1分钟内最多10次
+                邮件验证码发送&验证： 同Email 60分钟内最多12次; 同IP 1分钟内最多10次
+                账号不会因错误次数而被暂停使用
+            设备登录限制 （v1.0）
+                Nothing X / CMF watch： 仅限1台设备登录
+                在新设备登录→上一台设备token自动失效
+                Nothing Phone 上可多台设备登录同账号（不同业务App通过SSO）
+            语言与邮件支持 （v1.0）
+                邮件类型： Verify Account（验证账号） / Welcome（欢迎） / Rese...
+                支持语言： 英语, 西班牙语, 德语, 意大利语, 法语, 日语, 韩语, 繁体中文（台湾）,...
+                列表没有的语言默认使用English
+                阿拉伯语邮件模板对应英文内容
+                语言代码参考： http：//www.lingoes.net/zh/translator/la...
+            用户信息字段规则 （v1.0）
+                头像： 限图片类型, 不超过2MB
+                first_name / last_name： 最长32个字符
+                username： 数据库唯一, 仅支持a-z0-9_- （小写字母/数字/中横线/下划线）,...
+                昵称： 少于20个characters; 不符合规则→保持原昵称不变
+                昵称含无效字符→红色提示 'Nickname contains an invalid char...
+                客户端+服务端双重校验禁用字符
+            账号信息记录 （v1.0）
+                一期： 记录当前设备所在国家/地区（用于Shared Widget判断分享图片版权）
+                后续： 设备使用语言, 登录设备信息（手机型号含非Nothing手机, PC/Mac）
+                预留通用接口： 接入App/Widget可按规范提交需记录的信息字段
+            Account 被禁用处理 （v1.0）
+                用户手动禁用Nothing Account→SDK提供报错弹框
+                UI标题： 'Account disabled notification' / 'Nothin...
+                UI内容： 'Nothing account is disabled. Please enab...
+                按钮： Cancel（取消） / Go to settings（跳转设置页）
+                三方App自行判断弹框弹出时机
+            Profile 页面配置 （v1.0）
+                各业务可配置在Profile页面的入口（参考Experimental features实验室功能）
+                配置信息： 图标, 名称, summary, 跳转入口链接
+                文案需支持多语言
+                支持修改头像和昵称
+                ❌ Google Account入口已删除（原支持online config开关, 默认开启,...
+            SSO 接入方 （v1.0）
+                Nothing X app
+                CMF watch app
+                Shared widget （一期优先支持）
+                Community widget
+                未登录→调起Nothing account登录; 未注册→进入注册流程
+            Source 规范 （P0）
+                nothing_x： Nothing X 首次注册
+                playground： Playground 首次注册
+                essential_space： Essential Space 首次注册
+                community： Community 首次注册
+                website： WebSite 首次注册
+                os_Account： Account 首次注册
+                share_widget： ShareWidget 首次注册
+                其他： 应用名称作为source
+                规则： 第一次注册成功时配置, 当前已有字段后续统一清洗
+            Location 字段 （P0）
+                精度： 国家&区域
+                Nothing X提供接口： NAC签发token→调用Nothing X获取location...
+                Header： X-Aud-Nothing-X-Location： Paris
+                新用户： 按country映射到location并生成
+                🔄未来： 某版本去掉header, 改为通过token判断location
+            验证码策略
+                第一期： Email OTP
+                不用SMS： 触达率低, 安全性低, 成本高
+                🔄二期： WhatsApp （占有率高但接入复杂, 商业化论证ROI后再接入）
+                🔄二期： 手机验证码 （Only for China）
+            二次验证码规格 （全局）
+                验证码： 6位数字
+                有效时长： 60秒
+                发送限制
+                相同Email： 60分钟内12次请求
+                相同IP： 1分钟内10次请求
+                60秒内只发一次： 即使上一次成功也不重复发送
+                错误次数达上限（10次）→触发1小时锁定
+            安全模型
+                生命周期管理
+                登录： 信任设备密码错误≥3次 / 非信任设备（本地/异地）
+                密码修改： Email方式忘记密码
+                🔄二期： 归属地修改
+                业务支持
+                订阅： 体验结束/未结束启动订阅→二次验证
+                退订/退款： 终止订阅服务→二次验证
+                合规&安全
+                数据导出： 用户触发导出个人数据→二次验证
+                账号注销： 最终确认注销验证→二次验证
+                撤销隐私同意： 二次验证确认本人操作
+                变更2FA信息： 开启/关闭2FA→二次验证
+            升级策略 （统一原则： 先升级先用）
+                Nothing设备
+                业务已升级+账号未升级 → 跟随该业务入口现有体验
+                账号已升级+业务未升级（未实现SSO） → 跟随现有体验
+                账号已升级+业务未升级（已实现SSO） → 最新账号中心, 查看最新内容
+                非Nothing设备
+                业务已携带最新账号 → 最新账号中心内容
+                业务未携带最新 → 跟随现有体验
+                各功能差异
+                退出账号： 已升级端先触发, 未升级保持旧版
+                登录二次验证： 已升级端触发, 未升级不触发
+                2FA管理态： 已升级可用, 未升级不展示
+                2FA运行态： 已升级端触发, 未升级不触发
+                独立二次验证： 已升级端触发, 未升级不触发
+                隐私中心： 先升级先查看新版
+                NothingAccount上架谷歌商店后可静默更新, 无需等OTA
+            API 接口
+                POST api/auth/login_v2
+                POST api/auth/register_v2
+                Response Header： X-Aud-Nothing-X-Location
+                2FA开关 API： 提供打开/关闭接口
+                红点 API： 服务端新增接口, 按账号维度管理
+                接口认证偶发401： 旧代码问题, 同步token到kafka后旧refresh token延迟失效
+            其他规则
+                退出账号后60秒内重新登录： 允许
+                刚开启2FA允许立即关闭
+                多端同时2FA操作： 逻辑上不允许, Server端原子化操作
+                2FA开关： 同步跟账号走, 不跟设备走
+                底部按钮位置： 固定不随内容滑动
+                正确验证码未超时： 即使之前输错过也可以用
+            🔄二期： 第三方登录忘记&修改密码友好提示
+            🔄二期： 归属地修改 （触发二次验证）
+            🔄二期： 手机验证码 （Only for China, 成本模拟中）
+            🔄二期： WhatsApp验证码 （ROI论证后接入）
+            🔄二期： 修改密码功能 （第一期走FAQ）
+        验证码异常场景速查表
+            登录时非授信设备二次验证
+                正常： 'Enter the 6-digit code sent to xx****@noth...
+                错误1-10次： 'Incorrect verification code'
+                错误达上限（界面内）： 'Too many failed attempts. Verifica...
+                错误上限后返回再触发： 重新登录→弹窗→'For security reasons, logi...
+                获取上限（界面内）： 同错误达上限
+                获取上限后返回再触发： 回到登录页点下一步→弹窗拦截
+                请求过于频繁： 'Requested too many times, please try a...
+            2FA二次验证 （仅海外）
+                正常： 'Two factor authentication — Enter the 6-di...
+                错误1-10次： 'Incorrect verification code'
+                错误达上限： 'Too many failed attempts. Verification ...
+                触发账号锁： 重新登录→弹窗拦截
+            退出账号二次验证 （仅Nothing客户端）
+                正常： 同登录非授信设备验证码
+                错误1-10次： 'Incorrect verification code'
+                错误达上限： 仍弹窗但不下发验证码（空白不可输入） + '验证码错误次数过多, 请稍后重试' ...
+                获取上限后： 'The number of attempts to obtain a veri...
+            注册验证码
+                正常： 同登录验证码流程
+                错误1-10次： 'Incorrect verification code'
+                错误达上限： 输入邮箱号点继续前就弹窗拦截： '验证码错误次数过多, 请稍后重试'
+                获取上限后： 点继续前弹窗： 'The number of attempts to obtai...
+            开启/关闭2FA验证码 （仅海外）
+                正常： 'New code sent' → 输入验证码
+                错误1-10次： 'Incorrect verification code'
+                错误达上限： 点击开启/关闭时即弹窗→'验证码错误次数过多, 请稍后重试'
+                获取上限后： 弹窗： 'The number of attempts to obtain a ...
+            删除账号验证码 （所有端）
+                正常： 'New code sent' → 输入验证码
+                错误1-10次： 'Incorrect verification code'
+                错误达上限： 仍弹窗但不下发验证码（空白不可输入） + '验证码错误次数过多, 请稍后重试' ...
+                获取上限后： Understand→关闭弹窗

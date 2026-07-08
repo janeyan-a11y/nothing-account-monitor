@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>jsMind Test</title>
+<style>#container{width:100vw;height:100vh;}</style></head>
+<body><div id="container"></div>
+<script src="jsmind.js"></script>
+<script>
+try {
+  var mind = {meta:{name:"test",version:"1.0"},format:"node_tree",data:{id:"root",topic:"Root",children:[
+    {id:"a",topic:"Child A",direction:"left",children:[{id:"a1",topic:"A1"}]},
+    {id:"b",topic:"Child B",direction:"right",children:[{id:"b1",topic:"B1"}]}
+  ]}};
+  var jm = new jsMind({container:'container',theme:'primary',editable:false,
+    view:{hmargin:100,vmargin:50,line_width:2,draggable:false}});
+  jm.show(mind);
+  console.log('OK, nodes:', Object.keys(jm.nodes||{}).length);
+} catch(e) { document.getElementById('container').innerHTML='ERROR: '+e.message; console.error(e); }
+</script></body></html>
