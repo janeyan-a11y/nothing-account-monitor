@@ -271,8 +271,11 @@ def generate_dashboard() -> str:
   </div>
 
 </div>
+</body>
+</html>"""
 
-<script>
+    # JS 翻译脚本单独拼接（避免 f-string 转义问题）
+    dashboard_html += """<script>
 var _t=false, _api='https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&dt=t&q=';
 async function toggleTranslate(){var b=document.getElementById('btnTranslate'),els=document.querySelectorAll('.mention-text');
 if(_t){els.forEach(function(el){if(el.dataset.o){el.textContent=el.dataset.o;el.removeAttribute('data-o');}});b.textContent='🌐 翻译成中文';b.classList.remove('active');_t=false;}
@@ -280,11 +283,9 @@ else{b.textContent='翻译中...';b.disabled=true;
 for(var i=0;i<els.length;i++){var el=els[i],orig=el.textContent.trim();if(!orig||orig.length<5)continue;if(!el.dataset.o)el.dataset.o=orig;
 try{var r=await fetch(_api+encodeURIComponent(orig.substring(0,1500)));var d=await r.json();var t=d[0].filter(function(x){return x[0]}).map(function(x){return x[0]}).join('');if(t)el.textContent=t;}catch(e){}}
 b.textContent='🔤 显示原文';b.classList.add('active');b.disabled=false;_t=true;}}
-</script>
-</body>
-</html>"""
-
+</script>"""
     return dashboard_html
+
 
 
 def save_dashboard() -> str:
