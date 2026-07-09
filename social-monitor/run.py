@@ -99,8 +99,39 @@ def run_fetch():
     except Exception as e:
         print(f"  ⚠ Community 跳过: {e}")
 
-    # --- 后续平台在这里添加 ---
-    # YouTube, Google Alerts...
+    # --- YouTube ---
+    print("[4] YouTube 搜索...")
+    try:
+        from fetchers.youtube_fetcher import search_youtube, check_youtube_status
+        yt_status = check_youtube_status()
+        if yt_status["connected"]:
+            print(f"  ✓ API 已连接")
+            yt_videos = search_youtube()
+            print(f"  → 抓到 {len(yt_videos)} 个视频")
+            all_new.extend(yt_videos)
+        else:
+            print(f"  ⚠ 跳过: {yt_status.get('error', 'Unknown')}")
+    except ImportError as e:
+        print(f"  ⚠ 缺少依赖: {e}")
+    except Exception as e:
+        print(f"  ⚠ YouTube 跳过: {e}")
+
+    # --- Bluesky ---
+    print("[5] Bluesky 搜索...")
+    try:
+        from fetchers.bluesky_fetcher import search_bluesky, check_bluesky_status
+        b_status = check_bluesky_status()
+        if b_status["connected"]:
+            print(f"  ✓ API 已连接")
+            bsky_posts = search_bluesky()
+            print(f"  → 抓到 {len(bsky_posts)} 条帖子")
+            all_new.extend(bsky_posts)
+        else:
+            print(f"  ⚠ 跳过: {b_status.get('error', 'Unknown')}")
+    except ImportError as e:
+        print(f"  ⚠ 缺少依赖: {e}")
+    except Exception as e:
+        print(f"  ⚠ Bluesky 跳过: {e}")
 
     print()
 

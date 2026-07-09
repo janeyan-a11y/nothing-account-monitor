@@ -57,6 +57,9 @@ X_API_KEY = os.environ.get("X_API_KEY", "")
 X_EMAIL = os.environ.get("X_EMAIL", "")
 X_PASSWORD = os.environ.get("X_PASSWORD", "")
 
+# YouTube Data API v3
+YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
+
 # ============================================================
 # 数据路径
 # ============================================================
