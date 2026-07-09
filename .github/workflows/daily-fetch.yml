@@ -8,6 +8,10 @@ on:
     - cron: "17 0 * * *" # UTC 0:17 (避开整点高峰)
   workflow_dispatch: # 允许手动触发
 
+permissions:
+  contents: write
+  pages: write
+
 jobs:
   fetch-and-deploy:
     runs-on: ubuntu-latest
@@ -28,6 +32,8 @@ jobs:
 
       - name: Run fetch
         working-directory: social-monitor
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python run.py
 
       - name: Deploy to GitHub Pages
