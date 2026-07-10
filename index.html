@@ -13,6 +13,7 @@
   .container { max-width: 960px; margin: 0 auto; }
   h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
   .subtitle { color: #999; font-size: 0.85rem; margin-bottom: 24px; }
+  .alert-banner { background:#fff3f3; border:1px solid #ffc9c9; border-radius:8px; padding:12px 18px; margin-bottom:16px; color:#d32f2f; font-size:0.9rem; font-weight:600; }
 
   /* 统计卡片 */
   .stats-grid { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
@@ -39,6 +40,10 @@
   .platform-badge { color:#fff; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600; }
   .platform-reddit { background:#ff4500; }
   .platform-community { background:#1d4ed8; }
+  .sent-badge { padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600; }
+  .sent-positive { background:#e6f7e6; color:#2d8a2d; }
+  .sent-negative { background:#ffe6e6; color:#d32f2f; }
+  .sent-neutral { background:#f0f0f0; color:#888; }
   .author { color:#333; }
   .username { color:#999; margin-left:4px; }
   .followers { color:#bbb; font-size:0.7rem; margin-left:6px; }
@@ -70,7 +75,7 @@
 <div class="container">
 
   <h1>🔍 Nothing Account 社媒舆情看板</h1>
-  <div class="subtitle">最后更新: 2026-07-10 01:44 UTC · 监控来源: Reddit + Community + YouTube + Bluesky · 每日自动刷新</div>
+  <div class="subtitle">最后更新: 2026-07-10 06:25 UTC · 监控来源: Reddit + Community + YouTube + Bluesky · 每日自动刷新</div>
   <div class="translate-bar">
     <button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button>
   </div>
@@ -86,14 +91,20 @@
       <div class="label">今日新增</div>
     </div>
     <div class="stat-card">
-      <div class="number">19.3</div>
-      <div class="label">平均点赞</div>
+      <div class="number">88.9%</div>
+      <div class="label">负面占比</div>
     </div>
     <div class="stat-card">
       <div class="label" style="margin-top:4px;">平台分布</div>
       <div style="margin-top:8px;"><span class="stat-chip">Bluesky: 1</span><span class="stat-chip">Nothing Community: 2</span><span class="stat-chip">Reddit: 3</span><span class="stat-chip">YouTube: 3</span></div>
     </div>
+    <div class="stat-card" style="flex:2;min-width:280px;">
+      <div class="label" style="margin-top:4px;">情感分布</div>
+      <div style="margin-top:8px;"><span class="stat-chip" style="color:#d32f2f">🔴 负面 8</span><span class="stat-chip" style="color:#2d8a2d">😊 正面 0</span><span class="stat-chip">➖ 中性 1</span></div>
+    </div>
   </div>
+
+  <div class="alert-banner">⚠️ 负面占比 88.9%，超过警戒线 30%，建议关注</div>
 
   <!-- 趋势图 -->
   
@@ -150,6 +161,7 @@
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-community">Bluesky</span>
+                <span class="sent-badge sent-neutral">➖ 中性</span>
                 <span class="author">
                   <strong>Saunders Technology</strong>
                   <span class="username">@saunders-tech.bsky.social</span>
@@ -169,6 +181,7 @@
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-community">Nothing Community</span>
+                <span class="sent-badge sent-negative">🔴 负面</span>
                 <span class="author">
                   <strong>removal-feel-imply</strong>
                   <span class="username">@removal-feel-imply</span>
@@ -190,6 +203,7 @@ Every single time I try to use essential space I am greeted with this error: Acc
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-reddit">Reddit</span>
+                <span class="sent-badge sent-negative">🔴 负面</span>
                 <span class="author">
                   <strong>Scbadiver</strong>
                   <span class="username">@Scbadiver</span>
@@ -211,6 +225,7 @@ This article discusses how Nothing Technology Limited failed to file its account
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-reddit">Reddit</span>
+                <span class="sent-badge sent-negative">🔴 负面</span>
                 <span class="author">
                   <strong>SpareChange_117</strong>
                   <span class="username">@SpareChange_117</span>
@@ -232,6 +247,7 @@ Anyone else annoyed that the Nothing X app now requires sign-in? I just want to 
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-reddit">Reddit</span>
+                <span class="sent-badge sent-negative">🔴 负面</span>
                 <span class="author">
                   <strong>du-bist-git-genug</strong>
                   <span class="username">@du-bist-git-genug</span>
@@ -253,6 +269,7 @@ I have two Nothing accounts and want to use both on the same phone. Is this poss
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-community">Nothing Community</span>
+                <span class="sent-badge sent-negative">🔴 负面</span>
                 <span class="author">
                   <strong>Akash_Meher</strong>
                   <span class="username">@Akash_Meher</span>
@@ -274,6 +291,7 @@ while adding gmail account from settings it show Exchange instead of gmail how c
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-community">YouTube</span>
+                <span class="sent-badge sent-negative">🔴 负面</span>
                 <span class="author">
                   <strong>IrFan Decode </strong>
                   <span class="username">@IrFan Decode </span>
@@ -295,6 +313,7 @@ Fix Your account will be delete in 29 day problem nothing phone | how to recover
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-community">YouTube</span>
+                <span class="sent-badge sent-negative">🔴 负面</span>
                 <span class="author">
                   <strong>IrFan Decode </strong>
                   <span class="username">@IrFan Decode </span>
@@ -316,6 +335,7 @@ Fix Your account will be delete in 29 day problem nothing phone | how to recover
             <div class="mention-card">
               <div class="mention-header">
                 <span class="platform-badge platform-community">YouTube</span>
+                <span class="sent-badge sent-negative">🔴 负面</span>
                 <span class="author">
                   <strong>Technical Manoj</strong>
                   <span class="username">@Technical Manoj</span>
