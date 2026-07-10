@@ -14,6 +14,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-
 h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
 .subtitle { color: #999; font-size: 0.85rem; margin-bottom: 16px; }
 
+/* 每日摘要 */
+.daily-summary { background: #f0f7ff; border: 1px solid #c5d9f0; border-radius: 10px; padding: 14px 18px; margin-bottom: 16px; font-size: 0.95rem; color: #333; line-height: 1.6; }
+.daily-summary strong { color: #1a56db; }
+
+/* 抓取状态 */
+.status-bar { display:flex; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
+.status-chip { display:inline-block; background:#f8f9fa; border:1px solid #e8e8e8; border-radius:6px; padding:4px 10px; font-size:0.78rem; color:#666; }
+
 /* 工具栏 */
 .toolbar { display:flex; gap:10px; margin-bottom:16px; flex-wrap:wrap; align-items:center; }
 .toolbar input, .toolbar select, .toolbar button { padding:8px 12px; border:1px solid #ddd; border-radius:6px; font-size:0.85rem; background:#fff; }
@@ -24,25 +32,26 @@ h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
 .toolbar .btn-export { background:#fff; color:#2563eb; }
 .toolbar .btn-export:hover { background:#eef4ff; }
 
-/* 筛选按钮 */
 .filter-bar { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
 .filter-chip { padding:6px 14px; border:1px solid #ddd; border-radius:20px; font-size:0.8rem; cursor:pointer; background:#fff; transition:all .2s; }
 .filter-chip:hover, .filter-chip.active { background:#2563eb; color:#fff; border-color:#2563eb; }
 
 .alert-banner { background:#fff3f3; border:1px solid #ffc9c9; border-radius:8px; padding:12px 18px; margin-bottom:16px; color:#d32f2f; font-size:0.9rem; font-weight:600; }
 
-/* 统计卡片 */
+/* Stats */
 .stats-grid { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
 .stat-card { background: #f8f9fa; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px 20px; min-width: 140px; flex: 1; }
 .stat-card .number { font-size: 2rem; font-weight: 700; color: #111; }
 .stat-card .num-spike { color: #d32f2f; animation: pulse 1s infinite; }
-@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+@keyframes pulse { 0%,100% {opacity:1;} 50% {opacity:0.5;} }
 .stat-card .label { color: #888; font-size: 0.8rem; margin-top: 4px; }
-.stat-chip { display: inline-block; background: #eef1f5; padding: 2px 8px; border-radius: 4px; margin: 2px; font-size: 0.8rem; color: #444; cursor:pointer; }
+.stat-card .trend-up { color:#d32f2f; }
+.stat-card .trend-down { color:#2d8a2d; }
+.stat-chip { display: inline-block; background: #eef1f5; padding: 2px 8px; border-radius: 4px; margin: 2px; font-size: 0.8rem; color: #444; cursor:pointer; transition:all .2s; }
 .stat-chip:hover { background:#dde3f0; }
 .stat-chip.active-chip { background:#2563eb; color:#fff; }
 
-/* 趋势图 */
+/* Trend */
 .trend-section { background: #f8f9fa; border: 1px solid #e8e8e8; border-radius: 10px; padding: 20px; margin-bottom: 24px; }
 .trend-section h3 { margin-bottom: 16px; font-size: 1rem; color: #333; }
 .bar-chart { display: flex; gap: 12px; align-items: flex-end; height: 160px; }
@@ -51,36 +60,28 @@ h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
 .bar-fill { background: linear-gradient(180deg, #5b9bd5, #2563eb); border-radius: 4px 4px 0 0; width: 100%; max-width: 50px; min-height: 4px; transition: height .3s; }
 .bar-label { font-size: 0.7rem; color: #aaa; margin-top: 6px; }
 
-/* 帖子卡片 */
+/* Cards */
 .mentions-section { margin-bottom: 24px; }
 .mentions-section h3 { font-size: 1rem; color: #333; margin-bottom: 12px; }
 .mention-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px; margin-bottom: 10px; transition: box-shadow .2s; }
 .mention-card:hover { border-color: #2563eb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 .mention-header { display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:0.85rem; flex-wrap:wrap; }
 .platform-badge { color:#fff; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600; }
-.platform-reddit { background:#ff4500; }
-.platform-community { background:#1d4ed8; }
-.platform-youtube { background:#ff0000; }
-.platform-bluesky { background:#1083fe; }
+.platform-reddit { background:#ff4500; } .platform-community { background:#1d4ed8; }
+.platform-youtube { background:#ff0000; } .platform-bluesky { background:#1083fe; }
 .sent-badge { padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600; }
 .sent-positive { background:#e6f7e6; color:#2d8a2d; }
 .sent-negative { background:#ffe6e6; color:#d32f2f; }
 .sent-neutral { background:#f0f0f0; color:#888; }
 .topic-tag { display:inline-block; background:#e8f0fe; color:#1a56db; padding:1px 6px; border-radius:3px; font-size:0.7rem; cursor:pointer; }
 .topic-tag:hover { background:#d0e0fc; }
-.author { color:#333; }
-.username { color:#999; margin-left:4px; }
-.time { color:#bbb; font-size:0.75rem; margin-left:auto; }
+.author { color:#333; } .username { color:#999; margin-left:4px; } .time { color:#bbb; font-size:0.75rem; margin-left:auto; }
 .mention-text { color:#444; line-height:1.6; margin-bottom:8px; word-break:break-word; }
 .mention-footer { display:flex; gap:16px; font-size:0.8rem; color:#999; }
 .source-link { color:#2563eb; text-decoration:none; margin-left:auto; }
 .source-link:hover { text-decoration:underline; }
 .empty { text-align:center; padding:60px 20px; color:#999; font-size:1rem; }
 .more-hint { text-align:center; color:#bbb; padding:12px; font-size:0.85rem; }
-.top-authors { background: #f8f9fa; border: 1px solid #e8e8e8; border-radius: 10px; padding: 20px; margin-bottom: 24px; }
-.top-authors h3 { font-size: 1rem; color: #333; margin-bottom: 12px; }
-.top-authors ol { padding-left: 20px; color: #333; line-height: 1.8; font-size: 0.9rem; }
-.top-authors li { margin-bottom: 4px; }
 .footer { text-align:center; color:#ccc; font-size:0.75rem; padding:24px; }
 .translate-bar { display:flex; justify-content:flex-end; margin-bottom:16px; }
 .btn-translate { padding:8px 18px; border:1px solid #2563eb; border-radius:6px; background:#fff; color:#2563eb; cursor:pointer; font-size:0.9rem; transition:all .2s; }
@@ -94,10 +95,18 @@ h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
 <div class="container">
 
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-07-10 06:27 UTC · 监控来源: Reddit + Community + YouTube + Bluesky · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-07-10 06:31 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar">
   <button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button>
 </div>
+
+<!-- 每日摘要 -->
+<div class="daily-summary">
+  <strong>📝 今日摘要：</strong>2026-07-08 共 1 条讨论；热点话题 #密码。
+</div>
+
+<!-- 抓取状态 -->
+<div class="status-bar"><span class="status-chip">🟡 Reddit: 3天前</span><span class="status-chip">🟡 Nothing Community: 2天前</span><span class="status-chip">🟡 YouTube: 3天前</span><span class="status-chip">🟢 Bluesky: 1天前</span></div>
 
 <!-- 工具栏 -->
 <div class="toolbar">
@@ -111,7 +120,6 @@ h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
   <button class="btn-export" onclick="exportCSV()">📥 导出 CSV</button>
 </div>
 
-<!-- 平台筛选 -->
 <div class="filter-bar">
   <span class="filter-chip active" data-platform="all" onclick="filterPlatform('all')">全部</span>
   <span class="filter-chip" data-platform="Reddit" onclick="filterPlatform('Reddit')">🟠 Reddit</span>
@@ -120,10 +128,8 @@ h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
   <span class="filter-chip" data-platform="Bluesky" onclick="filterPlatform('Bluesky')">🔵 Bluesky</span>
 </div>
 
-<!-- 告警 -->
-<div class="alert-banner">⚠️ 负面占比 77.8%，超过警戒线 30%</div>
+<div class="alert-banner">⚠️ 负面占比 77.8%，超过警戒线 30%，建议关注</div>
 
-<!-- 统计卡片 -->
 <div class="stats-grid">
   <div class="stat-card">
     <div class="number" id="totalCount">9</div>
@@ -132,6 +138,10 @@ h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
   <div class="stat-card">
     <div class="number">0</div>
     <div class="label">今日新增</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">2</div>
+    <div class="label">本周 <span class="">→ 持平</span> (上周 2)</div>
   </div>
   <div class="stat-card">
     <div class="number" style="color:#d32f2f">77.8%</div>
@@ -144,11 +154,6 @@ h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
 </div>
 
 <div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-04</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-05</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-06</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-07</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-08</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-09</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-10</div></div></div></div>
-
-<div class="top-authors">
-  <h3>📢 影响力 Top 作者</h3>
-  <ol><li><strong>Saunders Technology</strong> @saunders-tech.bsky.social — 1 条 · 0 followers</li><li><strong>removal-feel-imply</strong> @removal-feel-imply — 1 条 · 0 followers</li><li><strong>Scbadiver</strong> @Scbadiver — 1 条 · 0 followers</li><li><strong>SpareChange_117</strong> @SpareChange_117 — 1 条 · 0 followers</li><li><strong>du-bist-git-genug</strong> @du-bist-git-genug — 1 条 · 0 followers</li></ol>
-</div>
 
 <div class="mentions-section">
   <h3>📋 最新提及 (<span id="mentionCount">9</span> 条)</h3>
@@ -301,7 +306,6 @@ Hello friend me es video me bataya hu ki age aap ka Phone me Fix Your account wi
 </div>
 
 <script>
-// ========== 平台筛选 ==========
 var _platform = 'all';
 function filterPlatform(p) {
   _platform = p;
@@ -309,8 +313,6 @@ function filterPlatform(p) {
   document.querySelectorAll('.pfilter').forEach(function(c){ c.classList.toggle('active-chip', c.dataset.p === p); });
   applyFilters();
 }
-
-// ========== 综合过滤（搜索 + 时间 + 平台） ==========
 function applyFilters() {
   var q = (document.getElementById('searchInput').value || '').toLowerCase();
   var days = parseInt(document.getElementById('timeFilter').value) || 0;
@@ -335,8 +337,6 @@ function applyFilters() {
   });
   document.getElementById('mentionCount').textContent = count;
 }
-
-// ========== CSV 导出 ==========
 function exportCSV() {
   var rows = [['平台','日期','作者','标题','情感','点赞','评论','URL'].join(',')];
   document.querySelectorAll('.mention-card:not(.hidden)').forEach(function(c) {
@@ -353,11 +353,9 @@ function exportCSV() {
   var blob = new Blob(['\ufeff' + rows.join('\n')], {type:'text/csv;charset=utf-8'});
   var link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.download = 'nothing-account-mentions-' + new Date().toISOString().slice(0,10) + '.csv';
+  link.download = 'nothing-account-' + new Date().toISOString().slice(0,10) + '.csv';
   link.click();
 }
-
-// ========== 翻译 ==========
 var _t=false, _api='https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&dt=t&q=';
 async function toggleTranslate(){var b=document.getElementById('btnTranslate'),els=document.querySelectorAll('.mention-text');
 if(_t){els.forEach(function(el){if(el.dataset.o){el.textContent=el.dataset.o;el.removeAttribute('data-o');}});b.textContent='🌐 翻译成中文';b.classList.remove('active');_t=false;}
