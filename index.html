@@ -1,248 +1,514 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>Nothing Account 社媒舆情看板</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#fff;color:#333;padding:24px}
-.container{max-width:960px;margin:0 auto}
-h1{font-size:1.8rem;margin-bottom:4px;color:#111}
-.subtitle{color:#999;font-size:.85rem;margin-bottom:16px}
-.daily-summary{background:#f0f7ff;border:1px solid #c5d9f0;border-radius:10px;padding:14px 18px;margin-bottom:16px;font-size:.95rem;color:#333;line-height:1.6}
-.daily-summary strong{color:#1a56db}
-.status-bar{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
-.status-chip{display:inline-block;background:#f8f9fa;border:1px solid #e8e8e8;border-radius:6px;padding:4px 10px;font-size:.78rem;color:#666}
-.toolbar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
-.toolbar input,.toolbar select,.toolbar button{padding:8px 12px;border:1px solid #ddd;border-radius:6px;font-size:.85rem;background:#fff}
-.toolbar input{flex:1;min-width:180px}
-.toolbar input:focus{border-color:#2563eb;outline:none}
-.toolbar button{cursor:pointer;background:#2563eb;color:#fff;border-color:#2563eb}
-.toolbar button:hover{background:#1d4ed8}
-.toolbar .btn-export{background:#fff;color:#2563eb}
-.toolbar .btn-export:hover{background:#eef4ff}
-.filter-bar{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.filter-chip{padding:6px 14px;border:1px solid #ddd;border-radius:20px;font-size:.8rem;cursor:pointer;background:#fff;transition:all .2s}
-.filter-chip:hover,.filter-chip.active{background:#2563eb;color:#fff;border-color:#2563eb}
-.alert-banner{background:#fff3f3;border:1px solid #ffc9c9;border-radius:8px;padding:12px 18px;margin-bottom:16px;color:#d32f2f;font-size:.9rem;font-weight:600}
-.stats-grid{display:flex;gap:16px;margin-bottom:24px;flex-wrap:wrap}
-.stat-card{background:#f8f9fa;border:1px solid #e8e8e8;border-radius:10px;padding:16px 20px;min-width:140px;flex:1}
-.stat-card .number{font-size:2rem;font-weight:700;color:#111}
-.stat-card .label{color:#888;font-size:.8rem;margin-top:4px}
-.stat-card .trend-up{color:#d32f2f}.stat-card .trend-down{color:#2d8a2d}
-.stat-chip{display:inline-block;background:#eef1f5;padding:2px 8px;border-radius:4px;margin:2px;font-size:.8rem;color:#444;cursor:pointer;transition:all .2s}
-.stat-chip:hover{background:#dde3f0}
-.stat-chip.active-chip{background:#2563eb;color:#fff}
-.trend-section{background:#f8f9fa;border:1px solid #e8e8e8;border-radius:10px;padding:20px;margin-bottom:24px}
-.trend-section h3{margin-bottom:16px;font-size:1rem;color:#333}
-.bar-chart{display:flex;gap:12px;align-items:flex-end;height:160px}
-.bar-col{display:flex;flex-direction:column;align-items:center;flex:1;height:100%;justify-content:flex-end}
-.bar-value{font-size:.75rem;color:#888;margin-bottom:4px}
-.bar-fill{background:linear-gradient(180deg,#5b9bd5,#2563eb);border-radius:4px 4px 0 0;width:100%;max-width:50px;min-height:4px;transition:height .3s}
-.bar-label{font-size:.7rem;color:#aaa;margin-top:6px}
-.mentions-section{margin-bottom:24px}
-.mentions-section h3{font-size:1rem;color:#333;margin-bottom:12px}
-.mention-card{background:#fff;border:1px solid #e8e8e8;border-radius:10px;padding:16px;margin-bottom:10px;transition:box-shadow .2s}
-.mention-card:hover{border-color:#2563eb;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.mention-header{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:.85rem;flex-wrap:wrap}
-.platform-badge{color:#fff;padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
-.platform-reddit{background:#ff4500}.platform-community{background:#1d4ed8}
-.platform-youtube{background:red}.platform-bluesky{background:#1083fe}
-.sent-badge{padding:2px 8px;border-radius:4px;font-size:.75rem;font-weight:600}
-.sent-positive{background:#e6f7e6;color:#2d8a2d}
-.sent-negative{background:#ffe6e6;color:#d32f2f}
-.sent-neutral{background:#f0f0f0;color:#888}
-.topic-tag{display:inline-block;background:#e8f0fe;color:#1a56db;padding:1px 6px;border-radius:3px;font-size:.7rem;cursor:pointer}
-.topic-tag:hover{background:#d0e0fc}
-.author{color:#333}.username{color:#999;margin-left:4px}.time{color:#bbb;font-size:.75rem;margin-left:auto}
-.mention-text{color:#444;line-height:1.6;margin-bottom:8px;word-break:break-word}
-.mention-footer{display:flex;gap:16px;font-size:.8rem;color:#999}
-.source-link{color:#2563eb;text-decoration:none;margin-left:auto}
-.source-link:hover{text-decoration:underline}
-.empty{text-align:center;padding:60px 20px;color:#999;font-size:1rem}
-.footer{text-align:center;color:#ccc;font-size:.75rem;padding:24px}
-.translate-bar{display:flex;justify-content:flex-end;margin-bottom:16px}
-.btn-translate{padding:8px 18px;border:1px solid #2563eb;border-radius:6px;background:#fff;color:#2563eb;cursor:pointer;font-size:.9rem;transition:all .2s}
-.btn-translate:hover{background:#2563eb;color:#fff}
-.btn-translate.active{background:#2563eb;color:#fff}
-.btn-translate:disabled{opacity:0.5;cursor:wait}
-.hidden{display:none!important}
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fff; color: #333; padding: 24px; }
+  .container { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.8rem; margin-bottom: 4px; color: #111; }
+  .subtitle { color: #999; font-size: 0.85rem; margin-bottom: 24px; }
+
+  /* 统计卡片 */
+  .stats-grid { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .stat-card { background: #f8f9fa; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px 20px; min-width: 140px; flex: 1; }
+  .stat-card .number { font-size: 2rem; font-weight: 700; color: #111; }
+  .stat-card .label { color: #888; font-size: 0.8rem; margin-top: 4px; }
+  .stat-chip { display: inline-block; background: #eef1f5; padding: 2px 8px; border-radius: 4px; margin: 2px; font-size: 0.8rem; color: #444; }
+
+  /* 趋势图 */
+  .trend-section { background: #f8f9fa; border: 1px solid #e8e8e8; border-radius: 10px; padding: 20px; margin-bottom: 24px; }
+  .trend-section h3 { margin-bottom: 16px; font-size: 1rem; color: #333; }
+  .bar-chart { display: flex; gap: 12px; align-items: flex-end; height: 160px; }
+  .bar-col { display: flex; flex-direction: column; align-items: center; flex:1; height: 100%; justify-content: flex-end; }
+  .bar-value { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+  .bar-fill { background: linear-gradient(180deg, #5b9bd5, #2563eb); border-radius: 4px 4px 0 0; width: 100%; max-width: 50px; min-height: 4px; transition: height .3s; }
+  .bar-label { font-size: 0.7rem; color: #aaa; margin-top: 6px; }
+
+  /* 帖子卡片 */
+  .mentions-section { margin-bottom: 24px; }
+  .mentions-section h3 { font-size: 1rem; color: #333; margin-bottom: 12px; }
+  .mention-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 10px; padding: 16px; margin-bottom: 10px; transition: box-shadow .2s; }
+  .mention-card:hover { border-color: #2563eb; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  .mention-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; font-size:0.85rem; flex-wrap:wrap; }
+  .platform-badge { color:#fff; padding:2px 8px; border-radius:4px; font-size:0.75rem; font-weight:600; }
+  .platform-reddit { background:#ff4500; }
+  .platform-community { background:#1d4ed8; }
+  .author { color:#333; }
+  .username { color:#999; margin-left:4px; }
+  .followers { color:#bbb; font-size:0.7rem; margin-left:6px; }
+  .time { color:#bbb; font-size:0.75rem; margin-left:auto; }
+  .mention-text { color:#444; line-height:1.6; margin-bottom:8px; word-break:break-word; }
+  .mention-footer { display:flex; gap:16px; font-size:0.8rem; color:#999; }
+  .source-link { color:#2563eb; text-decoration:none; margin-left:auto; }
+  .source-link:hover { text-decoration:underline; }
+
+  /* 状态区 */
+  .empty { text-align:center; padding:60px 20px; color:#999; font-size:1rem; }
+  .more-hint { text-align:center; color:#bbb; padding:12px; font-size:0.85rem; }
+
+  /* Top 作者 */
+  .top-authors { background: #f8f9fa; border: 1px solid #e8e8e8; border-radius: 10px; padding: 20px; margin-bottom: 24px; }
+  .top-authors h3 { font-size: 1rem; color: #333; margin-bottom: 12px; }
+  .top-authors ol { padding-left: 20px; color: #333; line-height: 1.8; font-size: 0.9rem; }
+  .top-authors li { margin-bottom: 4px; }
+
+  .footer { text-align:center; color:#ccc; font-size:0.75rem; padding:24px; }
+  .translate-bar { display:flex; justify-content:flex-end; margin-bottom:16px; }
+  .btn-translate { padding:8px 18px; border:1px solid #2563eb; border-radius:6px; background:#fff; color:#2563eb; cursor:pointer; font-size:0.9rem; transition:all .2s; }
+  .btn-translate:hover { background:#2563eb; color:#fff; }
+  .btn-translate.active { background:#2563eb; color:#fff; }
+  .btn-translate:disabled { opacity:0.5; cursor:wait; }
 </style>
 </head>
 <body>
 <div class="container">
-<h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-07-10 06:57 UTC · 4平台监控 · 每日自动刷新</div>
-<div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-07-08 共 1 条讨论；热点 #密码。</div>
-<div class="status-bar"><span class="status-chip">🟡 Reddit: 3天前</span><span class="status-chip">🟡 Nothing Community: 2天前</span><span class="status-chip">🟡 YouTube: 3天前</span><span class="status-chip">🟢 Bluesky: 1天前</span></div>
-<div class="toolbar">
-  <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
-  <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
-  <button class="btn-export" onclick="exportCSV()">📥 导出 CSV</button>
-</div>
-<div class="filter-bar">
-  <span class="filter-chip active" data-platform="all" onclick="filterPlatform('all')">全部</span>
-  <span class="filter-chip" data-platform="Reddit" onclick="filterPlatform('Reddit')">🟠 Reddit</span>
-  <span class="filter-chip" data-platform="Nothing Community" onclick="filterPlatform('Nothing Community')">🔵 Community</span>
-  <span class="filter-chip" data-platform="YouTube" onclick="filterPlatform('YouTube')">🔴 YouTube</span>
-  <span class="filter-chip" data-platform="Bluesky" onclick="filterPlatform('Bluesky')">🔵 Bluesky</span>
-</div>
 
-<div class="stats-grid">
-  <div class="stat-card"><div class="number">9</div><div class="label">累计抓取</div></div>
-  <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">2</div><div class="label">本周 <span class="">→ 持平</span> (上周 2)</div></div>
-  <div class="stat-card"><div class="number" style="color:#d32f2f">77.8%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 2</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 3</span></div></div>
-</div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-04</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-05</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-06</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-07</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-08</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-09</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-10</div></div></div></div>
-<div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">9</span> 条)</h3>
-  <div class="mention-card" data-platform="Bluesky" data-sentiment="neutral" data-date="2026-07-08" data-tags="#密码">
-  <div class="mention-header">
-    <span class="platform-badge platform-bluesky">Bluesky</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#密码</span>
-    <span class="author"><strong>Saunders Technology</strong> <span class="username">@saunders-tech.bsky.social</span></span>
-    <span class="time">2026-07-08 04:35 UTC</span>
+  <h1>🔍 Nothing Account 社媒舆情看板</h1>
+  <div class="subtitle">最后更新: 2026-07-11 03:46 UTC · 监控来源: Reddit + Community + YouTube + Bluesky · 每日自动刷新</div>
+  <div class="translate-bar">
+    <button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button>
   </div>
-  <div class="mention-text">ANY Nothing Phone How To Put Password/Pattern/PIN!</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://bsky.app/profile/saunders-tech.bsky.social/post/3mq4c6sadps2f" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-07-06" data-tags="#验证 #EssentialSpace">
-  <div class="mention-header">
-    <span class="platform-badge platform-community">Nothing Community</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#验证</span><span class="topic-tag">#EssentialSpace</span>
-    <span class="author"><strong>removal-feel-imply</strong> <span class="username">@removal-feel-imply</span></span>
-    <span class="time">2026-07-06 07:26 UTC</span>
-  </div>
-  <div class="mention-text">Essential space - Account authorization error
 
-Every single time I try to use essential space I am greeted with this error: Account authorization error. Reset system time or try again later.</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 3</span>
-    <a href="https://nothing.community/d/59481-essential-space-account-authorization-error" target="_blank" class="source-link">查看原文 →</a>
+  <!-- 统计卡片 -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="number">16</div>
+      <div class="label">累计抓取</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">0</div>
+      <div class="label">今日新增</div>
+    </div>
+    <div class="stat-card">
+      <div class="number">1063.5</div>
+      <div class="label">平均点赞</div>
+    </div>
+    <div class="stat-card">
+      <div class="label" style="margin-top:4px;">平台分布</div>
+      <div style="margin-top:8px;"><span class="stat-chip">Nothing Community: 5</span><span class="stat-chip">YouTube: 11</span></div>
+    </div>
   </div>
-</div>
-<div class="mention-card" data-platform="Reddit" data-sentiment="negative" data-date="2026-07-02" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-reddit">Reddit</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Scbadiver</strong> <span class="username">@Scbadiver</span></span>
-    <span class="time">2026-07-02 12:00 UTC</span>
-  </div>
-  <div class="mention-text">Nothing fails to file accounts months after dissolution threat
 
-This article discusses how Nothing Technology Limited failed to file its accounts on time, raising concerns about corporate compliance and financial transparency.</div>
-  <div class="mention-footer">
-    <span>❤ 47</span><span>🔄 0</span><span>💬 23</span>
-    <a href="https://www.reddit.com/r/NothingTech/comments/1ulkvqt/nothing_fails_to_file_accounts_months_after/" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="Reddit" data-sentiment="negative" data-date="2026-06-27" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-reddit">Reddit</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>SpareChange_117</strong> <span class="username">@SpareChange_117</span></span>
-    <span class="time">2026-06-27 15:00 UTC</span>
-  </div>
-  <div class="mention-text">Nothing X app sign in requirement
+  <!-- 趋势图 -->
+  
+    <div class="trend-section">
+      <h3>📊 近 7 天趋势</h3>
+      <div class="bar-chart">
+            <div class="bar-col">
+              <div class="bar-value">1</div>
+              <div class="bar-fill" style="height:100%"></div>
+              <div class="bar-label">07-05</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar-value">1</div>
+              <div class="bar-fill" style="height:100%"></div>
+              <div class="bar-label">07-06</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar-value">1</div>
+              <div class="bar-fill" style="height:100%"></div>
+              <div class="bar-label">07-07</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar-value">1</div>
+              <div class="bar-fill" style="height:100%"></div>
+              <div class="bar-label">07-08</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar-value">0</div>
+              <div class="bar-fill" style="height:4%"></div>
+              <div class="bar-label">07-09</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar-value">1</div>
+              <div class="bar-fill" style="height:100%"></div>
+              <div class="bar-label">07-10</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar-value">0</div>
+              <div class="bar-fill" style="height:4%"></div>
+              <div class="bar-label">07-11</div>
+            </div></div>
+    </div>
 
-Anyone else annoyed that the Nothing X app now requires sign-in? I just want to control my earbuds without creating an account. Feels like unnecessary friction.</div>
-  <div class="mention-footer">
-    <span>❤ 89</span><span>🔄 0</span><span>💬 42</span>
-    <a href="https://www.reddit.com/r/NothingTech/comments/1ugx9ds/nothing_x_app_sign_in_requirement/" target="_blank" class="source-link">查看原文 →</a>
+  <!-- Top 作者 -->
+  <div class="top-authors">
+    <h3>📢 影响力 Top 作者</h3>
+    <ol><li><strong>RobIgo</strong> @RobIgo — 1 条 · 0 followers</li><li><strong>Cmf Guy</strong> @Sumit_11 — 1 条 · 0 followers</li><li><strong>ShreeHariprasadJ</strong> @ShreeHariprasadJ — 1 条 · 0 followers</li><li><strong>removal-feel-imply</strong> @removal-feel-imply — 1 条 · 0 followers</li><li><strong>Manish4u</strong> @Manish4u — 1 条 · 0 followers</li></ol>
   </div>
-</div>
-<div class="mention-card" data-platform="Reddit" data-sentiment="neutral" data-date="2026-06-26" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-reddit">Reddit</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>du-bist-git-genug</strong> <span class="username">@du-bist-git-genug</span></span>
-    <span class="time">2026-06-26 10:00 UTC</span>
-  </div>
-  <div class="mention-text">Help with setting up two accounts
 
-I have two Nothing accounts and want to use both on the same phone. Is this possible with Nothing OS? Looking for workarounds.</div>
-  <div class="mention-footer">
-    <span>❤ 23</span><span>🔄 0</span><span>💬 15</span>
-    <a href="https://www.reddit.com/r/NothingTech/comments/1ugglwe/help_with_setting_up_two_accounts/" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-06-13" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-community">Nothing Community</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Akash_Meher</strong> <span class="username">@Akash_Meher</span></span>
-    <span class="time">2026-06-13 00:00 UTC</span>
-  </div>
-  <div class="mention-text">Gmail account add problem
+  <!-- 最新提及 -->
+  <div class="mentions-section">
+    <h3>📋 最新提及 (16 条)</h3>
+    
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">Nothing Community</span>
+                <span class="author">
+                  <strong>RobIgo</strong>
+                  <span class="username">@RobIgo</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-07-10 10:24 UTC</span>
+              </div>
+              <div class="mention-text">Essential Space Cloud Storage Constantly &quot;Out of Sync&quot;
 
-while adding gmail account from settings it show Exchange instead of gmail how can i fix this</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 2</span>
-    <a href="https://nothing.community/d/58370-gmail-account-add-problem" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-02-23" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>IrFan Decode </strong> <span class="username">@IrFan Decode </span></span>
-    <span class="time">2026-02-23 14:30 UTC</span>
-  </div>
-  <div class="mention-text">Your account will be delete in 29 day problem nothing phone | how to recover gmail account 
+Hi everyone. Anybody else having this issue?
+
+Under my Settings on Essential Space my Cloud Storage is constantly “Out of Sync” It briefly turned white to “Syncing” but then back to greed out “Out of Sync”.
+
+I’ve tried turning Backup Toggle on and off, I’ve tried signing out of my account and back in but it’s not correcting it.
+
+Anybody else?</div>
+              <div class="mention-footer">
+                <span>❤ 0</span>
+                <span>🔄 0</span>
+                <span>💬 1</span>
+                <a href="https://nothing.community/d/59750-59750-essential-space-cloud-storage-constantly-out-of-sync" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">Nothing Community</span>
+                <span class="author">
+                  <strong>Cmf Guy</strong>
+                  <span class="username">@Sumit_11</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-07-08 18:21 UTC</span>
+              </div>
+              <div class="mention-text">Essential app Account authorization error
+
+I am currently having “Account authorization error. Reset system time or try again later” problem in cmf phone 2 pro. I am on latest update and I have been facing this this for while now.
+
+This basically is not allowing backup using cloud storage, saying Http 401. Also it is not summarizing text, photo or anything. The nothing account also automatically gets log out. Completely useless and full of bugs.
+
+Has anyone facing this too. If you know how to fix it, please reply.</div>
+              <div class="mention-footer">
+                <span>❤ 0</span>
+                <span>🔄 0</span>
+                <span>💬 3</span>
+                <a href="https://nothing.community/d/59641-59641-essential-app-account-authorization-error" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">Nothing Community</span>
+                <span class="author">
+                  <strong>ShreeHariprasadJ</strong>
+                  <span class="username">@ShreeHariprasadJ</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-07-07 22:12 UTC</span>
+              </div>
+              <div class="mention-text">Gmail Notification - Issue
+
+I’ve been using my Nothing Phone (4a) Pro for three months and am not receiving any Gmail notifications. I have already granted full notification permissions, enabled automatic data sync in the Gmail settings, and completed all standard Google troubleshooting steps. Despite everything being configured correctly, the issue persists. Please help me fix this, and let me know if anyone else is experiencing the same problem.</div>
+              <div class="mention-footer">
+                <span>❤ 0</span>
+                <span>🔄 0</span>
+                <span>💬 7</span>
+                <a href="https://nothing.community/d/59591-59591-gmail-notification-issue" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">Nothing Community</span>
+                <span class="author">
+                  <strong>removal-feel-imply</strong>
+                  <span class="username">@removal-feel-imply</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-07-06 07:26 UTC</span>
+              </div>
+              <div class="mention-text">Essential space - Account authorization error
+
+Every single time I try to use essential space I am greeted with this error: ‘Account authorization error. Reset system time or try again later.’
+ 
+
+I know there is a couple other posts regarding this and the solution seems to be to clear cache and data, I’ve tried that but I still face the issue after sometime. Any solutions? Is Nothing aware of this bug?</div>
+              <div class="mention-footer">
+                <span>❤ 0</span>
+                <span>🔄 0</span>
+                <span>💬 4</span>
+                <a href="https://nothing.community/d/59481-59481-essential-space-account-authorization-error" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>Manish4u</strong>
+                  <span class="username">@Manish4u</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-07-05 20:49 UTC</span>
+              </div>
+              <div class="mention-text">Email id kaise banaye | gmail id kaise banaye | email id kaise banaen|New gmail account kaise banaye
+
+manish4u Hello &amp; Namaste Everyone, Email id kaise banaye | gmail id kaise banaye | email id kaise banaen|New gmail account ...</div>
+              <div class="mention-footer">
+                <span>❤ 624</span>
+                <span>🔄 0</span>
+                <span>💬 39</span>
+                <a href="https://www.youtube.com/watch?v=V-mGvQncTPo" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">Nothing Community</span>
+                <span class="author">
+                  <strong>AanjeloSalgado</strong>
+                  <span class="username">@AanjeloSalgado</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-07-03 19:47 UTC</span>
+              </div>
+              <div class="mention-text">Hasn&#39;t been able to use Essential Space since a few days ago. Any idea why and how to actually fix?
+
+Yes, I’ve tried turning it off and on again (the phone, app, login)</div>
+              <div class="mention-footer">
+                <span>❤ 0</span>
+                <span>🔄 0</span>
+                <span>💬 1</span>
+                <a href="https://nothing.community/d/59351-59351-hasnt-been-able-to-use-essential-space-since-a-few-days-ago-any-idea-why-and-how-to-actually-fix" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>GSM EXPERTS</strong>
+                  <span class="username">@GSM EXPERTS</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-07-02 08:49 UTC</span>
+              </div>
+              <div class="mention-text">NOTHING Phone 2A Plus (A142P) Android 14/15 FRP Bypass  - nothing 2a plus frp bypass
+
+NOTHING Phone 2A Plus Google Account Remove | Android 15 FRP Bypass Latest If you&#39;re looking for the latest NOTHING ...</div>
+              <div class="mention-footer">
+                <span>❤ 5</span>
+                <span>🔄 0</span>
+                <span>💬 1</span>
+                <a href="https://www.youtube.com/watch?v=9CTBvwdaIdI" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>K.B.T_GAMER</strong>
+                  <span class="username">@K.B.T_GAMER</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-06-23 03:00 UTC</span>
+              </div>
+              <div class="mention-text">Realme Gt 2 pro vs Nothing 4a free fire login #mecchachameleon #howtogetnewakskininfree
+
+POWER OF JESUS ☝️#jesus #powerofjesus #jesuschrist #christian #christianquotes #godsplan #faith #grace Credit ...</div>
+              <div class="mention-footer">
+                <span>❤ 0</span>
+                <span>🔄 0</span>
+                <span>💬 0</span>
+                <a href="https://www.youtube.com/watch?v=7n_iFYtjYTg" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>Ludi</strong>
+                  <span class="username">@Ludi</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-02-25 19:00 UTC</span>
+              </div>
+              <div class="mention-text">A Giant Problem… Was It All for Nothing?
+
+Episode 4 of my snowflake account: Bossinbound, the boss area only ironman. Full series playlist: ...</div>
+              <div class="mention-footer">
+                <span>❤ 672</span>
+                <span>🔄 0</span>
+                <span>💬 102</span>
+                <a href="https://www.youtube.com/watch?v=BS9n35h5r0Y" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>IrFan Decode </strong>
+                  <span class="username">@IrFan Decode </span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-02-23 14:30 UTC</span>
+              </div>
+              <div class="mention-text">Your account will be delete in 29 day problem nothing phone | how to recover gmail account 
 
 Fix Your account will be delete in 29 day problem nothing phone | how to recover gmail account Sponsorships | Business ...</div>
-  <div class="mention-footer">
-    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=bF_r5iUNNzU" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-02-23" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>IrFan Decode </strong> <span class="username">@IrFan Decode </span></span>
-    <span class="time">2026-02-23 12:35 UTC</span>
-  </div>
-  <div class="mention-text">Fix Your account will be delete in 29 day problem nothing phone | how to recover gmail account
+              <div class="mention-footer">
+                <span>❤ 2</span>
+                <span>🔄 0</span>
+                <span>💬 0</span>
+                <a href="https://www.youtube.com/watch?v=bF_r5iUNNzU" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>IrFan Decode </strong>
+                  <span class="username">@IrFan Decode </span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2026-02-23 12:35 UTC</span>
+              </div>
+              <div class="mention-text">Fix Your account will be delete in 29 day problem nothing phone | how to recover gmail account
 
 Fix Your account will be delete in 29 day problem nothing phone | how to recover gmail account.</div>
-  <div class="mention-footer">
-    <span>❤ 9</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=uRTlEZtXd5A" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-02-19" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Technical Manoj</strong> <span class="username">@Technical Manoj</span></span>
-    <span class="time">2026-02-19 03:03 UTC</span>
-  </div>
-  <div class="mention-text">Fix Your account will be delete in 29 day problem nothing phone |  how to recover gmail account
+              <div class="mention-footer">
+                <span>❤ 10</span>
+                <span>🔄 0</span>
+                <span>💬 0</span>
+                <a href="https://www.youtube.com/watch?v=uRTlEZtXd5A" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
 
-Hello friend me es video me bataya hu ki age aap ka Phone me Fix Your account will be delete in 29 day problem nothing phone ...</div>
-  <div class="mention-footer">
-    <span>❤ 4</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=OXYAZsUEEno" target="_blank" class="source-link">查看原文 →</a>
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>Bossman welds</strong>
+                  <span class="username">@Bossman welds</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2025-07-30 20:53 UTC</span>
+              </div>
+              <div class="mention-text">#epicgames no skins no nothing I couldn’t even login to my account for epic
+
+</div>
+              <div class="mention-footer">
+                <span>❤ 461</span>
+                <span>🔄 0</span>
+                <span>💬 342</span>
+                <a href="https://www.youtube.com/watch?v=F4g_eOlCO1Y" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>AANNZ GAMING</strong>
+                  <span class="username">@AANNZ GAMING</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2023-05-04 08:25 UTC</span>
+              </div>
+              <div class="mention-text">Facebook login issue!!! solving soon.... nothing to worry  at all👍    #bgminewupdate  #bgmivideos
+
+</div>
+              <div class="mention-footer">
+                <span>❤ 17</span>
+                <span>🔄 0</span>
+                <span>💬 9</span>
+                <a href="https://www.youtube.com/watch?v=IfpGsHlEiCk" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>Poke Best Official</strong>
+                  <span class="username">@Poke Best Official</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2023-01-02 04:24 UTC</span>
+              </div>
+              <div class="mention-text">How To Solve Pokemon Go Login Problem Or Not Showing Retaining player Option #pokemongo
+
+</div>
+              <div class="mention-footer">
+                <span>❤ 15211</span>
+                <span>🔄 0</span>
+                <span>💬 124</span>
+                <a href="https://www.youtube.com/watch?v=op_LP_ROUo4" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>𝐑𝐎𝐌𝐄𝐎 𝐘𝐓 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</strong>
+                  <span class="username">@𝐑𝐎𝐌𝐄𝐎 𝐘𝐓 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2022-05-10 05:30 UTC</span>
+              </div>
+              <div class="mention-text">Bgmi Twitter Login 🔥 Nothing to see here problem solved🔥Twitter Login problem solve Fix
+
+Bgmi Twitter Login Nothing to see here problem solved  Twitter Login problem solve Fix. Must watch videos •√ Round 2 hell ...</div>
+              <div class="mention-footer">
+                <span>❤ 11</span>
+                <span>🔄 0</span>
+                <span>💬 7</span>
+                <a href="https://www.youtube.com/watch?v=fNgs0Vcka08" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
+
+            <div class="mention-card">
+              <div class="mention-header">
+                <span class="platform-badge platform-community">YouTube</span>
+                <span class="author">
+                  <strong>KhindaXgaming</strong>
+                  <span class="username">@KhindaXgaming</span>
+                  <span class="followers">0 followers</span>
+                </span>
+                <span class="time">2022-05-09 13:08 UTC</span>
+              </div>
+              <div class="mention-text">Nothing to See HereTwitter Bgmi ios| Twitter Login ProblemSolve Fix #bgmi #bgmilive
+
+</div>
+              <div class="mention-footer">
+                <span>❤ 3</span>
+                <span>🔄 0</span>
+                <span>💬 1</span>
+                <a href="https://www.youtube.com/watch?v=PzmcTR85gaI" target="_blank" class="source-link">查看原文 →</a>
+              </div>
+            </div>
   </div>
+
+  <div class="footer">
+    Nothing Account Social Monitor · Reddit + Nothing Community · Daily Auto Refresh
+  </div>
+
 </div>
-</div>
-<div class="footer">Nothing Account Social Monitor · 4 Platforms · Daily Auto Refresh</div>
-</div>
-<script>
-var _platform='all';
-function filterPlatform(p){_platform=p;document.querySelectorAll('.filter-chip').forEach(function(c){c.classList.toggle('active',c.dataset.platform===p||(p==='all'&&c.dataset.platform==='all'));});document.querySelectorAll('.pfilter').forEach(function(c){c.classList.toggle('active-chip',c.dataset.p===p);});applyFilters();}
-function applyFilters(){var q=(document.getElementById('searchInput').value||'').toLowerCase();var days=parseInt(document.getElementById('timeFilter').value)||0;var cards=document.querySelectorAll('.mention-card');var count=0;var today=new Date().toISOString().slice(0,10);cards.forEach(function(c){var platform=c.dataset.platform;var date=c.dataset.date||'';var text=c.textContent.toLowerCase();var show=true;if(_platform!=='all'&&platform!==_platform)show=false;if(q&&text.indexOf(q)===-1)show=false;if(days===1&&date!==today)show=false;if(days>1){var cutoff=new Date();cutoff.setDate(cutoff.getDate()-days);if(date<cutoff.toISOString().slice(0,10))show=false;}c.classList.toggle('hidden',!show);if(show)count++;});document.getElementById('mentionCount').textContent=count;}
-function exportCSV(){var rows=[['平台','日期','作者','标题','情感','点赞','评论','URL'].join(',')];document.querySelectorAll('.mention-card:not(.hidden)').forEach(function(c){var p=c.querySelector('.platform-badge').textContent.trim();var t=c.querySelector('.time').textContent.trim();var a=c.querySelector('.author strong').textContent.trim();var txt='"'+c.querySelector('.mention-text').textContent.trim().replace(/"/g,'""').substring(0,200)+'"';var s=c.querySelector('.sent-badge').textContent.trim();var likes=c.querySelector('.mention-footer span').textContent.replace(/[^0-9]/g,'')||'0';var replies=c.querySelectorAll('.mention-footer span')[2].textContent.replace(/[^0-9]/g,'')||'0';var url=c.querySelector('.source-link').href;rows.push([p,t,a,txt,s,likes,replies,url].join(','));});var blob=new Blob(['\ufeff'+rows.join('\n')],{type:'text/csv;charset=utf-8'});var link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='nothing-account-'+new Date().toISOString().slice(0,10)+'.csv';link.click();}
-var _t=false,_api='https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&dt=t&q=';
-async function toggleTranslate(){var b=document.getElementById('btnTranslate'),els=document.querySelectorAll('.mention-text');if(_t){els.forEach(function(el){if(el.dataset.o){el.textContent=el.dataset.o;el.removeAttribute('data-o');}});b.textContent='🌐 翻译成中文';b.classList.remove('active');_t=false;}else{b.textContent='翻译中...';b.disabled=true;for(var i=0;i<els.length;i++){var el=els[i],orig=el.textContent.trim();if(!orig||orig.length<5)continue;if(!el.dataset.o)el.dataset.o=orig;try{var r=await fetch(_api+encodeURIComponent(orig.substring(0,1500)));var d=await r.json();var t=d[0].filter(function(x){return x[0]}).map(function(x){return x[0]}).join('');if(t)el.textContent=t;}catch(e){}}b.textContent='🔤 显示原文';b.classList.add('active');b.disabled=false;_t=true;}}
+</body>
+</html><script>
+var _t=false, _api='https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=zh-CN&dt=t&q=';
+async function toggleTranslate(){var b=document.getElementById('btnTranslate'),els=document.querySelectorAll('.mention-text');
+if(_t){els.forEach(function(el){if(el.dataset.o){el.textContent=el.dataset.o;el.removeAttribute('data-o');}});b.textContent='🌐 翻译成中文';b.classList.remove('active');_t=false;}
+else{b.textContent='翻译中...';b.disabled=true;
+for(var i=0;i<els.length;i++){var el=els[i],orig=el.textContent.trim();if(!orig||orig.length<5)continue;if(!el.dataset.o)el.dataset.o=orig;
+try{var r=await fetch(_api+encodeURIComponent(orig.substring(0,1500)));var d=await r.json();var t=d[0].filter(function(x){return x[0]}).map(function(x){return x[0]}).join('');if(t)el.textContent=t;}catch(e){}}
+b.textContent='🔤 显示原文';b.classList.add('active');b.disabled=false;_t=true;}}
 </script>
-</body></html>
