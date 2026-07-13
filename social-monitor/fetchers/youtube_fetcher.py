@@ -26,10 +26,11 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 
 SEARCH_QUERIES = [
     "Nothing Phone account",
-    "Nothing login problem",
-    "Nothing account problem",
-    "Nothing sign in",
+    "Nothing Phone new account",
     "Nothing account delete",
+    "Nothing sign in",
+    "Nothing Phone login",
+    "Nothing account create",
 ]
 
 TITLE_KEYWORDS = [
@@ -37,6 +38,7 @@ TITLE_KEYWORDS = [
     "password", "verify", "verification", "auth",
     "2FA", "two-factor", "delete account", "deactivate",
     "sign up", "sign-up", "signup", "register",
+    "new account", "new id", "create account",
 ]
 
 API_BASE = "https://www.googleapis.com/youtube/v3"
@@ -161,7 +163,7 @@ def search_youtube(keywords: list[str] = None, max_results: int = None) -> list[
     all_videos = []
     seen_ids = set()
 
-    for q in keywords[:3]:  # 限制搜索次数，省 quota
+    for q in keywords:  # 搜索所有关键词
         if len(all_videos) >= max_results:
             break
 
