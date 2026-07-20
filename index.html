@@ -74,9 +74,9 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-07-19 03:57 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-07-20 04:08 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-07-18 共 2 条讨论；1 条负面；热点 #登录 #EssentialSpace。</div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-07-19 共 2 条讨论；1 条负面；热点 #验证 #EssentialSpace #登录。</div>
 <div class="status-bar"><span class="status-chip">🔴 Reddit: 无数据</span><span class="status-chip">🟢 Nothing Community: 1分钟前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 无数据</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
@@ -92,16 +92,52 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">27</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">26</div><div class="label">累计抓取</div></div>
   <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">3</div><div class="label">本周 <span class="">→ 持平</span> (上周 3)</div></div>
-  <div class="stat-card"><div class="number" style="color:#d32f2f">48.1%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 24</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 3</span></div></div>
+  <div class="stat-card"><div class="number">5</div><div class="label">本周 <span class="trend-up">↑ +150%</span> (上周 2)</div></div>
+  <div class="stat-card"><div class="number" style="color:#d32f2f">46.2%</div><div class="label">负面占比</div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 3</span><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 23</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-13</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-14</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">07-15</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-16</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-17</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-18</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-19</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-14</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">07-15</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-16</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-17</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-18</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-19</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-20</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">27</span> 条)</h3>
-  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-18" data-tags="#登录">
+  <h3>📋 最新提及 (<span id="mentionCount">26</span> 条)</h3>
+  <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-07-19" data-tags="#验证 #EssentialSpace">
+  <div class="mention-header">
+    <span class="platform-badge platform-community">Nothing Community</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#验证</span><span class="topic-tag">#EssentialSpace</span>
+    <span class="author"><strong>markoise</strong> <span class="username">@markoise</span></span>
+    <span class="time">2026-07-19 21:47 UTC</span>
+  </div>
+  <div class="mention-text">Essential Space meldet Kontoauthentifzierungsfehler
+
+Ich möchte auf ein Problem hinweisen, dass beim Start von Essential Space auftritt. Es kam urplötzlich und konnte auch durch das zurücksetzen der App nicht behoben werden. Erst nach dem Reset des gesamten Telefons hat es wieder geklappt. Dann nach einem Tag, trat es wieder auf.
+
+Ich bin mit dem Problem nicht allein und der Support ist hat bislang auch keine Lösung.
+
+Link zu Reddit: https://www.reddit.com/r/NothingTech/s/MvG6DuTH7s
+
+Kennt das noch jemand?</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://nothing.community/d/60154-60154-essential-space-meldet-kontoauthentifzierungsfehler" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-19" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>Mindset Motion</strong> <span class="username">@Mindset Motion</span></span>
+    <span class="time">2026-07-19 17:15 UTC</span>
+  </div>
+  <div class="mention-text">Site Sign-In &amp;amp; Sign-Out using Microsoft Forms and a QR Code.
+
+Learn how to easily create a streamlined Site Sign-In &amp; Sign-Out system using nothing but Microsoft Forms and a QR Code. In this ...</div>
+  <div class="mention-footer">
+    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=f5zp7kbob7U" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-18" data-tags="#登录">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
     <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
@@ -182,25 +218,6 @@ Anybody else?</div>
     <a href="https://nothing.community/d/59750-59750-essential-space-cloud-storage-constantly-out-of-sync" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-07-08" data-tags="#验证 #同步">
-  <div class="mention-header">
-    <span class="platform-badge platform-community">Nothing Community</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#验证</span><span class="topic-tag">#同步</span>
-    <span class="author"><strong>Cmf Guy</strong> <span class="username">@Sumit_11</span></span>
-    <span class="time">2026-07-08 18:21 UTC</span>
-  </div>
-  <div class="mention-text">Essential app Account authorization error
-
-I am currently having “Account authorization error. Reset system time or try again later” problem in cmf phone 2 pro. I am on latest update and I have been facing this this for while now.
-
-This basically is not allowing backup using cloud storage, saying Http 401. Also it is not summarizing text, photo or anything. The nothing account also automatically gets log out. Completely useless and full of bugs.
-
-Has anyone facing this too. If you know how to fix it, please reply.</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 3</span>
-    <a href="https://nothing.community/d/59641-59641-essential-app-account-authorization-error" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-01" data-tags="#密码 #FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -246,36 +263,6 @@ Nothing Phone 2a Password Lock Kaise Tode | Nothing CMF Phone 1 Pattern Lock Kai
     <a href="https://www.youtube.com/watch?v=h8x37s7Xkws" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-06-05" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Digital Income With Success </strong> <span class="username">@Digital Income With Success </span></span>
-    <span class="time">2026-06-05 14:11 UTC</span>
-  </div>
-  <div class="mention-text">Do this if you have nothing in your bank account #howtomakemoneyonline #makemoneyonline
-
-The 1st of Quarters of 2026 gone, 5 months, you either be smiling at your bank account by the end of June or not. The choice is ...</div>
-  <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=d2fJ82d031E" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-05-18" data-tags="#密码">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#密码</span>
-    <span class="author"><strong>TUTORIAL_info</strong> <span class="username">@TUTORIAL_info</span></span>
-    <span class="time">2026-05-18 16:00 UTC</span>
-  </div>
-  <div class="mention-text">NOTHING Phone (4a) Pro – How to Check Saved Google Passwords
-
-Learn how to check saved Google passwords and autofill entries on your NOTHING Phone (4a) Pro using Google Password ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=jqGn_v7Odog" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-05-18" data-tags="#密码">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -306,6 +293,21 @@ In this short video I show how to remove a saved password from Google Password M
     <a href="https://www.youtube.com/watch?v=8clj36L7QVk" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-05-15" data-tags="#登录 #Gmail">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span><span class="topic-tag">#Gmail</span>
+    <span class="author"><strong>HardReset_Pro</strong> <span class="username">@HardReset_Pro</span></span>
+    <span class="time">2026-05-15 16:46 UTC</span>
+  </div>
+  <div class="mention-text">NOTHING Phone (4a) Pro – How to Sign in to Google Account
+
+Learn how to quickly sign in to your Google account on the NOTHING Phone (4a) Pro. In this short, clear video you&#39;ll see every ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://www.youtube.com/watch?v=pHQQ6_Ue1Jc" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-03-27" data-tags="#登录 #Gmail">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -319,6 +321,21 @@ nothing phone 4a pro google account sign in | nothing phone 4a add google accoun
   <div class="mention-footer">
     <span>❤ 3</span><span>🔄 0</span><span>💬 1</span>
     <a href="https://www.youtube.com/watch?v=POOnHIA4f5E" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-02-23" data-tags="#Gmail">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#Gmail</span>
+    <span class="author"><strong>IrFan Decode </strong> <span class="username">@IrFan Decode </span></span>
+    <span class="time">2026-02-23 14:30 UTC</span>
+  </div>
+  <div class="mention-text">Your account will be delete in 29 day problem nothing phone | how to recover gmail account 
+
+Fix Your account will be delete in 29 day problem nothing phone | how to recover gmail account Sponsorships | Business ...</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=bF_r5iUNNzU" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-02-23" data-tags="#Gmail">
@@ -392,7 +409,7 @@ Welcome to Novel Story M Dive into an epic fantasy world where destiny is rewrit
 
 gmail id delete kaise karen nothing phone 3a,remove google account,how to remove google account,how to remove gmail ...</div>
   <div class="mention-footer">
-    <span>❤ 16</span><span>🔄 0</span><span>💬 0</span>
+    <span>❤ 17</span><span>🔄 0</span><span>💬 0</span>
     <a href="https://www.youtube.com/watch?v=ugqO_TpTaXk" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
@@ -407,7 +424,7 @@ gmail id delete kaise karen nothing phone 3a,remove google account,how to remove
 
 Instagram Account Delete Kaise Kare | How To Delete Instagram Account Permanently #Shorts धन्यवाद आपका ...</div>
   <div class="mention-footer">
-    <span>❤ 10977</span><span>🔄 0</span><span>💬 80</span>
+    <span>❤ 11029</span><span>🔄 0</span><span>💬 81</span>
     <a href="https://www.youtube.com/watch?v=pMirPUsy43I" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
@@ -422,23 +439,8 @@ Instagram Account Delete Kaise Kare | How To Delete Instagram Account Permanentl
 
 </div>
   <div class="mention-footer">
-    <span>❤ 472</span><span>🔄 0</span><span>💬 348</span>
+    <span>❤ 473</span><span>🔄 0</span><span>💬 348</span>
     <a href="https://www.youtube.com/watch?v=F4g_eOlCO1Y" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-07-28" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>The United Stand</strong> <span class="username">@The United Stand</span></span>
-    <span class="time">2025-07-28 01:01 UTC</span>
-  </div>
-  <div class="mention-text">The WORST Signing In Man United&amp;#39;s HISTORY?
-
-PLAYER RATINGS: https://tusplayerratings.com 🎙️ PODCAST: Spotify: https://buff.ly/sgqB5Sz –Apple: https://buff.ly/Ld4Kzd6 ...</div>
-  <div class="mention-footer">
-    <span>❤ 42505</span><span>🔄 0</span><span>💬 2757</span>
-    <a href="https://www.youtube.com/watch?v=vDJhelYZUcA" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2025-07-20" data-tags="#登录">
@@ -467,7 +469,7 @@ Learn how to check the activation date and first sign-in timestamp on your Nothi
 
 Instagram fake account delete | Instagram fake id kaise delete kare | Instagram id delete kaise kare Your Queries: instagram ...</div>
   <div class="mention-footer">
-    <span>❤ 7955</span><span>🔄 0</span><span>💬 190</span>
+    <span>❤ 7963</span><span>🔄 0</span><span>💬 190</span>
     <a href="https://www.youtube.com/watch?v=r-vsh843yNA" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
@@ -482,7 +484,7 @@ Instagram fake account delete | Instagram fake id kaise delete kare | Instagram 
 
 Hello Friends!! Hope Aap Sabhi Achhe hai... instagram account delete kaise kare permanently | how to delete instagram account ...</div>
   <div class="mention-footer">
-    <span>❤ 1131</span><span>🔄 0</span><span>💬 8</span>
+    <span>❤ 1130</span><span>🔄 0</span><span>💬 8</span>
     <a href="https://www.youtube.com/watch?v=C7Qwrp6orGI" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
@@ -497,23 +499,8 @@ Hello Friends!! Hope Aap Sabhi Achhe hai... instagram account delete kaise kare 
 
 How to delete Instagram account parmanetly | Instagram account delete option not showing kya kare Your Queries instagram ...</div>
   <div class="mention-footer">
-    <span>❤ 7969</span><span>🔄 0</span><span>💬 4072</span>
+    <span>❤ 7987</span><span>🔄 0</span><span>💬 4077</span>
     <a href="https://www.youtube.com/watch?v=0R4tqnpLD34" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2024-09-12" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Ali exzo</strong> <span class="username">@Ali exzo</span></span>
-    <span class="time">2024-09-12 12:32 UTC</span>
-  </div>
-  <div class="mention-text">#roblox #bloxfruits #robloxedit delete account for nothing
-
-</div>
-  <div class="mention-footer">
-    <span>❤ 5</span><span>🔄 0</span><span>💬 4</span>
-    <a href="https://www.youtube.com/watch?v=koQhRD1mLI0" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 </div>
