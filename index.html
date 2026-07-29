@@ -74,10 +74,10 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-07-29 08:26 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-07-29 08:33 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-07-11 共 1 条讨论；热点 #其他。</div>
-<div class="status-bar"><span class="status-chip">🔴 Reddit: 23天前</span><span class="status-chip">🔴 Nothing Community: 22天前</span><span class="status-chip">🔴 YouTube: 16天前</span><span class="status-chip">🔴 Bluesky: 20天前</span></div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-07-28 共 3 条讨论；1 条负面；1 条正面；热点 #其他 #验证 #EssentialSpace。</div>
+<div class="status-bar"><span class="status-chip">🔴 Reddit: 23天前</span><span class="status-chip">🟢 Nothing Community: 1分钟前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 20天前</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
   <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
@@ -92,16 +92,187 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">21</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">40</div><div class="label">累计抓取</div></div>
   <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">0</div><div class="label">本周 <span class="">→ 持平</span> (上周 0)</div></div>
-  <div class="stat-card"><div class="number" style="color:#d32f2f">38.1%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 15</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 2</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
+  <div class="stat-card"><div class="number">9</div><div class="label">本周 <span class="trend-up">↑ +800%</span> (上周 1)</div></div>
+  <div class="stat-card"><div class="number" style="color:#d32f2f">40.0%</div><div class="label">负面占比</div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 32</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 4</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-23</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-24</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-25</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-26</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-27</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-28</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-29</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">07-23</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">07-24</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-25</div></div><div class="bar-col"><div class="bar-value">3</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-26</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">07-27</div></div><div class="bar-col"><div class="bar-value">3</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-28</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">07-29</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">21</span> 条)</h3>
-  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-11" data-tags="#其他">
+  <h3>📋 最新提及 (<span id="mentionCount">40</span> 条)</h3>
+  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-28" data-tags="#其他">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
+    <span class="author"><strong>SRIYAN</strong> <span class="username">@SRIYAN</span></span>
+    <span class="time">2026-07-28 13:30 UTC</span>
+  </div>
+  <div class="mention-text">Nothing just how to create an account 
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=nsnSTKgqwqM" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-07-28" data-tags="#验证 #EssentialSpace">
+  <div class="mention-header">
+    <span class="platform-badge platform-community">Nothing Community</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#验证</span><span class="topic-tag">#EssentialSpace</span>
+    <span class="author"><strong>Pixelwalker</strong> <span class="username">@Pixelwalker</span></span>
+    <span class="time">2026-07-28 09:13 UTC</span>
+  </div>
+  <div class="mention-text">Essential space
+
+Hello,
+
+As of yesterday essential space does not work. Whenever I open the app I see a brief pop up “account authorisation error. reset system time or try again later” Does anyone else have a similar problem? Device restart does not solve this</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://nothing.community/d/60512-60512-essential-space" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-07-28" data-tags="#其他">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#其他</span>
+    <span class="author"><strong>Tech Kukru</strong> <span class="username">@Tech Kukru</span></span>
+    <span class="time">2026-07-28 08:56 UTC</span>
+  </div>
+  <div class="mention-text">How to Change Mobile Number in Facebook Account (2026) | Update Phone Number on Facebook
+
+How To Change Mobile Number in Facebook ID (Latest Method) Update Phone Number on Facebook Account | Easy Guide ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=nP1K_qQAHos" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-27" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>Seo-Jun (서준) </strong> <span class="username">@Seo-Jun (서준) </span></span>
+    <span class="time">2026-07-27 12:24 UTC</span>
+  </div>
+  <div class="mention-text">From Rejected to Billionaire 👑💸 | My Sign-In System Changed Everything!
+
+From Rejected to Billionaire | My Sign-In System Changed Everything! YouTube SEO Title: Kicked Out &amp; Dumped?</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=iZElHKot10M" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-07-26" data-tags="#Gmail">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#Gmail</span>
+    <span class="author"><strong>Tech Sumit Pb06</strong> <span class="username">@Tech Sumit Pb06</span></span>
+    <span class="time">2026-07-26 15:30 UTC</span>
+  </div>
+  <div class="mention-text">🚀 Google Account Kaise Banaye? 😈 Sabse Easy Method 2026 🔥 
+
+Google Account Kaise Banaye? Sabse Easy Method 2026 Namaste Dosto! Is video mein maine bilkul easy tareeke se ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 5</span>
+    <a href="https://www.youtube.com/watch?v=yGGMriXdoPw" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-26" data-tags="#注册">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#注册</span>
+    <span class="author"><strong>Deckspace</strong> <span class="username">@Deckspace</span></span>
+    <span class="time">2026-07-26 15:09 UTC</span>
+  </div>
+  <div class="mention-text">No telemetry, no sign-up — and you can read the source | Claude Accounts
+
+An app that runs all your Claude accounts should be one you can check. Claude Accounts opens each account in its own isolated ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=UeY94RRVml4" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-07-26" data-tags="#验证 #EssentialSpace">
+  <div class="mention-header">
+    <span class="platform-badge platform-community">Nothing Community</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#验证</span><span class="topic-tag">#EssentialSpace</span>
+    <span class="author"><strong>MontyPython</strong> <span class="username">@broters</span></span>
+    <span class="time">2026-07-26 12:04 UTC</span>
+  </div>
+  <div class="mention-text">Essential Space not working
+
+Hi.
+
+Since some weeks my essential space button doesn’t work. So I can put some information in, via voice or text, but it is not in my memory. Or better: it is shown and all the time it tries to do the summary. So especially there is nothing that I can do to manage my entry, not can I put it in an event anymore. Any idea how to solve it? Any other same problem?
+
+It is said, that there is an error with the account authorization and I should reset the system time. I do not know where and I don’t u</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://nothing.community/d/60418-60418-essential-space-not-working" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-24" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>Rebel with a Vintage Cause </strong> <span class="username">@Rebel with a Vintage Cause </span></span>
+    <span class="time">2026-07-24 04:27 UTC</span>
+  </div>
+  <div class="mention-text">Nothing gets me more excited than spotting a half price sign in a charity shop! 🤩
+
+Nothing gets me more excited than spotting a half price sign in a charity shop! More bargains and even more excuses to come ...</div>
+  <div class="mention-footer">
+    <span>❤ 25</span><span>🔄 0</span><span>💬 3</span>
+    <a href="https://www.youtube.com/watch?v=3J9aKW2lhHs" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-07-23" data-tags="#验证 #Gmail">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#验证</span><span class="topic-tag">#Gmail</span>
+    <span class="author"><strong>Manish4u</strong> <span class="username">@Manish4u</span></span>
+    <span class="time">2026-07-23 15:50 UTC</span>
+  </div>
+  <div class="mention-text">Google account verifying your phone number problem 2026 | verify your phone number problem
+
+manish4u Hello &amp; Namaste Everyone, Google account verifying your phone number problem 2026 | verify your phone number ...</div>
+  <div class="mention-footer">
+    <span>❤ 1082</span><span>🔄 0</span><span>💬 316</span>
+    <a href="https://www.youtube.com/watch?v=A7blbB2lSgg" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-21" data-tags="#验证">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#验证</span>
+    <span class="author"><strong>TechiBoy</strong> <span class="username">@TechiBoy</span></span>
+    <span class="time">2026-07-21 15:57 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Account Redesign! Nothing OS 5.0 Glass UI, Blur Effects &amp;amp; 2FA Added 📲
+
+Nothing has quietly redesigned its Account page with a fresh UI, featuring a new blurred glass-like background animation that ...</div>
+  <div class="mention-footer">
+    <span>❤ 278</span><span>🔄 0</span><span>💬 80</span>
+    <a href="https://www.youtube.com/watch?v=Box6RkFjvgQ" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-07-15" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>SAMEER GAMER 777</strong> <span class="username">@SAMEER GAMER 777</span></span>
+    <span class="time">2026-07-15 03:11 UTC</span>
+  </div>
+  <div class="mention-text">#how to solve login problem  #nothing phone #viralvideo #trending #trendingshorts
+
+dns code https://dns.adguard-dns.com.</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://www.youtube.com/watch?v=1mFUQxwK0Bs" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-11" data-tags="#其他">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
     <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
@@ -157,6 +328,21 @@ This article discusses how Nothing Technology Limited failed to file its account
   <div class="mention-footer">
     <span>❤ 47</span><span>🔄 0</span><span>💬 23</span>
     <a href="https://www.reddit.com/r/NothingTech/comments/1ulkvqt/nothing_fails_to_file_accounts_months_after/" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-01" data-tags="#密码 #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#密码</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>GSM EXPERTS</strong> <span class="username">@GSM EXPERTS</span></span>
+    <span class="time">2026-07-01 10:28 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 2a Plus: How to Hard Reset via Recovery Mode - nothing 2a plus hard reset
+
+Nothing Phone 2a Plus Hard Reset Remove Password &amp; Screen Lock via Recovery Mode Forgot the password on your ...</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://www.youtube.com/watch?v=N1hb8tffdKg" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-06-27" data-tags="#同步">
@@ -264,6 +450,21 @@ while adding gmail account from settings it show Exchange instead of gmail how c
     <a href="https://nothing.community/d/58370-gmail-account-add-problem" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-05-21" data-tags="#其他">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#其他</span>
+    <span class="author"><strong>꧁★𝓚𝓲𝓽𝓽𝔂𝓐𝓷𝓰𝓮𝓵𝓼★꧂</strong> <span class="username">@꧁★𝓚𝓲𝓽𝓽𝔂𝓐𝓷𝓰𝓮𝓵𝓼★꧂</span></span>
+    <span class="time">2026-05-21 14:48 UTC</span>
+  </div>
+  <div class="mention-text">Fuck you youtube why did you delete my account?..  I did nothing wrong... 
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=oUGSYqIXjo4" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-05-18" data-tags="#密码">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -324,6 +525,21 @@ Learn how to quickly sign in to your Google account on the NOTHING Phone (4a) Pr
     <a href="https://www.youtube.com/watch?v=pHQQ6_Ue1Jc" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-04-27" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>Games &amp; Apps Tutorials</strong> <span class="username">@Games &amp; Apps Tutorials</span></span>
+    <span class="time">2026-04-27 02:06 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 4a/4a Pro: How to Check Activation Date (First Sign-In)
+
+In this video, I&#39;ll show you how to check the activation date of your Nothing Phone 4a or 4a Pro right after your first sign-in.</div>
+  <div class="mention-footer">
+    <span>❤ 14</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://www.youtube.com/watch?v=dQOaiwGakg8" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-03-27" data-tags="#登录 #Gmail">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -337,6 +553,36 @@ nothing phone 4a pro google account sign in | nothing phone 4a add google accoun
   <div class="mention-footer">
     <span>❤ 3</span><span>🔄 0</span><span>💬 1</span>
     <a href="https://www.youtube.com/watch?v=POOnHIA4f5E" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-03-16" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>NOVEL STORY MEMBERS</strong> <span class="username">@NOVEL STORY MEMBERS</span></span>
+    <span class="time">2026-03-16 12:30 UTC</span>
+  </div>
+  <div class="mention-text">The Good-for-Nothing Princess: Sign-In at the Start | Episodes 481-500+ 🔥 Phoenix Princess Awakens
+
+The Good-for-Nothing Princess: Sign-In at the Start – Episodes 481-500+ In this exciting fantasy audiobook, the once useless ...</div>
+  <div class="mention-footer">
+    <span>❤ 31</span><span>🔄 0</span><span>💬 14</span>
+    <a href="https://www.youtube.com/watch?v=6CIB2oW4Uho" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-03-12" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>NOVEL STORY MEMBERS</strong> <span class="username">@NOVEL STORY MEMBERS</span></span>
+    <span class="time">2026-03-12 12:30 UTC</span>
+  </div>
+  <div class="mention-text">The Good-for-Nothing Princess: Sign-In at the Start | Episodes 401-420 | Powerful Phoenix Princess&amp;#39;
+
+Welcome to The Good-for-Nothing Princess: Sign-In at the Start! In Episodes 401-420, the powerful phoenix princess continues ...</div>
+  <div class="mention-footer">
+    <span>❤ 30</span><span>🔄 0</span><span>💬 9</span>
+    <a href="https://www.youtube.com/watch?v=J2W90-HvLPE" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-02-23" data-tags="#Gmail">
@@ -399,6 +645,21 @@ gmail id delete kaise karen nothing phone 3a,remove google account,how to remove
     <a href="https://www.youtube.com/watch?v=ugqO_TpTaXk" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-10-22" data-tags="#注销">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
+    <span class="author"><strong>Manish Advice</strong> <span class="username">@Manish Advice</span></span>
+    <span class="time">2025-10-22 10:33 UTC</span>
+  </div>
+  <div class="mention-text">Instagram Account Delete Kaise Kare | How To Delete Instagram Account Permanently #shortsvideo
+
+Instagram Account Delete Kaise Kare | How To Delete Instagram Account Permanently #Shorts धन्यवाद आपका ...</div>
+  <div class="mention-footer">
+    <span>❤ 11451</span><span>🔄 0</span><span>💬 82</span>
+    <a href="https://www.youtube.com/watch?v=pMirPUsy43I" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2025-07-30" data-tags="#登录">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -412,6 +673,36 @@ gmail id delete kaise karen nothing phone 3a,remove google account,how to remove
   <div class="mention-footer">
     <span>❤ 464</span><span>🔄 0</span><span>💬 345</span>
     <a href="https://www.youtube.com/watch?v=F4g_eOlCO1Y" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-07-03" data-tags="#注销">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
+    <span class="author"><strong>Upcoming Updates </strong> <span class="username">@Upcoming Updates </span></span>
+    <span class="time">2025-07-03 11:30 UTC</span>
+  </div>
+  <div class="mention-text">Instagram fake account delete | Instagram fake id kaise delete kare | Instagram id delete kaise kare
+
+Instagram fake account delete | Instagram fake id kaise delete kare | Instagram id delete kaise kare Your Queries: instagram ...</div>
+  <div class="mention-footer">
+    <span>❤ 8046</span><span>🔄 0</span><span>💬 191</span>
+    <a href="https://www.youtube.com/watch?v=r-vsh843yNA" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-05-20" data-tags="#注销">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
+    <span class="author"><strong>TheeTube</strong> <span class="username">@TheeTube</span></span>
+    <span class="time">2025-05-20 05:39 UTC</span>
+  </div>
+  <div class="mention-text">instagram account delete kaise kare permanently | how to delete instagram account #instagram #delete
+
+Hello Friends!! Hope Aap Sabhi Achhe hai... instagram account delete kaise kare permanently | how to delete instagram account ...</div>
+  <div class="mention-footer">
+    <span>❤ 1141</span><span>🔄 0</span><span>💬 8</span>
+    <a href="https://www.youtube.com/watch?v=C7Qwrp6orGI" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 </div>
