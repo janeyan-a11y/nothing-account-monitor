@@ -1,12 +1,9 @@
-# GitHub Actions — 每日社媒舆情抓取
-# 每天 UTC 0:00 自动运行，抓取各平台 Nothing Account 讨论
-
 name: Daily Social Monitor
 
 on:
   schedule:
-    - cron: "17 0 * * *" # UTC 0:17 (避开整点高峰)
-  workflow_dispatch: # 允许手动触发
+    - cron: "17 0 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -34,7 +31,16 @@ jobs:
         working-directory: social-monitor
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
         run: python run.py
+
+      - name: Commit updated data back
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add social-monitor/data/mentions.json
+          git diff --cached --quiet || git commit -m "Auto: update mentions data [skip ci]"
+          git push origin master
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

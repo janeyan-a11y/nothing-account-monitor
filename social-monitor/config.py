@@ -68,6 +68,11 @@ DATA_FILE = os.path.join(BASE_DIR, "data", "mentions.json")
 DASHBOARD_OUTPUT = os.path.join(BASE_DIR, "..", "docs", "index.html")
 
 # ============================================================
-# 通知配置（后期接飞书/邮件）
+# 邮件告警（Gmail SMTP）
 # ============================================================
-ENABLE_NOTIFICATION = False
+SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
+SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
+SMTP_USER = os.environ.get("SMTP_USER", "jane.yan@nothing.tech")
+SMTP_PASS = os.environ.get("SMTP_PASS", "")
+ALERT_EMAIL = os.environ.get("ALERT_EMAIL", "jane.yan@nothing.tech")
+ALERT_THRESHOLD = int(os.environ.get("ALERT_THRESHOLD", "1"))  # 当天负面>=N条触发告警
