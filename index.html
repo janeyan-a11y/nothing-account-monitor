@@ -74,10 +74,10 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-08-03 03:57 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-08-04 03:39 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-08-01 共 1 条讨论；热点 #验证。</div>
-<div class="status-bar"><span class="status-chip">🔴 Reddit: 27天前</span><span class="status-chip">🟢 Nothing Community: 1天前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 25天前</span></div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-08-03 共 1 条讨论；1 条正面；热点 #登录 #验证。</div>
+<div class="status-bar"><span class="status-chip">🔴 Reddit: 28天前</span><span class="status-chip">🟢 Nothing Community: 1天前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 26天前</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
   <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
@@ -92,16 +92,31 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">52</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">60</div><div class="label">累计抓取</div></div>
   <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">8</div><div class="label">本周 <span class="">→ 持平</span> (上周 8)</div></div>
-  <div class="stat-card"><div class="number" style="color:#d32f2f">38.5%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 5</span><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 43</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
+  <div class="stat-card"><div class="number">6</div><div class="label">本周 <span class="trend-down">↓ -40%</span> (上周 10)</div></div>
+  <div class="stat-card"><div class="number" style="color:#d32f2f">36.7%</div><div class="label">负面占比</div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 51</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 5</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">3</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-28</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">07-29</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:66%"></div><div class="bar-label">07-30</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">07-31</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">08-01</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-02</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-03</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">07-29</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">07-30</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">07-31</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">08-01</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-02</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">08-03</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-04</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">52</span> 条)</h3>
-  <div class="mention-card" data-platform="Nothing Community" data-sentiment="neutral" data-date="2026-08-01" data-tags="#验证">
+  <h3>📋 最新提及 (<span id="mentionCount">60</span> 条)</h3>
+  <div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-08-03" data-tags="#登录 #验证">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span><span class="topic-tag">#验证</span>
+    <span class="author"><strong>Echo-SHORT</strong> <span class="username">@Echo-SHORT</span></span>
+    <span class="time">2026-08-03 10:55 UTC</span>
+  </div>
+  <div class="mention-text">Wedding Day,Dumped by Fiancée—Sign-In System Grants $100B Empire＆CEO Beauty Who Loves Him!
+
+This script channel has been authorized. Unauthorized use is strictly prohibited. Those who use it will be held responsible for the ...</div>
+  <div class="mention-footer">
+    <span>❤ 482</span><span>🔄 0</span><span>💬 11</span>
+    <a href="https://www.youtube.com/watch?v=bcxbOntOy20" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="Nothing Community" data-sentiment="neutral" data-date="2026-08-01" data-tags="#验证">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
     <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#验证</span>
@@ -842,6 +857,21 @@ How to delete Instagram account parmanetly | Instagram account delete option not
     <a href="https://www.youtube.com/watch?v=0R4tqnpLD34" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2023-06-14" data-tags="#Gmail #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>BK SMART POINT</strong> <span class="username">@BK SMART POINT</span></span>
+    <span class="time">2023-06-14 07:23 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 1 FRP Bypass Android 13 | Nothing Phone 1 Google Account Bypass Without Pc | 100% OK |
+
+Nothing Phone 1 FRP Bypass Android 13 | Nothing Phone 1 Google Account Bypass Without Pc | 100% OK ...</div>
+  <div class="mention-footer">
+    <span>❤ 480</span><span>🔄 0</span><span>💬 107</span>
+    <a href="https://www.youtube.com/watch?v=Fp5ZXih-pbk" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2023-06-03" data-tags="#注销">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -872,6 +902,36 @@ Hey, What&#39;s Up Guys! This Is Me Sanjay From (Sanjay Trick)------= Facebook A
     <a href="https://www.youtube.com/watch?v=K28VT6onMqE" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2022-12-26" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>Britec09</strong> <span class="username">@Britec09</span></span>
+    <span class="time">2022-12-26 12:39 UTC</span>
+  </div>
+  <div class="mention-text">Bypass Microsoft Account Sign in While Installing Windows 11
+
+Bypass Microsoft Account Sign in While Installing Windows 11 Don&#39;t want to be forced by Microsoft to sign in to a Microsoft ...</div>
+  <div class="mention-footer">
+    <span>❤ 19833</span><span>🔄 0</span><span>💬 467</span>
+    <a href="https://www.youtube.com/watch?v=mSaWcmrVO3I" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2022-11-02" data-tags="#登录 #密码">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span><span class="topic-tag">#密码</span>
+    <span class="author"><strong>Tech Analytic 360</strong> <span class="username">@Tech Analytic 360</span></span>
+    <span class="time">2022-11-02 18:21 UTC</span>
+  </div>
+  <div class="mention-text">How To Fix Login or password is invalid Error on Discord | Solve Discord Login Issue
+
+Are you getting Login or password is invalid on Discord? To Fix Login Error in Discord Mobile, stay tuned with this entire video.</div>
+  <div class="mention-footer">
+    <span>❤ 6511</span><span>🔄 0</span><span>💬 729</span>
+    <a href="https://www.youtube.com/watch?v=uKa0fER5PBo" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2022-10-09" data-tags="#注销">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -885,6 +945,66 @@ How to delete WhatsApp account permanently || WhatsApp account delete kaise kare
   <div class="mention-footer">
     <span>❤ 19458</span><span>🔄 0</span><span>💬 157</span>
     <a href="https://www.youtube.com/watch?v=J_iSpvAfRpA" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-08-10" data-tags="#验证 #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#验证</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>HardReset.Info</strong> <span class="username">@HardReset.Info</span></span>
+    <span class="time">2022-08-10 10:43 UTC</span>
+  </div>
+  <div class="mention-text">Bypass Google Verification NOTHING Phone 1 | Unlock FRP | Skip Google Lock
+
+NOTHING Phone 1 Bypass Google: ...</div>
+  <div class="mention-footer">
+    <span>❤ 241</span><span>🔄 0</span><span>💬 31</span>
+    <a href="https://www.youtube.com/watch?v=FZDhOkwfais" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-07-19" data-tags="#Gmail #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Perfect Mobile Solution</strong> <span class="username">@Perfect Mobile Solution</span></span>
+    <span class="time">2022-07-19 11:30 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 1 Frp Bypass Android 12 Update || Google Account Bypass Without Pc 100% Free
+
+My 2nd YouTube Channel....Pls Support -- https://youtube.com/@correctmobilesolution Contect me on this number using ...</div>
+  <div class="mention-footer">
+    <span>❤ 638</span><span>🔄 0</span><span>💬 164</span>
+    <a href="https://www.youtube.com/watch?v=8-Bi9l3h6kA" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2022-07-03" data-tags="#其他">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#其他</span>
+    <span class="author"><strong>YourSixGaming</strong> <span class="username">@YourSixGaming</span></span>
+    <span class="time">2022-07-03 23:00 UTC</span>
+  </div>
+  <div class="mention-text">How to Recover Fortnite Account if Unlinked or Pressed Skip (Best Method)
+
+Do you want to know how to get your fortnite account back if unlinked or pressed skip. If this happens all your account progression ...</div>
+  <div class="mention-footer">
+    <span>❤ 6690</span><span>🔄 0</span><span>💬 1650</span>
+    <a href="https://www.youtube.com/watch?v=VRHQTvhAenI" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-05-05" data-tags="#登录">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
+    <span class="author"><strong>Craft OMG</strong> <span class="username">@Craft OMG</span></span>
+    <span class="time">2022-05-05 11:35 UTC</span>
+  </div>
+  <div class="mention-text">How To Join Any SMP Or Server Without Sign In 😍 New Trick For Crafting And Building And Minecraft
+
+So Hey Guys I Am Back With Another Video Of Minecraft ❤️ in this Video I give you a trick for How To Join Any SMP Or Server ...</div>
+  <div class="mention-footer">
+    <span>❤ 6751</span><span>🔄 0</span><span>💬 380</span>
+    <a href="https://www.youtube.com/watch?v=fjhGAsGkGNQ" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 </div>
