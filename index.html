@@ -74,10 +74,10 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-08-10 02:37 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-08-11 02:30 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-08-09 共 1 条讨论；1 条负面；热点 #登录。</div>
-<div class="status-bar"><span class="status-chip">🔴 Reddit: 34天前</span><span class="status-chip">🟢 Nothing Community: 1分钟前</span><span class="status-chip">🟢 YouTube: 1天前</span><span class="status-chip">🔴 Bluesky: 32天前</span></div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-08-10 共 1 条讨论；热点 #其他。</div>
+<div class="status-bar"><span class="status-chip">🔴 Reddit: 35天前</span><span class="status-chip">🟢 Nothing Community: 23小时前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 33天前</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
   <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
@@ -92,16 +92,31 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">78</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">84</div><div class="label">累计抓取</div></div>
   <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">10</div><div class="label">本周 <span class="trend-up">↑ +11%</span> (上周 9)</div></div>
-  <div class="stat-card"><div class="number" style="color:#d32f2f">35.9%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 7</span><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 67</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
+  <div class="stat-card"><div class="number">11</div><div class="label">本周 <span class="trend-up">↑ +57%</span> (上周 7)</div></div>
+  <div class="stat-card"><div class="number" style="color:#d32f2f">33.3%</div><div class="label">负面占比</div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 73</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 7</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:20%"></div><div class="bar-label">08-04</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-05</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:40%"></div><div class="bar-label">08-06</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:20%"></div><div class="bar-label">08-07</div></div><div class="bar-col"><div class="bar-value">5</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">08-08</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:20%"></div><div class="bar-label">08-09</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-10</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-05</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">08-06</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:16%"></div><div class="bar-label">08-07</div></div><div class="bar-col"><div class="bar-value">6</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">08-08</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:16%"></div><div class="bar-label">08-09</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:16%"></div><div class="bar-label">08-10</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-11</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">78</span> 条)</h3>
-  <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-09" data-tags="#登录">
+  <h3>📋 最新提及 (<span id="mentionCount">84</span> 条)</h3>
+  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-10" data-tags="#其他">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
+    <span class="author"><strong>VIVORY</strong> <span class="username">@VIVORY</span></span>
+    <span class="time">2026-08-10 18:08 UTC</span>
+  </div>
+  <div class="mention-text">Guest side: reply and leave a memory, nothing to install — Vivory
+
+Everything fits in one link. Nothing to install, no account to create. Your guest replies in three seconds, then leaves a memory: a ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=IpJRhKv11RM" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-09" data-tags="#登录">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
     <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span>
@@ -129,6 +144,21 @@ What if most of the money in your bank account didn&#39;t exist before you depos
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
     <a href="https://www.youtube.com/watch?v=KsVI4S7wlUM" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-08" data-tags="#Gmail">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
+    <span class="author"><strong>Manish4u</strong> <span class="username">@Manish4u</span></span>
+    <span class="time">2026-08-08 16:34 UTC</span>
+  </div>
+  <div class="mention-text">New Gmail Account Kaise Banaye | Email id kaise banaye | how to create gmail account | email id
+
+manish4u Hello &amp; Namaste Everyone, gmail id change kaise kare | google email change | gmail address change | gmail ...</div>
+  <div class="mention-footer">
+    <span>❤ 694</span><span>🔄 0</span><span>💬 66</span>
+    <a href="https://www.youtube.com/watch?v=GfNGninxUig" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-08" data-tags="#其他">
@@ -829,6 +859,21 @@ Learn how to quickly sign in to your Google account on the NOTHING Phone (4a) Pr
     <a href="https://www.youtube.com/watch?v=pHQQ6_Ue1Jc" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-05-09" data-tags="#其他">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
+    <span class="author"><strong>Nabbie  Ella</strong> <span class="username">@Nabbie  Ella</span></span>
+    <span class="time">2026-05-09 18:30 UTC</span>
+  </div>
+  <div class="mention-text">LinkedIn Restricted Your Account and Nothing Worked? Do This
+
+If your LinkedIn account has been restricted and you&#39;ve tried everything without success, this video is for you. In this step-by-step ...</div>
+  <div class="mention-footer">
+    <span>❤ 11</span><span>🔄 0</span><span>💬 5</span>
+    <a href="https://www.youtube.com/watch?v=sO_MIXm3KSQ" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-04-27" data-tags="#登录">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -842,6 +887,51 @@ In this video, I&#39;ll show you how to check the activation date of your Nothin
   <div class="mention-footer">
     <span>❤ 14</span><span>🔄 0</span><span>💬 1</span>
     <a href="https://www.youtube.com/watch?v=dQOaiwGakg8" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-04-26" data-tags="#登录 #Gmail">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span><span class="topic-tag">#Gmail</span>
+    <span class="author"><strong>Games &amp; Apps Tutorials</strong> <span class="username">@Games &amp; Apps Tutorials</span></span>
+    <span class="time">2026-04-26 02:24 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 4a/4a Pro: How to Add Gmail Account (Sign Into New Gmail)
+
+In this video, I&#39;ll show you how to easily add a Gmail account to your Nothing Phone 4a or 4a Pro. Whether you&#39;re signing into a ...</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=uuTb1PCeObg" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-04-04" data-tags="#Gmail">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
+    <span class="author"><strong>Step-by-Step Videos</strong> <span class="username">@Step-by-Step Videos</span></span>
+    <span class="time">2026-04-04 19:17 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 4a: How to Create a Google Account
+
+Learn how to create a Google account on Nothing Phone 4a. Having a Google account allows you to access a wide range of ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=jI_IFV7kyBU" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-03-31" data-tags="#Gmail">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
+    <span class="author"><strong>Kannu Talk</strong> <span class="username">@Kannu Talk</span></span>
+    <span class="time">2026-03-31 05:30 UTC</span>
+  </div>
+  <div class="mention-text">Remove advance protection nothing phone 4a pro | Google account se advance protection kaise hataye
+
+nothing phone 4a me google security kaise hataye | How to remove advance protection in nothing phone 4a pro | How to disable ...</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=Wo0olJozL9U" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-03-27" data-tags="#登录 #Gmail">
