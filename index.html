@@ -74,10 +74,10 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-08-21 02:00 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-08-22 01:53 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-08-20 共 2 条讨论；1 条负面；热点 #同步 #Gmail #EssentialSpace。</div>
-<div class="status-bar"><span class="status-chip">🔴 Reddit: 45天前</span><span class="status-chip">🟢 Nothing Community: 1分钟前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 43天前</span></div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-08-21 共 2 条讨论；热点 #登录 #密码 #验证。</div>
+<div class="status-bar"><span class="status-chip">🔴 Reddit: 46天前</span><span class="status-chip">🟢 Nothing Community: 23小时前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 44天前</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
   <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
@@ -92,16 +92,46 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">102</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">105</div><div class="label">累计抓取</div></div>
   <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">7</div><div class="label">本周 <span class="trend-down">↓ -46%</span> (上周 13)</div></div>
+  <div class="stat-card"><div class="number">8</div><div class="label">本周 <span class="">→ 持平</span> (上周 8)</div></div>
   <div class="stat-card"><div class="number" style="color:#d32f2f">31.4%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 12</span><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 86</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 89</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 12</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 1</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">08-15</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">08-16</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-17</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">08-18</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">08-19</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">08-20</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-21</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">08-16</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-17</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">08-18</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">08-19</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">08-20</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">08-21</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">08-22</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">102</span> 条)</h3>
-  <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-20" data-tags="#同步 #Gmail #EssentialSpace">
+  <h3>📋 最新提及 (<span id="mentionCount">105</span> 条)</h3>
+  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-21" data-tags="#登录 #密码 #验证">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span><span class="topic-tag">#密码</span><span class="topic-tag">#验证</span>
+    <span class="author"><strong>BrainIT Consulting</strong> <span class="username">@BrainIT Consulting</span></span>
+    <span class="time">2026-08-21 19:33 UTC</span>
+  </div>
+  <div class="mention-text">Sign-In Without Passwords: OAuth Inside Your App — Connect Your App to AI Assistants (6/10)
+
+Lesson 6 of 10: Sign-In Without Passwords: OAuth Inside Your App Here&#39;s a day you only lose once. Somebody pastes your app&#39;s ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=V495scChP9Q" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-21" data-tags="#Gmail #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>PM MOBILE , SHAHPURA </strong> <span class="username">@PM MOBILE , SHAHPURA </span></span>
+    <span class="time">2026-08-21 11:18 UTC</span>
+  </div>
+  <div class="mention-text">NOTHING PHONE 2A FRP BY PASS | nothing phone 2a google account by pass 2026 || #nothingfrp 
+
+NOTHING PHONE 2A FRP BY PASS | nothing phone 2a google account by pass 2026 || #nothingfrp Nothing Mobile call Lo ...</div>
+  <div class="mention-footer">
+    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=_xETk805C58" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-20" data-tags="#同步 #Gmail #EssentialSpace">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
     <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#同步</span><span class="topic-tag">#Gmail</span><span class="topic-tag">#EssentialSpace</span>
@@ -1054,6 +1084,21 @@ If your LinkedIn account has been restricted and you&#39;ve tried everything wit
   <div class="mention-footer">
     <span>❤ 11</span><span>🔄 0</span><span>💬 5</span>
     <a href="https://www.youtube.com/watch?v=sO_MIXm3KSQ" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-05-01" data-tags="#注销">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
+    <span class="author"><strong>Technical Shiv</strong> <span class="username">@Technical Shiv</span></span>
+    <span class="time">2026-05-01 05:30 UTC</span>
+  </div>
+  <div class="mention-text">instagram account delete kaise kare permanently | instagram id delete kaise kare
+
+Dosto aaj ki is short video me hum aapko batayenge ki Instagram account delete kaise karte hai Topic covered instagram ...</div>
+  <div class="mention-footer">
+    <span>❤ 2674</span><span>🔄 0</span><span>💬 31</span>
+    <a href="https://www.youtube.com/watch?v=l4gEq3m2YJQ" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-04-27" data-tags="#登录">
