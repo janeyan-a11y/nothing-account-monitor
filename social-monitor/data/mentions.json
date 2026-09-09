@@ -1,5 +1,57 @@
 [
   {
+    "id": "bsky_3muylnh7n7s2p",
+    "title": "I heard someone say on the Android Authority YouTube channel:  \"Use your phone's home screen to get things done.\"  Your ",
+    "text": "I heard someone say on the Android Authority YouTube channel:\n\n\"Use your phone's home screen to get things done.\"\n\nYour frequently used apps & widgets should be there.\n\nI wish my Nothing Phone had a stacked widgets feature, just like Samsung's One UI.\n\n#Tech #Technology #Phone #Homescreen #App #dev",
+    "created_at": "2026-09-08T08:20:03.872+00:00",
+    "author_name": "Danish Akhtar",
+    "author_username": "danish-akhtar7.bsky.social",
+    "author_followers": 0,
+    "retweets": 1,
+    "likes": 1,
+    "replies": 0,
+    "url": "https://bsky.app/profile/danish-akhtar7.bsky.social/post/3muylnh7n7s2p",
+    "platform": "Bluesky",
+    "fetched_at": "2026-09-09T06:57:04.791288+00:00",
+    "sentiment": "neutral"
+  },
+  {
+    "id": "community_62412",
+    "title": "Essential Space note analysis fails – “Unable to analyze / No value for tags”",
+    "text": "Essential Space note analysis fails – “Unable to analyze / No value for tags”\n\nTitle: Essential Space note analysis fails – “Unable to analyze / No value for tags”\n\nI’m experiencing a problem with Essential Space on my Nothing Phone (4a) Pro.\n\nThe problem appears to be specifically with AI analysis of saved notes.\n\nWhat works\n\n- Essential Space opens and functions normally.\n\n- Essential Voice works normally.\n\n- I can record a voice through Essential Voice.\n\n- The recording is transcribed correctly.\n\n- Essential Voice successfully analyzes the recording and generates a summ",
+    "content_full": "Title: Essential Space note analysis fails – “Unable to analyze / No value for tags”\n\nI’m experiencing a problem with Essential Space on my Nothing Phone (4a) Pro.\n\nThe problem appears to be specifically with AI analysis of saved notes.\n\nWhat works\n\n- Essential Space opens and functions normally.\n\n- Essential Voice works normally.\n\n- I can record a voice through Essential Voice.\n\n- The recording is transcribed correctly.\n\n- Essential Voice successfully analyzes the recording and generates a summary.\n\n- Regular Essential Space notes are also saved successfully.\n\n- Voice transcription inside Essential Space works correctly.\n\nWhat doesn’t work\n\nWhen I try to have a regular Essential Space note analyzed, I get:\n\n«Unable to analyze\n\nNo value for tags»\n\nThis happens even with a very short English note, for example:\n\n«“Meeting tomorrow at 10 AM. Discuss the project deadline.”»\n\nSo it doesn’t appear to be related to the length or language of the note.\n\nTroubleshooting I’ve already tried\n\n- Tes",
+    "created_at": "2026-09-05T10:13:24+00:00",
+    "author_name": "ErfanRashidi",
+    "author_username": "ErfanRashidi",
+    "author_followers": 0,
+    "retweets": 0,
+    "likes": 0,
+    "replies": 6,
+    "views": 0,
+    "url": "https://nothing.community/d/62412-62412-essential-space-note-analysis-fails-unable-to-analyze-no-value-for-tags",
+    "platform": "Nothing Community",
+    "fetched_at": "2026-09-09T06:56:43.766793+00:00",
+    "sentiment": "negative"
+  },
+  {
+    "id": "community_61663",
+    "title": "Essential Space log out problem ",
+    "text": "Essential Space log out problem \n\nMy Nothing account is continuously getting logged off from essential space, however, when I again enter personal information zone, it synchronises and logs my account back again. But the same problem is getting repeated. I have already tried clearing data of the app, but the problem is not gone…",
+    "content_full": "My Nothing account is continuously getting logged off from essential space, however, when I again enter personal information zone, it synchronises and logs my account back again. But the same problem is getting repeated. I have already tried clearing data of the app, but the problem is not gone…",
+    "created_at": "2026-08-22T19:36:34+00:00",
+    "author_name": "SoumyadipChatterjee_vXl7LkVgnL",
+    "author_username": "SoumyadipChatterjee_vXl7LkVgnL",
+    "author_followers": 0,
+    "retweets": 0,
+    "likes": 0,
+    "replies": 6,
+    "views": 0,
+    "url": "https://nothing.community/d/61663-61663-essential-space-log-out-problem",
+    "platform": "Nothing Community",
+    "fetched_at": "2026-09-09T06:56:45.527621+00:00",
+    "sentiment": "negative"
+  },
+  {
     "id": "youtube_fWqLD2H3s8A",
     "title": "my new ID account ❣️ nothing phone 4a",
     "text": "my new ID account ❣️ nothing phone 4a\n\n",
@@ -13,7 +65,8 @@
     "url": "https://www.youtube.com/watch?v=fWqLD2H3s8A",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:44.107799+00:00",
-    "views": 1888
+    "views": 1888,
+    "sentiment": "neutral"
   },
   {
     "id": "bsky_3mq4c6sadps2f",
@@ -28,7 +81,8 @@
     "replies": 0,
     "url": "https://bsky.app/profile/saunders-tech.bsky.social/post/3mq4c6sadps2f",
     "platform": "Bluesky",
-    "fetched_at": "2026-07-08T08:42:52.221511+00:00"
+    "fetched_at": "2026-07-08T08:42:52.221511+00:00",
+    "sentiment": "neutral"
   },
   {
     "id": "community_59481",
@@ -41,7 +95,8 @@
     "url": "https://nothing.community/d/59481-essential-space-account-authorization-error",
     "likes": 0,
     "replies": 3,
-    "fetched_at": "2026-07-07T08:00:00+00:00"
+    "fetched_at": "2026-07-07T08:00:00+00:00",
+    "sentiment": "negative"
   },
   {
     "id": "reddit_1ulkvqt",
@@ -57,7 +112,8 @@
     "subreddit": "r/NothingTech",
     "url": "https://www.reddit.com/r/NothingTech/comments/1ulkvqt/nothing_fails_to_file_accounts_months_after/",
     "platform": "Reddit",
-    "fetched_at": "2026-07-06T08:00:00+00:00"
+    "fetched_at": "2026-07-06T08:00:00+00:00",
+    "sentiment": "negative"
   },
   {
     "id": "youtube_IaZ-Heb0ibk",
@@ -73,7 +129,8 @@
     "url": "https://www.youtube.com/watch?v=IaZ-Heb0ibk",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:50.838586+00:00",
-    "views": 0
+    "views": 0,
+    "sentiment": "neutral"
   },
   {
     "id": "reddit_1ugx9ds",
@@ -89,7 +146,8 @@
     "subreddit": "r/NothingTech",
     "url": "https://www.reddit.com/r/NothingTech/comments/1ugx9ds/nothing_x_app_sign_in_requirement/",
     "platform": "Reddit",
-    "fetched_at": "2026-07-06T08:00:00+00:00"
+    "fetched_at": "2026-07-06T08:00:00+00:00",
+    "sentiment": "negative"
   },
   {
     "id": "reddit_1ugglwe",
@@ -105,7 +163,8 @@
     "subreddit": "r/NothingTech",
     "url": "https://www.reddit.com/r/NothingTech/comments/1ugglwe/help_with_setting_up_two_accounts/",
     "platform": "Reddit",
-    "fetched_at": "2026-07-06T08:00:00+00:00"
+    "fetched_at": "2026-07-06T08:00:00+00:00",
+    "sentiment": "neutral"
   },
   {
     "id": "youtube_t8tSulJ6v0k",
@@ -121,7 +180,8 @@
     "url": "https://www.youtube.com/watch?v=t8tSulJ6v0k",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:50.838620+00:00",
-    "views": 4
+    "views": 4,
+    "sentiment": "neutral"
   },
   {
     "id": "youtube_h8x37s7Xkws",
@@ -137,7 +197,8 @@
     "url": "https://www.youtube.com/watch?v=h8x37s7Xkws",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:49.471599+00:00",
-    "views": 300
+    "views": 300,
+    "sentiment": "neutral"
   },
   {
     "id": "youtube_tMsXXTfEi2s",
@@ -153,7 +214,8 @@
     "url": "https://www.youtube.com/watch?v=tMsXXTfEi2s",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:50.838635+00:00",
-    "views": 28
+    "views": 28,
+    "sentiment": "neutral"
   },
   {
     "id": "community_58370",
@@ -166,7 +228,8 @@
     "url": "https://nothing.community/d/58370-gmail-account-add-problem",
     "likes": 0,
     "replies": 2,
-    "fetched_at": "2026-07-07T08:00:00+00:00"
+    "fetched_at": "2026-07-07T08:00:00+00:00",
+    "sentiment": "negative"
   },
   {
     "id": "youtube_jqGn_v7Odog",
@@ -182,7 +245,8 @@
     "url": "https://www.youtube.com/watch?v=jqGn_v7Odog",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:49.471640+00:00",
-    "views": 35
+    "views": 35,
+    "sentiment": "neutral"
   },
   {
     "id": "youtube_GfhEwbuSQWg",
@@ -198,7 +262,8 @@
     "url": "https://www.youtube.com/watch?v=GfhEwbuSQWg",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:49.471627+00:00",
-    "views": 15
+    "views": 15,
+    "sentiment": "neutral"
   },
   {
     "id": "youtube_8clj36L7QVk",
@@ -214,7 +279,8 @@
     "url": "https://www.youtube.com/watch?v=8clj36L7QVk",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:49.471649+00:00",
-    "views": 16
+    "views": 16,
+    "sentiment": "neutral"
   },
   {
     "id": "youtube_pHQQ6_Ue1Jc",
@@ -230,7 +296,8 @@
     "url": "https://www.youtube.com/watch?v=pHQQ6_Ue1Jc",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:49.471670+00:00",
-    "views": 30
+    "views": 30,
+    "sentiment": "neutral"
   },
   {
     "id": "youtube_POOnHIA4f5E",
@@ -246,7 +313,8 @@
     "url": "https://www.youtube.com/watch?v=POOnHIA4f5E",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:48.118575+00:00",
-    "views": 1155
+    "views": 1155,
+    "sentiment": "neutral"
   },
   {
     "id": "youtube_bF_r5iUNNzU",
@@ -262,7 +330,8 @@
     "url": "https://www.youtube.com/watch?v=bF_r5iUNNzU",
     "platform": "YouTube",
     "fetched_at": "2026-07-07T02:14:18.604852+00:00",
-    "views": 284
+    "views": 284,
+    "sentiment": "negative"
   },
   {
     "id": "youtube_uRTlEZtXd5A",
@@ -278,7 +347,8 @@
     "url": "https://www.youtube.com/watch?v=uRTlEZtXd5A",
     "platform": "YouTube",
     "fetched_at": "2026-07-07T02:14:18.604860+00:00",
-    "views": 1630
+    "views": 1630,
+    "sentiment": "negative"
   },
   {
     "id": "youtube_OXYAZsUEEno",
@@ -294,7 +364,8 @@
     "url": "https://www.youtube.com/watch?v=OXYAZsUEEno",
     "platform": "YouTube",
     "fetched_at": "2026-07-07T02:14:18.604866+00:00",
-    "views": 404
+    "views": 404,
+    "sentiment": "negative"
   },
   {
     "id": "youtube_ugqO_TpTaXk",
@@ -310,7 +381,8 @@
     "url": "https://www.youtube.com/watch?v=ugqO_TpTaXk",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:46.806567+00:00",
-    "views": 3786
+    "views": 3786,
+    "sentiment": "negative"
   },
   {
     "id": "youtube_F4g_eOlCO1Y",
@@ -326,6 +398,7 @@
     "url": "https://www.youtube.com/watch?v=F4g_eOlCO1Y",
     "platform": "YouTube",
     "fetched_at": "2026-07-13T03:06:48.118634+00:00",
-    "views": 65836
+    "views": 65836,
+    "sentiment": "neutral"
   }
 ]

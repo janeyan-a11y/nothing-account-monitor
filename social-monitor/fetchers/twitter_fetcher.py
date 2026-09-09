@@ -163,6 +163,10 @@ def _parse_twitter_time(raw: str) -> str:
 
 def check_api_status() -> dict:
     """检查 twikit 客户端状态"""
+    if not X_EMAIL or X_EMAIL == "your_x_email@example.com":
+        return {"connected": False, "error": "未配置 X_EMAIL / X_PASSWORD"}
+    if not X_PASSWORD or X_PASSWORD == "your_x_password":
+        return {"connected": False, "error": "未配置 X_EMAIL / X_PASSWORD"}
     try:
         client = _get_client()
         return {

@@ -32,14 +32,17 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          X_EMAIL: ${{ secrets.X_EMAIL }}
+          X_PASSWORD: ${{ secrets.X_PASSWORD }}
         run: python run.py
 
       - name: Commit updated data back
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add social-monitor/data/mentions.json
+          git add social-monitor/data/mentions.json social-monitor/data/latest_*.json social-monitor/data/twitter_cookies.json
           git diff --cached --quiet || git commit -m "Auto: update mentions data [skip ci]"
+          git pull --rebase origin master
           git push origin master
 
       - name: Deploy to GitHub Pages

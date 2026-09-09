@@ -193,6 +193,12 @@ def run_fetch():
     # 合并去重（保留历史数据）
     existing = load_existing()
     merged, added = merge_new(existing, all_new)
+
+    # 为每条 mention 添加情感分析标签（持久化存储）
+    for m in merged:
+        if "sentiment" not in m or not m["sentiment"]:
+            m["sentiment"] = _sentiment(m.get("title", ""), m.get("text", ""))
+
     save_mentions(merged)
     print(f"数据已保存: 新增 {added} 条, 总计 {len(merged)} 条")
 

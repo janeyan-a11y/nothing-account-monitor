@@ -6,6 +6,7 @@ import sys
 import os
 import time
 import re
+import random
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone, timedelta
 from urllib.parse import quote
@@ -67,14 +68,36 @@ TITLE_FILTERS = [
     "注销",
 ]
 
-BROWSER_HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/120.0.0.0 Safari/537.36"
-    ),
-    "Accept": "application/rss+xml, application/xml, text/xml, */*",
-}
+BROWSER_HEADERS_LIST = [
+    {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Accept": "application/rss+xml, application/xml, text/xml, */*",
+    },
+    {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/119.0.0.0 Safari/537.36"
+        ),
+        "Accept": "application/rss+xml, application/xml, text/xml, */*",
+    },
+    {
+        "User-Agent": (
+            "Mozilla/5.0 (X11; Linux x86_64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/118.0.0.0 Safari/537.36"
+        ),
+        "Accept": "application/rss+xml, application/xml, text/xml, */*",
+    },
+]
+
+import random
+def _random_headers():
+    return random.choice(BROWSER_HEADERS_LIST)
 
 # Atom namespace
 ATOM_NS = "http://www.w3.org/2005/Atom"
@@ -102,10 +125,10 @@ def _search_rss(subreddit: str, query: str, limit: int = 25, retries: int = 3) -
 
     for attempt in range(retries):
         try:
-            resp = req.get(url, headers=BROWSER_HEADERS, params=params, timeout=15)
+            resp = req.get(url, headers=_random_headers(), params=params, timeout=15)
 
             if resp.status_code == 429:
-                wait = (attempt + 1) * 10  # 10s, 20s, 30s
+                wait = (attempt + 1) * 30  # 30s, 60s, 90s — 更长的退避
                 print(f"    429 rate limited, waiting {wait}s...")
                 time.sleep(wait)
                 continue
@@ -220,7 +243,7 @@ def search_reddit(keywords: list[str] = None, max_results: int = None) -> list[d
             all_posts.append(p)
 
         print(f"    -> {len(posts)} raw, {len([x for x in posts if x['id'] in seen_ids])} new relevant")
-        time.sleep(8.0)  # 间隔 8 秒，避免 429
+        time.sleep(12.0)  # 间隔 12 秒，避免 429
 
     all_posts.sort(key=lambda x: x.get("created_at", ""), reverse=True)
     return all_posts[:max_results]
@@ -232,7 +255,7 @@ def check_reddit_status() -> dict:
         import requests
         resp = requests.get(
             "https://www.reddit.com/r/NothingTech/search.rss",
-            headers=BROWSER_HEADERS,
+            headers=_random_headers(),
             params={"q": "Nothing", "limit": 1},
             timeout=15,
         )
