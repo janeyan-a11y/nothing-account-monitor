@@ -12,12 +12,13 @@ if sys.platform == "win32":
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import MAX_RESULTS
 
-# 精确短语搜索
+Search queries
 SEARCH_QUERIES = [
     '"Nothing Phone"',
     '"Nothing OS"',
     '"Nothing" account',
     '"Nothing" login',
+    'NothingOS account',
 ]
 
 # 账号 + 品牌相关关键词
@@ -26,12 +27,25 @@ ACCOUNT_KW = [
     "password", "verify", "verification", "auth",
     "delete account", "deactivate", "register", "2fa",
     "sign up", "sign-up", "signup",
+    "frp", "frp bypass", "google account",
+    "essential space",
 ]
 
 # 品牌校验 — 必须是 Nothing 品牌 + 账号关键词
 BRAND_MARKERS = [
     "nothing phone", "nothing os", "nothingos",
     "nothing tech", "#nothing",
+    "nothing 3a", "nothing 4a", "nothing phone 1",
+    "nothing phone 2", "cmf by nothing",
+]
+
+# 噪音排除（增加）
+NOISE_KW = [
+    "trump", "biden", "maga", "nasa", "satellite", "president",
+    "instagram", "facebook", "whatsapp", "discord",
+    "fortnite", "minecraft", "epicgames",
+    "bitcoin", "crypto", "nft",
+    "audiobook", "manga", "anime", "manhua",
 ]
 
 SEARCH_URL = "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts"
@@ -47,8 +61,7 @@ def _is_relevant(text: str) -> bool:
     acct = any(k in t for k in ACCOUNT_KW)
     if not acct: return False
     # 3. 排除明显噪音
-    noise = ["trump", "biden", "maga", "nasa", "satellite", "president"]
-    if any(n in t for n in noise): return False
+    if any(n in t for n in NOISE_KW): return False
     return True
 
 

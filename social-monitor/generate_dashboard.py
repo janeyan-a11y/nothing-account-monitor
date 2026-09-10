@@ -72,21 +72,46 @@ def _comparison(mentions):
 # 每日摘要
 # ============================================================
 def _summary(mentions):
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    tp = [m for m in mentions if m.get("created_at","")[:10] == today]
-    if not tp:
-        ld = max((m.get("created_at","")[:10] for m in mentions), default="?")
-        tp = [m for m in mentions if m.get("created_at","")[:10] == ld]; dl = ld
-    else: dl = today
-    if not tp: return "暂无数据，等待首次抓取。"
-    neg = sum(1 for m in tp if _sentiment(m.get("title",""),m.get("text",""))=="negative")
-    pos = sum(1 for m in tp if _sentiment(m.get("title",""),m.get("text",""))=="positive")
-    all_t = []; [all_t.extend(_topics(m.get("title",""),m.get("text",""))) for m in tp]
-    top_t = [t for t,_ in Counter(all_t).most_common(3)]
-    parts = [f"{dl} 共 {len(tp)} 条讨论"]
-    if neg: parts.append(f"{neg} 条负面")
-    if pos: parts.append(f"{pos} 条正面")
-    if top_t: parts.append(f"热点 {' '.join(top_t)}")
+    """生成多日摘要：今天 + 近7天 + 总体概览"""
+    tz = timezone.utc
+    now = datetime.now(tz)
+    today_str = now.strftime("%Y-%m-%d")
+    week_ago = (now - timedelta(days=7)).strftime("%Y-%m-%d")
+
+    # 今天
+    tp = [m for m in mentions if m.get("created_at","")[:10] == today_str]
+
+    # 历史数据范围
+    all_dates = sorted(set(m.get("created_at","")[:10] for m in mentions if m.get("created_at","")[:10]))
+    date_range = f"{all_dates[0]} ~ {all_dates[-1]}" if len(all_dates) >= 2 else (all_dates[0] if all_dates else "无")
+
+    # 近7天各日
+    def _day_sent(items):
+        n = sum(1 for m in items if _sentiment(m.get("title",""),m.get("text",""))=="negative")
+        p = sum(1 for m in items if _sentiment(m.get("title",""),m.get("text",""))=="positive")
+        return n, p
+
+    recent_dates = sorted(set(m.get("created_at","")[:10] for m in mentions if m.get("created_at","")[:10] >= week_ago), reverse=True)
+
+    parts = [f"📦 累计 {len(mentions)} 条（{date_range}）"]
+
+    if tp:
+        tn, tp_cnt = _day_sent(tp)
+        parts.append(f"📅 今日 {today_str}: {len(tp)} 条")
+        if tn: parts[-1] += f"（负面 {tn}）"
+    else:
+        parts.append(f"📅 今日暂无新数据")
+
+    # 近7天汇总
+    wk_all = [m for m in mentions if m.get("created_at","")[:10] >= week_ago]
+    if wk_all:
+        wn, wp = _day_sent(wk_all)
+        parts.append(f"📊 近7天: {len(wk_all)} 条（负面 {wn}，正面 {wp}）")
+
+    # 最近有数据的日期
+    if recent_dates:
+        parts.append(f"📆 最近活跃: {', '.join(recent_dates[:3])}")
+
     return "；".join(parts) + "。"
 
 # ============================================================

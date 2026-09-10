@@ -25,32 +25,81 @@ from config import MAX_RESULTS
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 
 SEARCH_QUERIES = [
-    "Nothing Phone account",
-    "Nothing Phone new account",
-    "Nothing account delete",
-    "Nothing sign in",
-    "Nothing Phone login",
-    "Nothing account create",
+    # 精确品牌+账号组合搜索，减少噪音
+    '"Nothing Phone" account',
+    '"Nothing Phone" login',
+    '"Nothing Phone" sign in',
+    '"Nothing OS" account',
+    '"Nothing OS" login',
+    '"Nothing" account delete',
+    '"Nothing" account problem',
+    '"Nothing" FRP bypass',
+    '"Nothing Phone" FRP',
+    'NothingOS account',
 ]
 
-TITLE_KEYWORDS = [
+# 品牌关键词（必须命中至少一个）
+BRAND_KEYWORDS = [
+    "nothing phone", "nothing os", "nothingos",
+    "nothing 3a", "nothing 4a", "nothing phone 1",
+    "nothing phone 2", "nothing phone 2a", "nothing phone 3a",
+    "nothing cmf", "cmf phone", "cmf by nothing",
+    "#nothingphone", "#nothingos",
+]
+
+# 账号相关关键词（必须命中至少一个）
+ACCOUNT_KEYWORDS = [
     "account", "login", "sign in", "sign-in", "signin",
     "password", "verify", "verification", "auth",
-    "2FA", "two-factor", "delete account", "deactivate",
+    "2fa", "two-factor", "delete account", "deactivate",
     "sign up", "sign-up", "signup", "register",
     "new account", "new id", "create account",
+    "frp", "frp bypass", "google account remove",
+    "essential space",
+]
+
+# 排除噪音关键词（命中则丢弃）
+NOISE_KEYWORDS = [
+    "instagram", "facebook", "whatsapp", "discord",
+    "playstation", "fortnite", "minecraft", "epicgames",
+    "banks create money", "fractional reserve",
+    "sign-in system", "sign in system", "billionaire",
+    "super-rich", "richest", "ancient holy body",
+    "giant warship", "dumped by", "rejected to billion",
+    "audiobook", "manga", "manhua", "anime",
+    "magnofx", "quotex", "trading", "forex",
+    "hallmark", "netflix", "trailer",
+    "gmail id kaise", "email id kaise",
+    "google id kaise", "play store id",
+    "adobe express", "zipper", "supabase",
+    "netlify", "keycloak", "oauth",
+    "claude account", "nextcloud",
+    "sign in time", "sign in the rocks",
 ]
 
 API_BASE = "https://www.googleapis.com/youtube/v3"
 
 
 def _is_relevant(title: str, description: str = "") -> bool:
-    """判断视频是否与 Nothing Account 相关"""
+    """三层过滤：品牌 + 账号关键词 + 排除噪音"""
     combined = (title + " " + description).lower()
-    for kw in TITLE_KEYWORDS:
-        if kw.lower() in combined:
-            return True
-    return False
+
+    # 1. 排除噪音（非 Nothing Phone 的内容）
+    for nk in NOISE_KEYWORDS:
+        if nk in combined:
+            return False
+
+    # 2. 必须包含品牌关键词
+    brand_match = any(bk in combined for bk in BRAND_KEYWORDS)
+    if not brand_match:
+        return False
+
+    # 3. 必须包含账号相关关键词
+    acct_match = any(ak in combined for ak in ACCOUNT_KEYWORDS)
+    if not acct_match:
+        return False
+
+    return True
 
 
 def _search_videos(query: str, max_results: int = 10) -> list[dict]:
