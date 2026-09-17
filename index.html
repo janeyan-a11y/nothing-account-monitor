@@ -74,10 +74,10 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-09-09 04:45 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-09-17 04:57 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>2026-09-09 共 1 条讨论；热点 #登录。</div>
-<div class="status-bar"><span class="status-chip">🔴 Reddit: 64天前</span><span class="status-chip">🟡 Nothing Community: 3天前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🟢 Bluesky: 1分钟前</span></div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>📦 累计 74 条（2022-07-19 ~ 2026-09-15）；📅 今日暂无新数据；📊 近7天: 5 条（负面 0，正面 0）；📆 最近活跃: 2026-09-15, 2026-09-13, 2026-09-12。</div>
+<div class="status-bar"><span class="status-chip">🔴 Reddit: 72天前</span><span class="status-chip">🔴 Nothing Community: 11天前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 8天前</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
   <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
@@ -92,43 +92,103 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">154</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">74</div><div class="label">累计抓取</div></div>
   <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">15</div><div class="label">本周 <span class="trend-up">↑ +15%</span> (上周 13)</div></div>
-  <div class="stat-card"><div class="number" style="color:#111">26.6%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 135</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 2</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 14</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
+  <div class="stat-card"><div class="number">5</div><div class="label">本周 <span class="trend-down">↓ -17%</span> (上周 6)</div></div>
+  <div class="stat-card"><div class="number" style="color:#111">28.4%</div><div class="label">负面占比</div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 55</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 2</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 14</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">3</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">09-03</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:16%"></div><div class="bar-label">09-04</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">09-05</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-06</div></div><div class="bar-col"><div class="bar-value">6</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-07</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:33%"></div><div class="bar-label">09-08</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:16%"></div><div class="bar-label">09-09</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-11</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-12</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-13</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-14</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">09-15</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-16</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-17</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">154</span> 条)</h3>
-  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-09" data-tags="#登录">
+  <h3>📋 最新提及 (<span id="mentionCount">74</span> 条)</h3>
+  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-15" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Secure Cloud Storage</strong> <span class="username">@Secure Cloud Storage</span></span>
-    <span class="time">2026-09-09 03:04 UTC</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Quick Help</strong> <span class="username">@Quick Help</span></span>
+    <span class="time">2026-09-15 20:50 UTC</span>
   </div>
-  <div class="mention-text">Nextcloud Single Sign-On with Keycloak
+  <div class="mention-text">Nothing Phone 3A Lite FRP
 
-Set up single sign-on for Nextcloud using Keycloak, end to end, on your own server. Accounts live in Keycloak, people sign in ...</div>
+Сброс и разблокировка Nothing Phone 3A Lite Программа в России Работает только через VPN Программа платная его ...</div>
   <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=0w8Oyx3vu2s" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=9LI-BY8xyz0" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-09-08" data-tags="#登录">
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-13" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Deb&#39;s Joyful Designs</strong> <span class="username">@Deb&#39;s Joyful Designs</span></span>
-    <span class="time">2026-09-08 23:52 UTC</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>MS Team</strong> <span class="username">@MS Team</span></span>
+    <span class="time">2026-09-13 15:43 UTC</span>
   </div>
-  <div class="mention-text">He Needed a Custom Sign in 30 Minutes… Good Thing I Have a Laser! #xtoolmade #xtoolp2s
+  <div class="mention-text">Nothing 3a Lite Frp Unlock #contactus+917037068433 #frp#nothing
 
-Nothing like a last-minute “I need a sign” request Luckily, my xTool P2S makes projects like this pretty quick! Designed, cut ...</div>
+notbing 3a lite frp unlock noting frp nothing frp unlock nothing 3a frp unlock nothing 3a lite frp unlock.</div>
   <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=iz2qOaRX0H8" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=HKd3KzmRyAo" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-13" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Tzerkovnikov </strong> <span class="username">@Tzerkovnikov </span></span>
+    <span class="time">2026-09-13 13:07 UTC</span>
+  </div>
+  <div class="mention-text">FRP Nothing phone 3a lite Android 16🔥Разблокировка забытого аккаунта Гугл Nothing phone 3a lite🔏💪
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=em46NoY_V4s" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-12" data-tags="#验证 #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#验证</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Gsm Talib</strong> <span class="username">@Gsm Talib</span></span>
+    <span class="time">2026-09-12 06:57 UTC</span>
+  </div>
+  <div class="mention-text">Nothing 3A FRP Remove Kaise Kare | Nothing 3A FRP Reset | Complete Guide
+
+Description: Nothing 3A FRP aur reset ke baare mein complete guide is video mein dekhein. Authorized device par FRP-related ...</div>
+  <div class="mention-footer">
+    <span>❤ 6</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=ePgIh4pPiVc" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-12" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Technical Promotion 302</strong> <span class="username">@Technical Promotion 302</span></span>
+    <span class="time">2026-09-12 02:30 UTC</span>
+  </div>
+  <div class="mention-text">Nothing 3a frp bypass without pc #unlock #ytshorts
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 3</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=g5DRPafAyDM" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-09" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Easy for Repair</strong> <span class="username">@Easy for Repair</span></span>
+    <span class="time">2026-09-09 11:12 UTC</span>
+  </div>
+  <div class="mention-text">Nothing phone 2 pro frp bypas ! nothing phone unlock ! nothing phone lock kise hataye! nothing flash
+
+is video se ye sikhaya geya hai ki aap ek moble ko kaise flash ya unlock karsakte ho ! ek mobile ko falsh karne ka sehi tarika ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=EHDdX5k0qfY" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="Bluesky" data-sentiment="neutral" data-date="2026-09-08" data-tags="#验证">
@@ -150,51 +210,6 @@ I wish my Nothing Phone had a stacked widgets feature, just like Samsung&#39;s O
   <div class="mention-footer">
     <span>❤ 1</span><span>🔄 1</span><span>💬 0</span>
     <a href="https://bsky.app/profile/danish-akhtar7.bsky.social/post/3muylnh7n7s2p" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-07" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>OPXERA</strong> <span class="username">@OPXERA</span></span>
-    <span class="time">2026-09-07 23:39 UTC</span>
-  </div>
-  <div class="mention-text">Your Claude accounts don&amp;#39;t have to take turns. Three of them, one screen
-
-Your Claude accounts don&#39;t have to take turns. Claude Accounts opens one real, official Claude desktop app per account. Work ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=7GkR8POpqeQ" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-07" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>ClaudeLab</strong> <span class="username">@ClaudeLab</span></span>
-    <span class="time">2026-09-07 23:26 UTC</span>
-  </div>
-  <div class="mention-text">Your Claude accounts don&amp;#39;t have to take turns. Three of them, one screen
-
-Your Claude accounts don&#39;t have to take turns. Claude Accounts opens one real, official Claude desktop app per account. Work ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=NWosNL6G4Mg" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-07" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Deckspace</strong> <span class="username">@Deckspace</span></span>
-    <span class="time">2026-09-07 23:11 UTC</span>
-  </div>
-  <div class="mention-text">Your Claude accounts don&amp;#39;t have to take turns. Three of them, one screen
-
-Your Claude accounts don&#39;t have to take turns. Claude Accounts opens one real, official Claude desktop app per account. Work ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=9GYep8QpDHE" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-07" data-tags="#Gmail #FRP">
@@ -225,36 +240,6 @@ Nothing3aPro #FRPBypass #AMTTool #FRPUnlock #NothingPhone #GoogleAccountRemove #
   <div class="mention-footer">
     <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
     <a href="https://www.youtube.com/watch?v=CO5m38TF_dc" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-09-07" data-tags="#登录 #密码 #验证">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span><span class="topic-tag">#密码</span><span class="topic-tag">#验证</span>
-    <span class="author"><strong>Ysology</strong> <span class="username">@Ysology</span></span>
-    <span class="time">2026-09-07 05:23 UTC</span>
-  </div>
-  <div class="mention-text">How &amp;quot;Sign in with Google&amp;quot; Actually Works (OAuth 2.0 &amp;amp; OIDC)
-
-Before OAuth, letting one app read your email meant handing it your actual password. That is not an exaggeration — it was the ...</div>
-  <div class="mention-footer">
-    <span>❤ 3</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=xyWBdb3BuJY" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-05" data-tags="#注册">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#注册</span>
-    <span class="author"><strong>Pikoti</strong> <span class="username">@Pikoti</span></span>
-    <span class="time">2026-09-05 18:00 UTC</span>
-  </div>
-  <div class="mention-text">🧨Nothing will stop you! Sign up with the link in our bio so you don’t miss out! #kickstarter
-
-</div>
-  <div class="mention-footer">
-    <span>❤ 3</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=CajWqV-dNWs" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-09-05" data-tags="#EssentialSpace">
@@ -318,139 +303,19 @@ Learn how to safely and efficiently bypass the FRP (Factory Reset Protection) lo
     <a href="https://www.youtube.com/watch?v=5RRqGyhzHCs" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-03" data-tags="#登录">
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-02" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Bella&#39;s Comic Chronicles</strong> <span class="username">@Bella&#39;s Comic Chronicles</span></span>
-    <span class="time">2026-09-03 10:30 UTC</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>IMPERIO GSM</strong> <span class="username">@IMPERIO GSM</span></span>
+    <span class="time">2026-09-02 16:14 UTC</span>
   </div>
-  <div class="mention-text">🔥His First Sign-In Gave Him a Super AI Girl; Daily Sign-Ins Infinitely Upgraded His Giant Warship!
+  <div class="mention-text">✅ NOTHING PHONE 2A FRP | Eliminar cuenta Google Nothing Phone 2A (A142) by TSM Tool | FRP Phone 2A
 
-Comic #ComicSystem #ComicOverview #Comic #Comic #Novel #Anime #JapaneseAnimation #ScienceFiction #System ...</div>
+Cómo quitar cuenta Google Nothing Phone 2A (A142) con tsm-tool de forma remota super fácil. Dudas en los comentarios.</div>
   <div class="mention-footer">
-    <span>❤ 55</span><span>🔄 0</span><span>💬 3</span>
-    <a href="https://www.youtube.com/watch?v=U-G6emPlJDM" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-03" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>MagnoFx</strong> <span class="username">@MagnoFx</span></span>
-    <span class="time">2026-09-03 09:00 UTC</span>
-  </div>
-  <div class="mention-text">How to Log In to MagnoFX &amp;amp; Start Trading (Web Trader + Mobile, 2026)
-
-Your MagnoFX account is open - here&#39;s exactly where and how to trade, on desktop and on your phone. In this video you&#39;ll learn ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=iJI-gsk9P-U" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-01" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Shopify Ecom Store Pro</strong> <span class="username">@Shopify Ecom Store Pro</span></span>
-    <span class="time">2026-09-01 17:54 UTC</span>
-  </div>
-  <div class="mention-text">Shopify Sign-In Only Gates Checkout — Your Catalog Stays Public
-
-Turning on Shopify&#39;s sign-in requirement hides nothing. Try Shopify: https://shopify.pxf.io/4aK4an Read the full article: ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=ZEoedgSjr-Y" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-08-31" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Manish4u</strong> <span class="username">@Manish4u</span></span>
-    <span class="time">2026-08-31 18:14 UTC</span>
-  </div>
-  <div class="mention-text">Instagram account delete kaise kare permanently | instagram id delete kaise kare | insta id 2026
-
-manish4u Hello &amp; Namaste Everyone, Instagram account delete kaise kare permanently | instagram id delete kaise kare | insta id ...</div>
-  <div class="mention-footer">
-    <span>❤ 1219</span><span>🔄 0</span><span>💬 107</span>
-    <a href="https://www.youtube.com/watch?v=EPOuLhCjYTs" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-31" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>阅文漫画</strong> <span class="username">@阅文漫画</span></span>
-    <span class="time">2026-08-31 11:00 UTC</span>
-  </div>
-  <div class="mention-text">🍂【FULL更至最新】EP01-100一口氣《開局簽到荒古聖體/Sign-in at the Start With the Ancient Holy Body》#動態漫畫 #逆襲 #comics
-
-欢迎订阅阅文漫画官方频道==== : https://www.youtube.com/channel/UC_JsHod-IAlWFWi7kDhb03Q 每日更新精彩内容   ...</div>
-  <div class="mention-footer">
-    <span>❤ 62</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=xyoNgVhqDcI" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-08-30" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Prompt to Prod</strong> <span class="username">@Prompt to Prod</span></span>
-    <span class="time">2026-08-30 17:45 UTC</span>
-  </div>
-  <div class="mention-text">Deploy Your App — Netlify, Supabase, Google Sign-In
-
-Your app works on localhost. This is how it gets an address anyone can open. We put a meal-planner app built with Claude Code ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=P-VMljMvjnI" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-30" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Legend Manga Recap</strong> <span class="username">@Legend Manga Recap</span></span>
-    <span class="time">2026-08-30 11:30 UTC</span>
-  </div>
-  <div class="mention-text">P2: He Travels Back to College, Awakens a Sign-In System, and Becomes a Super-Rich Tycoon Overnight!
-
-P1: https://youtu.be/mv9r-qvK2GA Story Summary: After unlocking a mysterious daily check-in system, Liu Xiao&#39;s ordinary life ...</div>
-  <div class="mention-footer">
-    <span>❤ 56</span><span>🔄 0</span><span>💬 10</span>
-    <a href="https://www.youtube.com/watch?v=6cA5OwBBB2g" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-08-30" data-tags="#登录 #密码">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span><span class="topic-tag">#密码</span>
-    <span class="author"><strong>Qx Trader</strong> <span class="username">@Qx Trader</span></span>
-    <span class="time">2026-08-30 10:18 UTC</span>
-  </div>
-  <div class="mention-text">Quotex Account Login Error, Quotex Trading Sign in Problem, Quotex Forget Password
-
-Quotex Official Link In Channel Bio.. Quotex Account Login Error, Quotex Trading Sign in ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 3</span>
-    <a href="https://www.youtube.com/watch?v=8ZhWIaMXwlw" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-08-30" data-tags="#注册">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#注册</span>
-    <span class="author"><strong>Hallmark+ </strong> <span class="username">@Hallmark+ </span></span>
-    <span class="time">2026-08-30 07:00 UTC</span>
-  </div>
-  <div class="mention-text">Trailer - Much About Love | Sign up for Hallmark+ on YouTube!
-
-A TV director returns to her theater roots for a Shakespeare festival and runs into an old flame, rekindling a merry war of wits in this ...</div>
-  <div class="mention-footer">
-    <span>❤ 29</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=ibcGptuzIDg" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=hofuxMt8K-0" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-30" data-tags="#Gmail">
@@ -468,19 +333,19 @@ Nothing Phone Me Google Account Add kaise kare||Nothing Phone Par Gmail ID add k
     <a href="https://www.youtube.com/watch?v=f8Sz1C7LiJQ" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-29" data-tags="#Gmail">
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-28" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Breakup002tech</strong> <span class="username">@Breakup002tech</span></span>
-    <span class="time">2026-08-29 23:43 UTC</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Parsuram Lenka</strong> <span class="username">@Parsuram Lenka</span></span>
+    <span class="time">2026-08-28 10:47 UTC</span>
   </div>
-  <div class="mention-text">Nothing Phone Se Gmail ID Kaise Hataye|Nothing Phone Se Google Account Remove kaise kare 
+  <div class="mention-text">Nothing phone 2 pro FRP bypass done ✅✅#nothingphone2pro#cmf #parsuramlenka
 
-Nothing Phone Se Gmail ID Kaise Hataye|Nothing Phone Se Google Account Remove kaise kare Hi I am Deepak Mahato ...</div>
+</div>
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=oQpVkSax7dQ" target="_blank" class="source-link">查看原文 →</a>
+    <a href="https://www.youtube.com/watch?v=5odufNfbAAc" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-28" data-tags="#登录">
@@ -498,154 +363,34 @@ CMF Phone 2 Pro vs Nothing Phone 3a | Free Fire Login Speed Test   #FreeFire #Sp
     <a href="https://www.youtube.com/watch?v=RTOckMLQMv4" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-28" data-tags="#登录">
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-28" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Neez Razareth</strong> <span class="username">@Neez Razareth</span></span>
-    <span class="time">2026-08-28 04:12 UTC</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>ValeriUs</strong> <span class="username">@ValeriUs</span></span>
+    <span class="time">2026-08-28 07:17 UTC</span>
   </div>
-  <div class="mention-text">because its boring because it only does nothing I had to sign in😫  @Samsung
+  <div class="mention-text">🔥 FRP NOTHING PHONE 1 A069 Разблокировка забытого аккаунта гугл 🔐AMT / ValeriUs 🤝
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 14</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://www.youtube.com/watch?v=Tbk5770BBXk" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-25" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Telecom Care Institute</strong> <span class="username">@Telecom Care Institute</span></span>
+    <span class="time">2026-08-25 09:03 UTC</span>
+  </div>
+  <div class="mention-text">Nothing CMF Phone 2 FRP Bypass By AMT Tool 
 
 </div>
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=9VyAJ9BR80M" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-27" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Zipper — Boutique Fitness Software</strong> <span class="username">@Zipper — Boutique Fitness Software</span></span>
-    <span class="time">2026-08-27 20:30 UTC</span>
-  </div>
-  <div class="mention-text">New: Custom Fields at Account Creation in Zipper
-
-Most studio software lets a client create an account with an email and a first name. That&#39;s it. Then six months later you want to text ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=L0JN4zclb9E" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-27" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Legend Manga Recap</strong> <span class="username">@Legend Manga Recap</span></span>
-    <span class="time">2026-08-27 12:15 UTC</span>
-  </div>
-  <div class="mention-text">He Travels Back to College, Awakens a Sign-In System, and Becomes a Super-Rich Tycoon Overnight!
-
-Story Summary: Liu Xiao suddenly wakes up back in his college days in 2010 with only 3070 yuan to his name, but everything ...</div>
-  <div class="mention-footer">
-    <span>❤ 409</span><span>🔄 0</span><span>💬 17</span>
-    <a href="https://www.youtube.com/watch?v=mv9r-qvK2GA" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-26" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>TheeTube</strong> <span class="username">@TheeTube</span></span>
-    <span class="time">2026-08-26 07:13 UTC</span>
-  </div>
-  <div class="mention-text">gmail id kaise banaye | email id kaise banaye | Google id kaise banaye | Play store id banaye
-
-Hello Friends!! Hope Aap Sabhi Achhe hai... gmail id kaise banaye | email id kaise banaye | Google account kaise banaye | Play ...</div>
-  <div class="mention-footer">
-    <span>❤ 2543</span><span>🔄 0</span><span>💬 5</span>
-    <a href="https://www.youtube.com/watch?v=Y4sMp2DKjlc" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-26" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>francisco zuniga</strong> <span class="username">@francisco zuniga</span></span>
-    <span class="time">2026-08-26 03:00 UTC</span>
-  </div>
-  <div class="mention-text">Gaviota Coast, CA. - Revelation 12 Sign in the Rocks
-
-There is woman laying down on her side with a crown above her head, and what looks like a baby below her. To the left of her is a ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=iWqgn7RLeJ0" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-26" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Riley Drama Stories</strong> <span class="username">@Riley Drama Stories</span></span>
-    <span class="time">2026-08-26 02:00 UTC</span>
-  </div>
-  <div class="mention-text">My Future MIL Said I “Brought Nothing”—Then She Made Me Sign in Front of 60 Guests
-
-Subscribe for powerful family stories, shocking twists, satisfying consequences, and unforgettable endings.</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=Kcj5MEHjD8U" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-26" data-tags="#密码">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#密码</span>
-    <span class="author"><strong>Wall Street Cooper</strong> <span class="username">@Wall Street Cooper</span></span>
-    <span class="time">2026-08-26 00:00 UTC</span>
-  </div>
-  <div class="mention-text">Where Does Money Actually Come From? (90% Is Created From Nothing)
-
-Nine out of every ten dollars in your account were created out of nothing — by someone typing. That&#39;s not a conspiracy theory.</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=6q2kaEGPYFs" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-25" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Midnight Boulevard</strong> <span class="username">@Midnight Boulevard</span></span>
-    <span class="time">2026-08-25 11:38 UTC</span>
-  </div>
-  <div class="mention-text">A Sign in Time – Midnight Boulevard (2026) | Melodic Rock / AOR / 80s Rock Anthem
-
-A Sign in Time – Midnight Boulevard (2026) 80&#39;s Melodic driving AOR / 80s hard rock anthem. The music was created with the ...</div>
-  <div class="mention-footer">
-    <span>❤ 23</span><span>🔄 0</span><span>💬 5</span>
-    <a href="https://www.youtube.com/watch?v=0JD5EQLUFfg" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-25" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>𝗡𝗼𝘅 𝗡𝗼𝗯𝗶 🌑</strong> <span class="username">@𝗡𝗼𝘅 𝗡𝗼𝗯𝗶 🌑</span></span>
-    <span class="time">2026-08-25 05:58 UTC</span>
-  </div>
-  <div class="mention-text">From Rejected to Billionaire 👑💸 | My Sign-In System Changed Everything!
-
-From Rejected to Billionaire | My Sign-In System Changed Everything! From Rejected to Billionaire | My Sign-In System ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=78i2NhhTyg4" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-25" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>ECOM KNTRL</strong> <span class="username">@ECOM KNTRL</span></span>
-    <span class="time">2026-08-25 03:30 UTC</span>
-  </div>
-  <div class="mention-text">How to Sign In Adobe Express (2026) | Step-by-Step
-
-Learn how to sign in to Adobe Express quickly and without confusion. This tutorial walks you through every login option available, ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=IJWdFeGrxDQ" target="_blank" class="source-link">查看原文 →</a>
+    <a href="https://www.youtube.com/watch?v=8tfinus2iFI" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-24" data-tags="#Gmail #FRP">
@@ -663,34 +408,34 @@ Nothing Phone FRP Unlock 2026 Strategy! #Shorts Nothing Phone Bypass Google Acco
     <a href="https://www.youtube.com/watch?v=wCKAz3dPr6Y" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-23" data-tags="#登录">
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-24" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Bible Stories Decoded</strong> <span class="username">@Bible Stories Decoded</span></span>
-    <span class="time">2026-08-23 15:00 UTC</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>GSM EXPERTS</strong> <span class="username">@GSM EXPERTS</span></span>
+    <span class="time">2026-08-24 05:00 UTC</span>
   </div>
-  <div class="mention-text">Every Sign in the Gospel of John, Explained
+  <div class="mention-text">Nothing Phone 2/2A FRP Bypass With TSM Tool || nothing phone 2 frp bypass | nothing phone 2a frp
 
-Six stone jars. A handful of servants nobody bothered to name. And the man running the wedding tastes the wine and has no idea ...</div>
+Nothing Phone 2/2A FRP Bypass Android 16 | One Click FRP Remove With TSM Tool In this video, I will show you the Nothing ...</div>
   <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=KejqjRd1QJc" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 4</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://www.youtube.com/watch?v=1X9AZ4pxOtk" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-08-23" data-tags="#注册">
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-08-23" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#注册</span>
-    <span class="author"><strong>ToolHub</strong> <span class="username">@ToolHub</span></span>
-    <span class="time">2026-08-23 12:03 UTC</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>GSM EXPERTS</strong> <span class="username">@GSM EXPERTS</span></span>
+    <span class="time">2026-08-23 10:25 UTC</span>
   </div>
-  <div class="mention-text">Compress Any Image for Free — No Sign-Up, Nothing Uploaded #shorts
+  <div class="mention-text">Nothing Phone 2 A065 FRP Bypass One Click Easy Solution || nothing phone 2 frp bypass android 16
 
-Compress any image for free — right in your browser. No sign-up, no upload to a server, no watermarks. ✓ 100% free ✓ Works ...</div>
+Nothing Phone 2 A065 FRP Bypass Android 16 | One Click FRP Remove With TSM Tool In this video, I will show you the Nothing ...</div>
   <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=-sWYkR-FvXI" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=5YTJpQS00zw" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-22" data-tags="#同步 #EssentialSpace">
@@ -706,36 +451,6 @@ My Nothing account is continuously getting logged off from essential space, howe
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 2</span>
     <a href="https://nothing.community/d/61663-61663-essential-space-log-out-problem" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-21" data-tags="#登录 #密码 #验证">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span><span class="topic-tag">#密码</span><span class="topic-tag">#验证</span>
-    <span class="author"><strong>BrainIT Consulting</strong> <span class="username">@BrainIT Consulting</span></span>
-    <span class="time">2026-08-21 19:33 UTC</span>
-  </div>
-  <div class="mention-text">Sign-In Without Passwords: OAuth Inside Your App — Connect Your App to AI Assistants (6/10)
-
-Lesson 6 of 10: Sign-In Without Passwords: OAuth Inside Your App Here&#39;s a day you only lose once. Somebody pastes your app&#39;s ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=V495scChP9Q" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-08-21" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Sk Help Tricks</strong> <span class="username">@Sk Help Tricks</span></span>
-    <span class="time">2026-08-21 16:00 UTC</span>
-  </div>
-  <div class="mention-text">Instagram Account Delete कैसे करें? | Instagram Account Permanently Delete 2026 | #shorts
-
-Instagram Account Delete कैसे करें? | Instagram Account Permanently Delete 2026 | #shorts #youtubeshorts ...</div>
-  <div class="mention-footer">
-    <span>❤ 391</span><span>🔄 0</span><span>💬 7</span>
-    <a href="https://www.youtube.com/watch?v=aaZd2b8Y5rw" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-21" data-tags="#Gmail #FRP">
@@ -770,51 +485,6 @@ I was looking into the Essential Space settings and saw that you can synchronize
     <a href="https://nothing.community/d/61583-61583-cant-synchronize-essential-space-with-google-calendar" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-20" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Manish4u</strong> <span class="username">@Manish4u</span></span>
-    <span class="time">2026-08-20 18:29 UTC</span>
-  </div>
-  <div class="mention-text">Instagram ki id kaise banaye | How to create Instagram account
-
-manish4u Hello &amp; Namaste Everyone, Instagram ki id kaise banaye | How to create Instagram account Aaj ke video me aapko ...</div>
-  <div class="mention-footer">
-    <span>❤ 624</span><span>🔄 0</span><span>💬 56</span>
-    <a href="https://www.youtube.com/watch?v=1owJpD6dARs" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-20" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>KitDrama</strong> <span class="username">@KitDrama</span></span>
-    <span class="time">2026-08-20 11:00 UTC</span>
-  </div>
-  <div class="mention-text">Divorced With Nothing, He Signs In Once and Owns the Entire Financial District!
-
-Divorced and left with nothing, a stay-at-home dad unlocks a sign-in system that gives him an entire financial district—now his ex ...</div>
-  <div class="mention-footer">
-    <span>❤ 259</span><span>🔄 0</span><span>💬 10</span>
-    <a href="https://www.youtube.com/watch?v=vrmqaYpT3jw" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-19" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Manish4u</strong> <span class="username">@Manish4u</span></span>
-    <span class="time">2026-08-19 18:04 UTC</span>
-  </div>
-  <div class="mention-text">Play store ki id kaise banaye || How to Create Google Play Store Account
-
-manish4u #createplaystoreid Hello &amp; Namaste Everyone, Play store ki id kaise banaye || Gmail id kaise banaye || Email id kaise ...</div>
-  <div class="mention-footer">
-    <span>❤ 50</span><span>🔄 0</span><span>💬 5</span>
-    <a href="https://www.youtube.com/watch?v=QPS7vLaIaEY" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-19" data-tags="#其他">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
@@ -828,21 +498,6 @@ If a nothing comunity account is deleted… you should make the username availab
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
     <a href="https://nothing.community/d/61505-61505-free-up-the-username-if-account-is-deleted" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-19" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>ApplyBoost</strong> <span class="username">@ApplyBoost</span></span>
-    <span class="time">2026-08-19 06:07 UTC</span>
-  </div>
-  <div class="mention-text">Account creation to a sent application, nothing cut.
-
-Account creation to a sent application, nothing cut. You create an account once. From there we apply on your behalf — there is no ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=zSUXJMdi9I0" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="neutral" data-date="2026-08-18" data-tags="#登录">
@@ -875,36 +530,6 @@ I am moving from a samsung m31 to the phone 3 and all the apps except whatsapp s
     <a href="https://nothing.community/d/61357-61357-whatsapp-not-detecting-google-accounts-or-restoring-chats-on-phone-3-help" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-08-15" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Sk Help Tricks</strong> <span class="username">@Sk Help Tricks</span></span>
-    <span class="time">2026-08-15 16:00 UTC</span>
-  </div>
-  <div class="mention-text">Instagram Account Delete कैसे करें? | Latest Update 2026 | #shorts
-
-Instagram Account Delete कैसे करें? | Latest Update 2026 | #shorts #youtubeshorts #shortsfeed #shortsviral #shortvideo ...</div>
-  <div class="mention-footer">
-    <span>❤ 311</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=2jPlYHa55gw" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-15" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Riff · On-Device Voice Notes</strong> <span class="username">@Riff · On-Device Voice Notes</span></span>
-    <span class="time">2026-08-15 12:12 UTC</span>
-  </div>
-  <div class="mention-text">No Account. No Sign-In. Nothing To Connect To. #Shorts
-
-Real app screens: a saved riff&#39;s raw transcript — the actual run-on speech, kept as it was said — and then the formed recap made ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=CWgbg1yHTCU" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="neutral" data-date="2026-08-14" data-tags="#其他">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
@@ -918,36 +543,6 @@ Why am I repeatedly logged out from Nothing Account?</div>
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 3</span>
     <a href="https://nothing.community/d/61292-61292-logged-out-from-nothing-account-help" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-08-13" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Handmade Highland</strong> <span class="username">@Handmade Highland</span></span>
-    <span class="time">2026-08-13 15:25 UTC</span>
-  </div>
-  <div class="mention-text">Professional Grade Design Software for Nothing is it to good to be True ?
-
-You can now download Affinity Design Software for absoloutly nothing all you need is a Canva account and your good to go :)</div>
-  <div class="mention-footer">
-    <span>❤ 4</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=4cl2t9AHJj4" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-13" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>mobilesoftwarerepairtool</strong> <span class="username">@mobilesoftwarerepairtool</span></span>
-    <span class="time">2026-08-13 12:21 UTC</span>
-  </div>
-  <div class="mention-text">nothing 2a (A142) google account bypass done
-
-</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=AiPWAqfQNGM" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-13" data-tags="#密码 #Gmail #FRP">
@@ -980,36 +575,6 @@ Nothing Phone (2a) FRP Bypass 2026 | Google Account Remove | Latest Security Upd
     <a href="https://www.youtube.com/watch?v=6pAqN7RWiTw" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-10" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>VIVORY</strong> <span class="username">@VIVORY</span></span>
-    <span class="time">2026-08-10 18:08 UTC</span>
-  </div>
-  <div class="mention-text">Guest side: reply and leave a memory, nothing to install — Vivory
-
-Everything fits in one link. Nothing to install, no account to create. Your guest replies in three seconds, then leaves a memory: a ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=IpJRhKv11RM" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-09" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>TheeTube</strong> <span class="username">@TheeTube</span></span>
-    <span class="time">2026-08-09 04:39 UTC</span>
-  </div>
-  <div class="mention-text">gmail id kaise banaye | email id kaise banaye | google account kaise banaye | create gmail account
-
-Hello Friends!! Hope Aap Sabhi Achhe hai... gmail id kaise banaye | email id kaise banaye | google account kaise banaye | create ...</div>
-  <div class="mention-footer">
-    <span>❤ 1189</span><span>🔄 0</span><span>💬 5</span>
-    <a href="https://www.youtube.com/watch?v=jmxKqYU-9_4" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-09" data-tags="#登录">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
@@ -1023,141 +588,6 @@ I can’t log in on nothing x app anymore, and i can’t connect my cmf watch 3.
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 13</span>
     <a href="https://nothing.community/d/60995-60995-unable-to-login-nothing-x-help" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-08" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>The prYth</strong> <span class="username">@The prYth</span></span>
-    <span class="time">2026-08-08 17:12 UTC</span>
-  </div>
-  <div class="mention-text">How Money Is Created From Nothing 💰 # #facts #money #shorts
-
-What if most of the money in your bank account didn&#39;t exist before you deposited it? In this short documentary, we uncover how ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=KsVI4S7wlUM" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-08" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Manish4u</strong> <span class="username">@Manish4u</span></span>
-    <span class="time">2026-08-08 16:34 UTC</span>
-  </div>
-  <div class="mention-text">New Gmail Account Kaise Banaye | Email id kaise banaye | how to create gmail account | email id
-
-manish4u Hello &amp; Namaste Everyone, gmail id change kaise kare | google email change | gmail address change | gmail ...</div>
-  <div class="mention-footer">
-    <span>❤ 694</span><span>🔄 0</span><span>💬 66</span>
-    <a href="https://www.youtube.com/watch?v=GfNGninxUig" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-08" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>sOeTenT</strong> <span class="username">@sOeTenT</span></span>
-    <span class="time">2026-08-08 16:22 UTC</span>
-  </div>
-  <div class="mention-text">How Money Is Created From Nothing 💰 | #shorts #trending
-
-What if most of the money in your bank account didn&#39;t exist before you deposited it? In this short documentary, we uncover how ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=sEbaZv2nO8c" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-08" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>The prYth</strong> <span class="username">@The prYth</span></span>
-    <span class="time">2026-08-08 15:59 UTC</span>
-  </div>
-  <div class="mention-text">How Money Is Created From Nothing 💰 | #shorts #trending
-
-What if most of the money in your bank account didn&#39;t exist before you deposited it? In this short documentary, we uncover how ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=ODN_S1PDA_o" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-08" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>HafsDeepLearning</strong> <span class="username">@HafsDeepLearning</span></span>
-    <span class="time">2026-08-08 10:15 UTC</span>
-  </div>
-  <div class="mention-text">JWT Revocation: Why a Closed Account Can Still Sign In
-
-A closed account signed in again and your logs said the request was allowed. Nothing was hacked. Nothing was forged. That gap ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=45f7zB7-hyk" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-08" data-tags="#注册">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#注册</span>
-    <span class="author"><strong>MT Acting Studio</strong> <span class="username">@MT Acting Studio</span></span>
-    <span class="time">2026-08-08 04:16 UTC</span>
-  </div>
-  <div class="mention-text">nothing quite like it 👩🏼‍🎨 you can always sign up for classes or the PRS at the link in our bio￼
-
-</div>
-  <div class="mention-footer">
-    <span>❤ 18</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=cXXEyJKuQAY" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-07" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Carol Isaac</strong> <span class="username">@Carol Isaac</span></span>
-    <span class="time">2026-08-07 10:00 UTC</span>
-  </div>
-  <div class="mention-text">FAITH FRIDAYS EPISODE 3 | SOMETHING FROM NOTHING |CAROL ISAAC
-
-How did everything begin? In Episode 3 of Faith Fridays, Carol Isaac explores the powerful biblical account of creation and ...</div>
-  <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=kH0vzD09q5M" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-06" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Wonderful Short Drama</strong> <span class="username">@Wonderful Short Drama</span></span>
-    <span class="time">2026-08-06 14:30 UTC</span>
-  </div>
-  <div class="mention-text">Poor guy dumped by girlfriend, binds sign-in system, becomes richest overnight, chased by beauty.
-
-Minors are prohibited from following❗❗❗Minors are prohibited from watching❗❗❗ [CREATION STATEMENT] 1. Content ...</div>
-  <div class="mention-footer">
-    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=1Xh6Z7ODEs8" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-06" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>MW TECH</strong> <span class="username">@MW TECH</span></span>
-    <span class="time">2026-08-06 14:15 UTC</span>
-  </div>
-  <div class="mention-text">IPHONE 11 SERIES BYPASS WITH FACE ID AND LOGIN FIX | PICO 2 EXPLAINED
-
-IOS 26.5.2 XR To 11 Pro Max Bypass | Nothing ramdisk hello bypass detail guide of pico 2 zero iphone a12 and a13 bypass with ...</div>
-  <div class="mention-footer">
-    <span>❤ 2</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=8PIL5TabKYw" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-04" data-tags="#登录 #EssentialSpace">
@@ -1177,21 +607,6 @@ Recently I had an issue where if I took a screenshot using the essential key and
     <a href="https://nothing.community/d/60830-60830-nothing-account-sign-in-failed" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-08-03" data-tags="#登录 #验证">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span><span class="topic-tag">#验证</span>
-    <span class="author"><strong>Echo-SHORT</strong> <span class="username">@Echo-SHORT</span></span>
-    <span class="time">2026-08-03 10:55 UTC</span>
-  </div>
-  <div class="mention-text">Wedding Day,Dumped by Fiancée—Sign-In System Grants $100B Empire＆CEO Beauty Who Loves Him!
-
-This script channel has been authorized. Unauthorized use is strictly prohibited. Those who use it will be held responsible for the ...</div>
-  <div class="mention-footer">
-    <span>❤ 482</span><span>🔄 0</span><span>💬 11</span>
-    <a href="https://www.youtube.com/watch?v=bcxbOntOy20" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="neutral" data-date="2026-08-01" data-tags="#验证">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
@@ -1209,81 +624,6 @@ The ANFR states that it formally notified the various manufacturers of thes</div
     <a href="https://nothing.community/d/60692-60692-phone-3a-withdrawn-from-sale-by-the-french-authorities" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-31" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>LeakRank</strong> <span class="username">@LeakRank</span></span>
-    <span class="time">2026-07-31 23:00 UTC</span>
-  </div>
-  <div class="mention-text">Your app has a login. That means nothing.
-
-Your app has a login. That means nothing. Most apps check who you are, but never check what you are allowed to open.</div>
-  <div class="mention-footer">
-    <span>❤ 7</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=AwIRZxFWDR0" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-30" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Moon Princess Kenji Explainer </strong> <span class="username">@Moon Princess Kenji Explainer </span></span>
-    <span class="time">2026-07-30 14:06 UTC</span>
-  </div>
-  <div class="mention-text">From Rejected to Billionaire 👑💸 | My Sign-In System Changed Everything!
-
-From Rejected to Billionaire | My Sign-In System Changed Everything! From Rejected to Billionaire | My Sign-In System ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=1dnrvGwoNbs" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-30" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>the cyber weekly</strong> <span class="username">@the cyber weekly</span></span>
-    <span class="time">2026-07-30 09:00 UTC</span>
-  </div>
-  <div class="mention-text">She Lost Everything Overnight  Her Phone Showed Nothing Wrong 🔴#CyberSecurity #PhoneHacked
-
-Your bank sends you a text code to protect your account. But that code is exactly how she got robbed. She downloaded a free ...</div>
-  <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=QtOg_o9IGm0" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-29" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Mobility_The_Mobile_Store </strong> <span class="username">@Mobility_The_Mobile_Store </span></span>
-    <span class="time">2026-07-29 12:07 UTC</span>
-  </div>
-  <div class="mention-text">|| FUNNY VIDEO 😂 || MOBILITY THE MOBILE STORE 📱🎉... #mobilitythemobilestore #smartphone #comedy
-
-Welcome to Mobility The Mobile Store! Instagram account:- @mobility_the_mobile_store Mobility The Mobile Store YouTube ...</div>
-  <div class="mention-footer">
-    <span>❤ 15</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=z1t6TBc6H-0" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-28" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>SRIYAN</strong> <span class="username">@SRIYAN</span></span>
-    <span class="time">2026-07-28 13:30 UTC</span>
-  </div>
-  <div class="mention-text">Nothing just how to create an account 
-
-</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=nsnSTKgqwqM" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-07-28" data-tags="#验证 #EssentialSpace">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
@@ -1299,66 +639,6 @@ As of yesterday essential space does not work. Whenever I open the app I see a b
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
     <a href="https://nothing.community/d/60512-60512-essential-space" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-07-28" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Tech Kukru</strong> <span class="username">@Tech Kukru</span></span>
-    <span class="time">2026-07-28 08:56 UTC</span>
-  </div>
-  <div class="mention-text">How to Change Mobile Number in Facebook Account (2026) | Update Phone Number on Facebook
-
-How To Change Mobile Number in Facebook ID (Latest Method) Update Phone Number on Facebook Account | Easy Guide ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=nP1K_qQAHos" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-27" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Seo-Jun (서준) </strong> <span class="username">@Seo-Jun (서준) </span></span>
-    <span class="time">2026-07-27 12:24 UTC</span>
-  </div>
-  <div class="mention-text">From Rejected to Billionaire 👑💸 | My Sign-In System Changed Everything!
-
-From Rejected to Billionaire | My Sign-In System Changed Everything! YouTube SEO Title: Kicked Out &amp; Dumped?</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=iZElHKot10M" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-07-26" data-tags="#Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Tech Sumit Pb06</strong> <span class="username">@Tech Sumit Pb06</span></span>
-    <span class="time">2026-07-26 15:30 UTC</span>
-  </div>
-  <div class="mention-text">🚀 Google Account Kaise Banaye? 😈 Sabse Easy Method 2026 🔥 
-
-Google Account Kaise Banaye? Sabse Easy Method 2026 Namaste Dosto! Is video mein maine bilkul easy tareeke se ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 5</span>
-    <a href="https://www.youtube.com/watch?v=yGGMriXdoPw" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-26" data-tags="#注册">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#注册</span>
-    <span class="author"><strong>Deckspace</strong> <span class="username">@Deckspace</span></span>
-    <span class="time">2026-07-26 15:09 UTC</span>
-  </div>
-  <div class="mention-text">No telemetry, no sign-up — and you can read the source | Claude Accounts
-
-An app that runs all your Claude accounts should be one you can check. Claude Accounts opens each account in its own isolated ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=UeY94RRVml4" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-07-26" data-tags="#验证 #EssentialSpace">
@@ -1380,51 +660,6 @@ It is said, that there is an error with the account authorization and I should r
     <a href="https://nothing.community/d/60418-60418-essential-space-not-working" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-24" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Rebel with a Vintage Cause </strong> <span class="username">@Rebel with a Vintage Cause </span></span>
-    <span class="time">2026-07-24 04:27 UTC</span>
-  </div>
-  <div class="mention-text">Nothing gets me more excited than spotting a half price sign in a charity shop! 🤩
-
-Nothing gets me more excited than spotting a half price sign in a charity shop! More bargains and even more excuses to come ...</div>
-  <div class="mention-footer">
-    <span>❤ 25</span><span>🔄 0</span><span>💬 3</span>
-    <a href="https://www.youtube.com/watch?v=3J9aKW2lhHs" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-07-23" data-tags="#验证 #Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#验证</span><span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Manish4u</strong> <span class="username">@Manish4u</span></span>
-    <span class="time">2026-07-23 15:50 UTC</span>
-  </div>
-  <div class="mention-text">Google account verifying your phone number problem 2026 | verify your phone number problem
-
-manish4u Hello &amp; Namaste Everyone, Google account verifying your phone number problem 2026 | verify your phone number ...</div>
-  <div class="mention-footer">
-    <span>❤ 1082</span><span>🔄 0</span><span>💬 316</span>
-    <a href="https://www.youtube.com/watch?v=A7blbB2lSgg" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-22" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Noah Income</strong> <span class="username">@Noah Income</span></span>
-    <span class="time">2026-07-22 16:15 UTC</span>
-  </div>
-  <div class="mention-text">POV: You Discover How Banks Create Money Out of Nothing
-
-What if the money in your bank account wasn&#39;t actually created by printing cash? In this video, you&#39;ll discover how modern banks ...</div>
-  <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=L_FQhPVWgNY" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-21" data-tags="#验证">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -1440,36 +675,6 @@ Nothing has quietly redesigned its Account page with a fresh UI, featuring a new
     <a href="https://www.youtube.com/watch?v=Box6RkFjvgQ" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-20" data-tags="#注册">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#注册</span>
-    <span class="author"><strong>Strive to Be Music</strong> <span class="username">@Strive to Be Music</span></span>
-    <span class="time">2026-07-20 12:45 UTC</span>
-  </div>
-  <div class="mention-text">Nothing like a refreshing reminder to sign up for FSY! ☀️🪣
-
-If you haven&#39;t secured your spot yet, this is your sign to head over to the website and register for an unforgettable week before it&#39;s ...</div>
-  <div class="mention-footer">
-    <span>❤ 560</span><span>🔄 0</span><span>💬 34</span>
-    <a href="https://www.youtube.com/watch?v=0W4T3wz637M" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-07-17" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Sk Help Tricks</strong> <span class="username">@Sk Help Tricks</span></span>
-    <span class="time">2026-07-17 16:00 UTC</span>
-  </div>
-  <div class="mention-text">Instagram Account Delete Kaise Kare 2026 | Instagram ID Permanently Delete Kaise Kare #shorts
-
-Instagram Account Delete Kaise Kare 2026 | Instagram ID Permanently Delete Kaise Kare | New Update #shorts #shortsfeed ...</div>
-  <div class="mention-footer">
-    <span>❤ 1160</span><span>🔄 0</span><span>💬 14</span>
-    <a href="https://www.youtube.com/watch?v=T8qApztr89o" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-07-15" data-tags="#登录">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -1483,21 +688,6 @@ dns code https://dns.adguard-dns.com.</div>
   <div class="mention-footer">
     <span>❤ 2</span><span>🔄 0</span><span>💬 1</span>
     <a href="https://www.youtube.com/watch?v=1mFUQxwK0Bs" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-14" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>ProfitOwl by Philipp</strong> <span class="username">@ProfitOwl by Philipp</span></span>
-    <span class="time">2026-07-14 17:30 UTC</span>
-  </div>
-  <div class="mention-text">Why Your Savings Shrink Even When Nothing Goes Wrong
-
-When a bank gives you a €200000 mortgage, it doesn&#39;t move that money from a saver&#39;s account to yours. It creates it — with two ...</div>
-  <div class="mention-footer">
-    <span>❤ 4</span><span>🔄 0</span><span>💬 1</span>
-    <a href="https://www.youtube.com/watch?v=nfoFno-oL4I" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-07-11" data-tags="#其他">
@@ -1618,51 +808,6 @@ I have two Nothing accounts and want to use both on the same phone. Is this poss
     <a href="https://www.reddit.com/r/NothingTech/comments/1ugglwe/help_with_setting_up_two_accounts/" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-06-21" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Market Minute</strong> <span class="username">@Market Minute</span></span>
-    <span class="time">2026-06-21 17:00 UTC</span>
-  </div>
-  <div class="mention-text">How banks create money from nothing: fractional reserve banking explained
-
-Most of the money in your bank account was never printed, mined, or saved by anyone. It was typed into existence by a ...</div>
-  <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=t8tSulJ6v0k" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-06-20" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Monica Joseph (Monica Selwyn)</strong> <span class="username">@Monica Joseph (Monica Selwyn)</span></span>
-    <span class="time">2026-06-20 14:33 UTC</span>
-  </div>
-  <div class="mention-text">Nothing is hidden Hebrews 13:4 #bibleverse #christianliving #hidden #creation #account #jesus
-
-Nothing is hidden Hebrews 13:4 #bibleverse #christianliving #hidden #creation #account அவருடைய பார்வைக்கு ...</div>
-  <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=KtWH_jTW5KE" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-06-20" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Monica Joseph (Monica Selwyn)</strong> <span class="username">@Monica Joseph (Monica Selwyn)</span></span>
-    <span class="time">2026-06-20 14:30 UTC</span>
-  </div>
-  <div class="mention-text">Nothing is hidden Hebrews 4:13 #bibleverse #christianliving #creation #account #hidden
-
-Nothing is hidden Hebrews 4:13 #bibleverse #christianliving #creation #account #hidden Nothing in all creation is hidden from ...</div>
-  <div class="mention-footer">
-    <span>❤ 6</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=04I4TKSwa1Y" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-06-15" data-tags="#密码">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -1678,21 +823,6 @@ Nothing Phone 2a Password Lock Kaise Tode | Nothing CMF Phone 1 Pattern Lock Kai
     <a href="https://www.youtube.com/watch?v=h8x37s7Xkws" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-06-14" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Fiscally Curious</strong> <span class="username">@Fiscally Curious</span></span>
-    <span class="time">2026-06-14 15:00 UTC</span>
-  </div>
-  <div class="mention-text">How Banks Create Money Out Of Nothing
-
-Your paycheck hit your account this week. You saw the number go up, felt that small relief, maybe moved some into savings.</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=tMsXXTfEi2s" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-06-13" data-tags="#Gmail">
   <div class="mention-header">
     <span class="platform-badge platform-community">Nothing Community</span>
@@ -1706,36 +836,6 @@ while adding gmail account from settings it show Exchange instead of gmail how c
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 2</span>
     <a href="https://nothing.community/d/58370-gmail-account-add-problem" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-06-05" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Digital Income With Success </strong> <span class="username">@Digital Income With Success </span></span>
-    <span class="time">2026-06-05 14:11 UTC</span>
-  </div>
-  <div class="mention-text">Do this if you have nothing in your bank account #howtomakemoneyonline #makemoneyonline
-
-The 1st of Quarters of 2026 gone, 5 months, you either be smiling at your bank account by the end of June or not. The choice is ...</div>
-  <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=d2fJ82d031E" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-05-21" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>꧁★𝓚𝓲𝓽𝓽𝔂𝓐𝓷𝓰𝓮𝓵𝓼★꧂</strong> <span class="username">@꧁★𝓚𝓲𝓽𝓽𝔂𝓐𝓷𝓰𝓮𝓵𝓼★꧂</span></span>
-    <span class="time">2026-05-21 14:48 UTC</span>
-  </div>
-  <div class="mention-text">Fuck you youtube why did you delete my account?..  I did nothing wrong... 
-
-</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=oUGSYqIXjo4" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-05-18" data-tags="#密码">
@@ -1796,36 +896,6 @@ Learn how to quickly sign in to your Google account on the NOTHING Phone (4a) Pr
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 1</span>
     <a href="https://www.youtube.com/watch?v=pHQQ6_Ue1Jc" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-05-09" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Nabbie  Ella</strong> <span class="username">@Nabbie  Ella</span></span>
-    <span class="time">2026-05-09 18:30 UTC</span>
-  </div>
-  <div class="mention-text">LinkedIn Restricted Your Account and Nothing Worked? Do This
-
-If your LinkedIn account has been restricted and you&#39;ve tried everything without success, this video is for you. In this step-by-step ...</div>
-  <div class="mention-footer">
-    <span>❤ 11</span><span>🔄 0</span><span>💬 5</span>
-    <a href="https://www.youtube.com/watch?v=sO_MIXm3KSQ" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-05-01" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Technical Shiv</strong> <span class="username">@Technical Shiv</span></span>
-    <span class="time">2026-05-01 05:30 UTC</span>
-  </div>
-  <div class="mention-text">instagram account delete kaise kare permanently | instagram id delete kaise kare
-
-Dosto aaj ki is short video me hum aapko batayenge ki Instagram account delete kaise karte hai Topic covered instagram ...</div>
-  <div class="mention-footer">
-    <span>❤ 2674</span><span>🔄 0</span><span>💬 31</span>
-    <a href="https://www.youtube.com/watch?v=l4gEq3m2YJQ" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-04-27" data-tags="#登录">
@@ -1918,36 +988,6 @@ Learn how to quickly add or remove a Google account on your NOTHING Phone (4a). 
     <a href="https://www.youtube.com/watch?v=d4IMVexd4T8" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-03-16" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>NOVEL STORY MEMBERS</strong> <span class="username">@NOVEL STORY MEMBERS</span></span>
-    <span class="time">2026-03-16 12:30 UTC</span>
-  </div>
-  <div class="mention-text">The Good-for-Nothing Princess: Sign-In at the Start | Episodes 481-500+ 🔥 Phoenix Princess Awakens
-
-The Good-for-Nothing Princess: Sign-In at the Start – Episodes 481-500+ In this exciting fantasy audiobook, the once useless ...</div>
-  <div class="mention-footer">
-    <span>❤ 31</span><span>🔄 0</span><span>💬 14</span>
-    <a href="https://www.youtube.com/watch?v=6CIB2oW4Uho" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-03-12" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>NOVEL STORY MEMBERS</strong> <span class="username">@NOVEL STORY MEMBERS</span></span>
-    <span class="time">2026-03-12 12:30 UTC</span>
-  </div>
-  <div class="mention-text">The Good-for-Nothing Princess: Sign-In at the Start | Episodes 401-420 | Powerful Phoenix Princess&amp;#39;
-
-Welcome to The Good-for-Nothing Princess: Sign-In at the Start! In Episodes 401-420, the powerful phoenix princess continues ...</div>
-  <div class="mention-footer">
-    <span>❤ 30</span><span>🔄 0</span><span>💬 9</span>
-    <a href="https://www.youtube.com/watch?v=J2W90-HvLPE" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-02-23" data-tags="#Gmail">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -1991,36 +1031,6 @@ Hello friend me es video me bataya hu ki age aap ka Phone me Fix Your account wi
   <div class="mention-footer">
     <span>❤ 4</span><span>🔄 0</span><span>💬 0</span>
     <a href="https://www.youtube.com/watch?v=OXYAZsUEEno" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-02-16" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>NOVEL STORY MEMBERS</strong> <span class="username">@NOVEL STORY MEMBERS</span></span>
-    <span class="time">2026-02-16 13:00 UTC</span>
-  </div>
-  <div class="mention-text">👑 EPISODE 41–60+ | The Good-for-Nothing Princess: Sign-In at the Start 🔥
-
-Welcome back to Novel Story M The legend continues in Episodes 41–60+! The once “good-for-nothing” princess is no longer ...</div>
-  <div class="mention-footer">
-    <span>❤ 73</span><span>🔄 0</span><span>💬 6</span>
-    <a href="https://www.youtube.com/watch?v=S1DNT_6sy0M" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-02-16" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>NOVEL STORY MEMBERS</strong> <span class="username">@NOVEL STORY MEMBERS</span></span>
-    <span class="time">2026-02-16 12:30 UTC</span>
-  </div>
-  <div class="mention-text">👑 The Good-for-Nothing Princess Awakens a Godly Sign-In System! | EP 1–20+ Fantasy Story
-
-Welcome to Novel Story M Dive into an epic fantasy world where destiny is rewritten and power awakens from the very ...</div>
-  <div class="mention-footer">
-    <span>❤ 349</span><span>🔄 0</span><span>💬 17</span>
-    <a href="https://www.youtube.com/watch?v=8trQd3IOwz8" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-01-14" data-tags="#Gmail">
@@ -2083,109 +1093,49 @@ How to Login Gmail account on CMF Nothing Phone.</div>
     <a href="https://www.youtube.com/watch?v=8EkVFdS4MN4" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-10-22" data-tags="#注销">
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2025-10-27" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Manish Advice</strong> <span class="username">@Manish Advice</span></span>
-    <span class="time">2025-10-22 10:33 UTC</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Mobitech Solutions</strong> <span class="username">@Mobitech Solutions</span></span>
+    <span class="time">2025-10-27 17:03 UTC</span>
   </div>
-  <div class="mention-text">Instagram Account Delete Kaise Kare | How To Delete Instagram Account Permanently #shortsvideo
+  <div class="mention-text">Nothing Phone 3a FRP Skip Without SIM | Works on Nothing 1, 2, 2a, 3, 3a &amp;amp; CMF | FRP Must Be Done
 
-Instagram Account Delete Kaise Kare | How To Delete Instagram Account Permanently #Shorts धन्यवाद आपका ...</div>
+Nothing 3a ka setup SIM ke bina kaise karein? Is video me aapko full process dikhaya gaya hai jisse aap SIM insert kiye bina hi ...</div>
   <div class="mention-footer">
-    <span>❤ 11451</span><span>🔄 0</span><span>💬 82</span>
-    <a href="https://www.youtube.com/watch?v=pMirPUsy43I" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 910</span><span>🔄 0</span><span>💬 576</span>
+    <a href="https://www.youtube.com/watch?v=6nENKwSi22k" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2025-10-01" data-tags="#其他">
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-06-26" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Success of life 🔥🏆</strong> <span class="username">@Success of life 🔥🏆</span></span>
-    <span class="time">2025-10-01 13:07 UTC</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Mobitech Solutions</strong> <span class="username">@Mobitech Solutions</span></span>
+    <span class="time">2025-06-26 23:35 UTC</span>
   </div>
-  <div class="mention-text">#nothing imposible in this world Account has been created 😄🔥
+  <div class="mention-text">Nothing CMF Phone 1 FRP Unlock Android 15 | All MTK Tools Failed | 100% Working
 
-</div>
+All MTK tools failed... but FRP unlock ho gaya! This is the first successful FRP bypass on Nothing CMF Phone 1 (Android 15) using ...</div>
   <div class="mention-footer">
-    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=VWiGl0pNaDU" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 747</span><span>🔄 0</span><span>💬 72</span>
+    <a href="https://www.youtube.com/watch?v=adTNwbJCgNw" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2025-07-30" data-tags="#登录">
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2025-06-11" data-tags="#Gmail #FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Bossman welds</strong> <span class="username">@Bossman welds</span></span>
-    <span class="time">2025-07-30 20:53 UTC</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>QuickFix </strong> <span class="username">@QuickFix </span></span>
+    <span class="time">2025-06-11 10:18 UTC</span>
   </div>
-  <div class="mention-text">#epicgames no skins no nothing I couldn’t even login to my account for epic
+  <div class="mention-text">✅ Nothing Phone 3a Pro FRP Unlock | Google Account Bypass | Nothing OS 3.0
 
-</div>
+Nothing Phone 3a Pro FRP Unlock | Google Account Bypass | Nothing OS 3.0 don&#39;t forget to like share comment and subscribe ...</div>
   <div class="mention-footer">
-    <span>❤ 464</span><span>🔄 0</span><span>💬 345</span>
-    <a href="https://www.youtube.com/watch?v=F4g_eOlCO1Y" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-07-03" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Upcoming Updates </strong> <span class="username">@Upcoming Updates </span></span>
-    <span class="time">2025-07-03 11:30 UTC</span>
-  </div>
-  <div class="mention-text">Instagram fake account delete | Instagram fake id kaise delete kare | Instagram id delete kaise kare
-
-Instagram fake account delete | Instagram fake id kaise delete kare | Instagram id delete kaise kare Your Queries: instagram ...</div>
-  <div class="mention-footer">
-    <span>❤ 8046</span><span>🔄 0</span><span>💬 191</span>
-    <a href="https://www.youtube.com/watch?v=r-vsh843yNA" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-06-21" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>Rashgulla</strong> <span class="username">@Rashgulla</span></span>
-    <span class="time">2025-06-21 05:19 UTC</span>
-  </div>
-  <div class="mention-text">Day 39 of posting nothing untill i reach 10k subscribers #day39 #accountdelete #postingchallenge
-
-</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
-    <a href="https://www.youtube.com/watch?v=-73nIeACUC8" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-05-20" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>TheeTube</strong> <span class="username">@TheeTube</span></span>
-    <span class="time">2025-05-20 05:39 UTC</span>
-  </div>
-  <div class="mention-text">instagram account delete kaise kare permanently | how to delete instagram account #instagram #delete
-
-Hello Friends!! Hope Aap Sabhi Achhe hai... instagram account delete kaise kare permanently | how to delete instagram account ...</div>
-  <div class="mention-footer">
-    <span>❤ 1141</span><span>🔄 0</span><span>💬 8</span>
-    <a href="https://www.youtube.com/watch?v=C7Qwrp6orGI" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-04-27" data-tags="#注销 #Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span><span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Deep Official </strong> <span class="username">@Deep Official </span></span>
-    <span class="time">2025-04-27 16:00 UTC</span>
-  </div>
-  <div class="mention-text">Google Account Delete Kaise Kare / Email I&amp;#39;d Delete Kaise Kare | Gmail I&amp;#39;d Delete Kaise Kare #shorts
-
-Google Account Delete Kaise Kare / Email I&#39;d Delete Kaise Kare | Gmail I&#39;d Delete Kaise Kare #shorts Your Queries :- How to ...</div>
-  <div class="mention-footer">
-    <span>❤ 0</span><span>🔄 0</span><span>💬 1151</span>
-    <a href="https://www.youtube.com/watch?v=fCo392bIsE8" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 0</span><span>🔄 0</span><span>💬 2</span>
+    <a href="https://www.youtube.com/watch?v=9O80OL_4F7Y" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2024-10-18" data-tags="#Gmail #FRP">
@@ -2203,36 +1153,6 @@ Nothing Phone 1 FRP Google Account Bypass Android 14 Without Computer latest Sec
     <a href="https://www.youtube.com/watch?v=UD8oVz9bLZA" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2024-09-26" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Technical Grc</strong> <span class="username">@Technical Grc</span></span>
-    <span class="time">2024-09-26 13:29 UTC</span>
-  </div>
-  <div class="mention-text">How to delete Instagram account parmanetly | Instagram account delete option not showing kya kare
-
-How to delete Instagram account parmanetly | Instagram account delete option not showing kya kare Your Queries instagram ...</div>
-  <div class="mention-footer">
-    <span>❤ 8142</span><span>🔄 0</span><span>💬 4156</span>
-    <a href="https://www.youtube.com/watch?v=0R4tqnpLD34" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2023-06-16" data-tags="#登录 #密码 #Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span><span class="topic-tag">#密码</span><span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>TechNtech</strong> <span class="username">@TechNtech</span></span>
-    <span class="time">2023-06-16 16:43 UTC</span>
-  </div>
-  <div class="mention-text">How to use Google Passkeys - Login to your Google, Gmail Account not entering password everytime!
-
-Hey Guys, Welcome back to TechNtech, In this video, let me share a tutorial on How to use Google Passkey so that you can sign ...</div>
-  <div class="mention-footer">
-    <span>❤ 4021</span><span>🔄 0</span><span>💬 147</span>
-    <a href="https://www.youtube.com/watch?v=cxq8cWS5lDs" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2023-06-14" data-tags="#Gmail #FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -2248,94 +1168,49 @@ Nothing Phone 1 FRP Bypass Android 13 | Nothing Phone 1 Google Account Bypass Wi
     <a href="https://www.youtube.com/watch?v=Fp5ZXih-pbk" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2023-06-04" data-tags="#登录">
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2023-03-29" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Chad Reddings</strong> <span class="username">@Chad Reddings</span></span>
-    <span class="time">2023-06-04 21:44 UTC</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>ELM Telecom</strong> <span class="username">@ELM Telecom</span></span>
+    <span class="time">2023-03-29 22:25 UTC</span>
   </div>
-  <div class="mention-text">How To Fix Playstation Network Sign in Failed On PS5 (Fix Sign in Errors) PS5 PSN Error Fix!
+  <div class="mention-text">Nothing Phone FRP Bypass Android 13 | Open Chrome | TalBack Not Working/No SIM Card/Without Pc 2023
 
-Do you want to know how to fix Playstation Network sign in failed on PS5? In this video, I show you how to fix PSN sign in errors ...</div>
+Like | Comment share and | Subscribe Nothing Phone FRP Bypass Android 13 | Open Chrome | TalBack Not Working/No SIM ...</div>
   <div class="mention-footer">
-    <span>❤ 3519</span><span>🔄 0</span><span>💬 1428</span>
-    <a href="https://www.youtube.com/watch?v=kHXZqdmJMg8" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 70</span><span>🔄 0</span><span>💬 15</span>
+    <a href="https://www.youtube.com/watch?v=pSQ5wFQT1NM" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2023-06-03" data-tags="#注销">
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-11-04" data-tags="#Gmail #FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Nature and Clouds</strong> <span class="username">@Nature and Clouds</span></span>
-    <span class="time">2023-06-03 11:30 UTC</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Kunwar Mobile Technical</strong> <span class="username">@Kunwar Mobile Technical</span></span>
+    <span class="time">2022-11-04 03:59 UTC</span>
   </div>
-  <div class="mention-text">How to Delete Instagram account permanently in 2025 | #shorts #viral #instagram
+  <div class="mention-text">Nothing Phone 1 Frp Bypass || Android 12 Update || Google Account Bypass Without Pc 100% Free
 
-How to delete Instagram account permanently in 2024 | Instagram account delete kaise kare permanently Looking to permanently ...</div>
+Namaskaar Dosto, yeh ek bahut hi important video hai jaha pe maine aapse baat ki hai Nothing Phone (1) ke Google account ...</div>
   <div class="mention-footer">
-    <span>❤ 98021</span><span>🔄 0</span><span>💬 1056</span>
-    <a href="https://www.youtube.com/watch?v=qr9WSs7C4QU" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 180</span><span>🔄 0</span><span>💬 44</span>
+    <a href="https://www.youtube.com/watch?v=JbB9hdp-T-U" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2023-05-06" data-tags="#注销">
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2022-10-17" data-tags="#密码 #FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Sanjay Trick </strong> <span class="username">@Sanjay Trick </span></span>
-    <span class="time">2023-05-06 09:45 UTC</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#密码</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>BD TECH ZoNE</strong> <span class="username">@BD TECH ZoNE</span></span>
+    <span class="time">2022-10-17 10:42 UTC</span>
   </div>
-  <div class="mention-text">Facebook Account Delete Kaise Kare 2026 Permanently New Update | facebook id delete kaise kare 2026
+  <div class="mention-text">Nothing Phone (1) FRP Bypass FAST &amp;amp; EASY Method....
 
-Hey, What&#39;s Up Guys! This Is Me Sanjay From (Sanjay Trick)------= Facebook Account Delete Kaise Kare 2026 Permanently New ...</div>
+Subscribe BD TECH ZoNE: https://bit.ly/2trSQtn Welcome to BD TECH ZoNE I&#39;m PINTU DAS, i&#39;m from BANGLADESH. I enjoy ...</div>
   <div class="mention-footer">
-    <span>❤ 54723</span><span>🔄 0</span><span>💬 1847</span>
-    <a href="https://www.youtube.com/watch?v=K28VT6onMqE" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2022-12-26" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Britec09</strong> <span class="username">@Britec09</span></span>
-    <span class="time">2022-12-26 12:39 UTC</span>
-  </div>
-  <div class="mention-text">Bypass Microsoft Account Sign in While Installing Windows 11
-
-Bypass Microsoft Account Sign in While Installing Windows 11 Don&#39;t want to be forced by Microsoft to sign in to a Microsoft ...</div>
-  <div class="mention-footer">
-    <span>❤ 19833</span><span>🔄 0</span><span>💬 467</span>
-    <a href="https://www.youtube.com/watch?v=mSaWcmrVO3I" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2022-11-02" data-tags="#登录 #密码">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span><span class="topic-tag">#密码</span>
-    <span class="author"><strong>Tech Analytic 360</strong> <span class="username">@Tech Analytic 360</span></span>
-    <span class="time">2022-11-02 18:21 UTC</span>
-  </div>
-  <div class="mention-text">How To Fix Login or password is invalid Error on Discord | Solve Discord Login Issue
-
-Are you getting Login or password is invalid on Discord? To Fix Login Error in Discord Mobile, stay tuned with this entire video.</div>
-  <div class="mention-footer">
-    <span>❤ 6511</span><span>🔄 0</span><span>💬 729</span>
-    <a href="https://www.youtube.com/watch?v=uKa0fER5PBo" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2022-10-09" data-tags="#注销">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#注销</span>
-    <span class="author"><strong>Mashooq Younis</strong> <span class="username">@Mashooq Younis</span></span>
-    <span class="time">2022-10-09 04:09 UTC</span>
-  </div>
-  <div class="mention-text">How to delete WhatsApp account permanently || WhatsApp account delete kaise kare #shorts
-
-How to delete WhatsApp account permanently || WhatsApp account delete kaise kare #shorts #whatsapp ...</div>
-  <div class="mention-footer">
-    <span>❤ 19458</span><span>🔄 0</span><span>💬 157</span>
-    <a href="https://www.youtube.com/watch?v=J_iSpvAfRpA" target="_blank" class="source-link">查看原文 →</a>
+    <span>❤ 56</span><span>🔄 0</span><span>💬 6</span>
+    <a href="https://www.youtube.com/watch?v=0wNer0gq9TM" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-08-10" data-tags="#验证 #FRP">
@@ -2353,36 +1228,6 @@ NOTHING Phone 1 Bypass Google: ...</div>
     <a href="https://www.youtube.com/watch?v=FZDhOkwfais" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2022-07-30" data-tags="#登录 #Gmail">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span><span class="topic-tag">#Gmail</span>
-    <span class="author"><strong>Technical House</strong> <span class="username">@Technical House</span></span>
-    <span class="time">2022-07-30 17:29 UTC</span>
-  </div>
-  <div class="mention-text">Not Signed in To use this phone, you first have to sign in to owner&amp;#39;s Google account | #android
-
-Fix &quot;Not Signed In – To use this phone, you first have to sign in to the owner&#39;s Google account&quot; Error! If you&#39;re facing this Android ...</div>
-  <div class="mention-footer">
-    <span>❤ 860</span><span>🔄 0</span><span>💬 127</span>
-    <a href="https://www.youtube.com/watch?v=4ED0rv7ylAk" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2022-07-24" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>AarohanTechSol</strong> <span class="username">@AarohanTechSol</span></span>
-    <span class="time">2022-07-24 09:50 UTC</span>
-  </div>
-  <div class="mention-text">Fix Can&amp;#39;t Sign In To Xbox App PC, Fix Nothing Happens On Clicking On Sign In On Xbox App On PC
-
-Nothing happens when click on Sign In On Xbox App On Windows 10/11 PC, Fix Unable to login to Xbox app on PC ...</div>
-  <div class="mention-footer">
-    <span>❤ 2011</span><span>🔄 0</span><span>💬 466</span>
-    <a href="https://www.youtube.com/watch?v=V4V6CXPdutY" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-07-19" data-tags="#Gmail #FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -2396,51 +1241,6 @@ My 2nd YouTube Channel....Pls Support -- https://youtube.com/@correctmobilesolut
   <div class="mention-footer">
     <span>❤ 638</span><span>🔄 0</span><span>💬 164</span>
     <a href="https://www.youtube.com/watch?v=8-Bi9l3h6kA" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-07-14" data-tags="#密码">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#密码</span>
-    <span class="author"><strong>YouTube How To Guide - Andrea Jean</strong> <span class="username">@YouTube How To Guide - Andrea Jean</span></span>
-    <span class="time">2022-07-14 11:00 UTC</span>
-  </div>
-  <div class="mention-text">New! How to Recover Old YouTube Channel WITHOUT Email AND Password (EFFECTIVE) genius
-
-Find out how to recover your old YouTube channel if you forgot your email and password. All you need is the title of your YouTube ...</div>
-  <div class="mention-footer">
-    <span>❤ 5405</span><span>🔄 0</span><span>💬 1119</span>
-    <a href="https://www.youtube.com/watch?v=rMQRqKi4FeQ" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2022-07-03" data-tags="#其他">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#其他</span>
-    <span class="author"><strong>YourSixGaming</strong> <span class="username">@YourSixGaming</span></span>
-    <span class="time">2022-07-03 23:00 UTC</span>
-  </div>
-  <div class="mention-text">How to Recover Fortnite Account if Unlinked or Pressed Skip (Best Method)
-
-Do you want to know how to get your fortnite account back if unlinked or pressed skip. If this happens all your account progression ...</div>
-  <div class="mention-footer">
-    <span>❤ 6690</span><span>🔄 0</span><span>💬 1650</span>
-    <a href="https://www.youtube.com/watch?v=VRHQTvhAenI" target="_blank" class="source-link">查看原文 →</a>
-  </div>
-</div>
-<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-05-05" data-tags="#登录">
-  <div class="mention-header">
-    <span class="platform-badge platform-youtube">YouTube</span>
-    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#登录</span>
-    <span class="author"><strong>Craft OMG</strong> <span class="username">@Craft OMG</span></span>
-    <span class="time">2022-05-05 11:35 UTC</span>
-  </div>
-  <div class="mention-text">How To Join Any SMP Or Server Without Sign In 😍 New Trick For Crafting And Building And Minecraft
-
-So Hey Guys I Am Back With Another Video Of Minecraft ❤️ in this Video I give you a trick for How To Join Any SMP Or Server ...</div>
-  <div class="mention-footer">
-    <span>❤ 6751</span><span>🔄 0</span><span>💬 380</span>
-    <a href="https://www.youtube.com/watch?v=fjhGAsGkGNQ" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 </div>
