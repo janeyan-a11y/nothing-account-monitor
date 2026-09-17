@@ -74,10 +74,10 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-09-17 03:55 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-09-17 04:57 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>📦 累计 56 条（2022-07-19 ~ 2026-09-08）；📅 今日暂无新数据。</div>
-<div class="status-bar"><span class="status-chip">🔴 Reddit: 72天前</span><span class="status-chip">🔴 Nothing Community: 10天前</span><span class="status-chip">🔴 YouTube: 8天前</span><span class="status-chip">🔴 Bluesky: 7天前</span></div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>📦 累计 74 条（2022-07-19 ~ 2026-09-15）；📅 今日暂无新数据；📊 近7天: 5 条（负面 0，正面 0）；📆 最近活跃: 2026-09-15, 2026-09-13, 2026-09-12。</div>
+<div class="status-bar"><span class="status-chip">🔴 Reddit: 72天前</span><span class="status-chip">🔴 Nothing Community: 11天前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 8天前</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
   <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
@@ -92,16 +92,106 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">56</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">74</div><div class="label">累计抓取</div></div>
   <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">0</div><div class="label">本周 <span class="trend-down">↓ -100%</span> (上周 5)</div></div>
-  <div class="stat-card"><div class="number" style="color:#d32f2f">33.9%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 2</span><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 37</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 14</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
+  <div class="stat-card"><div class="number">5</div><div class="label">本周 <span class="trend-down">↓ -17%</span> (上周 6)</div></div>
+  <div class="stat-card"><div class="number" style="color:#111">28.4%</div><div class="label">负面占比</div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 55</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 2</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 14</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-11</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-12</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-13</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-14</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-15</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-16</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-17</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-11</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-12</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-13</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-14</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">09-15</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-16</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-17</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">56</span> 条)</h3>
-  <div class="mention-card" data-platform="Bluesky" data-sentiment="neutral" data-date="2026-09-08" data-tags="#验证">
+  <h3>📋 最新提及 (<span id="mentionCount">74</span> 条)</h3>
+  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-15" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Quick Help</strong> <span class="username">@Quick Help</span></span>
+    <span class="time">2026-09-15 20:50 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 3A Lite FRP
+
+Сброс и разблокировка Nothing Phone 3A Lite Программа в России Работает только через VPN Программа платная его ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=9LI-BY8xyz0" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-13" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>MS Team</strong> <span class="username">@MS Team</span></span>
+    <span class="time">2026-09-13 15:43 UTC</span>
+  </div>
+  <div class="mention-text">Nothing 3a Lite Frp Unlock #contactus+917037068433 #frp#nothing
+
+notbing 3a lite frp unlock noting frp nothing frp unlock nothing 3a frp unlock nothing 3a lite frp unlock.</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=HKd3KzmRyAo" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-13" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Tzerkovnikov </strong> <span class="username">@Tzerkovnikov </span></span>
+    <span class="time">2026-09-13 13:07 UTC</span>
+  </div>
+  <div class="mention-text">FRP Nothing phone 3a lite Android 16🔥Разблокировка забытого аккаунта Гугл Nothing phone 3a lite🔏💪
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=em46NoY_V4s" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-12" data-tags="#验证 #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#验证</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Gsm Talib</strong> <span class="username">@Gsm Talib</span></span>
+    <span class="time">2026-09-12 06:57 UTC</span>
+  </div>
+  <div class="mention-text">Nothing 3A FRP Remove Kaise Kare | Nothing 3A FRP Reset | Complete Guide
+
+Description: Nothing 3A FRP aur reset ke baare mein complete guide is video mein dekhein. Authorized device par FRP-related ...</div>
+  <div class="mention-footer">
+    <span>❤ 6</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=ePgIh4pPiVc" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-12" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Technical Promotion 302</strong> <span class="username">@Technical Promotion 302</span></span>
+    <span class="time">2026-09-12 02:30 UTC</span>
+  </div>
+  <div class="mention-text">Nothing 3a frp bypass without pc #unlock #ytshorts
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 3</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=g5DRPafAyDM" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-09" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Easy for Repair</strong> <span class="username">@Easy for Repair</span></span>
+    <span class="time">2026-09-09 11:12 UTC</span>
+  </div>
+  <div class="mention-text">Nothing phone 2 pro frp bypas ! nothing phone unlock ! nothing phone lock kise hataye! nothing flash
+
+is video se ye sikhaya geya hai ki aap ek moble ko kaise flash ya unlock karsakte ho ! ek mobile ko falsh karne ka sehi tarika ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=EHDdX5k0qfY" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="Bluesky" data-sentiment="neutral" data-date="2026-09-08" data-tags="#验证">
   <div class="mention-header">
     <span class="platform-badge platform-bluesky">Bluesky</span>
     <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#验证</span>
@@ -213,6 +303,21 @@ Learn how to safely and efficiently bypass the FRP (Factory Reset Protection) lo
     <a href="https://www.youtube.com/watch?v=5RRqGyhzHCs" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-02" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>IMPERIO GSM</strong> <span class="username">@IMPERIO GSM</span></span>
+    <span class="time">2026-09-02 16:14 UTC</span>
+  </div>
+  <div class="mention-text">✅ NOTHING PHONE 2A FRP | Eliminar cuenta Google Nothing Phone 2A (A142) by TSM Tool | FRP Phone 2A
+
+Cómo quitar cuenta Google Nothing Phone 2A (A142) con tsm-tool de forma remota super fácil. Dudas en los comentarios.</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=hofuxMt8K-0" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-30" data-tags="#Gmail">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -226,6 +331,21 @@ Nothing Phone Me Google Account Add kaise kare||Nothing Phone Par Gmail ID add k
   <div class="mention-footer">
     <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
     <a href="https://www.youtube.com/watch?v=f8Sz1C7LiJQ" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-28" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Parsuram Lenka</strong> <span class="username">@Parsuram Lenka</span></span>
+    <span class="time">2026-08-28 10:47 UTC</span>
+  </div>
+  <div class="mention-text">Nothing phone 2 pro FRP bypass done ✅✅#nothingphone2pro#cmf #parsuramlenka
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=5odufNfbAAc" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-28" data-tags="#登录">
@@ -243,6 +363,36 @@ CMF Phone 2 Pro vs Nothing Phone 3a | Free Fire Login Speed Test   #FreeFire #Sp
     <a href="https://www.youtube.com/watch?v=RTOckMLQMv4" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-28" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>ValeriUs</strong> <span class="username">@ValeriUs</span></span>
+    <span class="time">2026-08-28 07:17 UTC</span>
+  </div>
+  <div class="mention-text">🔥 FRP NOTHING PHONE 1 A069 Разблокировка забытого аккаунта гугл 🔐AMT / ValeriUs 🤝
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 14</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://www.youtube.com/watch?v=Tbk5770BBXk" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-25" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Telecom Care Institute</strong> <span class="username">@Telecom Care Institute</span></span>
+    <span class="time">2026-08-25 09:03 UTC</span>
+  </div>
+  <div class="mention-text">Nothing CMF Phone 2 FRP Bypass By AMT Tool 
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=8tfinus2iFI" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-24" data-tags="#Gmail #FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -256,6 +406,36 @@ Nothing Phone FRP Unlock 2026 Strategy! #Shorts Nothing Phone Bypass Google Acco
   <div class="mention-footer">
     <span>❤ 4</span><span>🔄 0</span><span>💬 0</span>
     <a href="https://www.youtube.com/watch?v=wCKAz3dPr6Y" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-08-24" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>GSM EXPERTS</strong> <span class="username">@GSM EXPERTS</span></span>
+    <span class="time">2026-08-24 05:00 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 2/2A FRP Bypass With TSM Tool || nothing phone 2 frp bypass | nothing phone 2a frp
+
+Nothing Phone 2/2A FRP Bypass Android 16 | One Click FRP Remove With TSM Tool In this video, I will show you the Nothing ...</div>
+  <div class="mention-footer">
+    <span>❤ 4</span><span>🔄 0</span><span>💬 1</span>
+    <a href="https://www.youtube.com/watch?v=1X9AZ4pxOtk" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2026-08-23" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>GSM EXPERTS</strong> <span class="username">@GSM EXPERTS</span></span>
+    <span class="time">2026-08-23 10:25 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 2 A065 FRP Bypass One Click Easy Solution || nothing phone 2 frp bypass android 16
+
+Nothing Phone 2 A065 FRP Bypass Android 16 | One Click FRP Remove With TSM Tool In this video, I will show you the Nothing ...</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=5YTJpQS00zw" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-08-22" data-tags="#同步 #EssentialSpace">
@@ -913,6 +1093,51 @@ How to Login Gmail account on CMF Nothing Phone.</div>
     <a href="https://www.youtube.com/watch?v=8EkVFdS4MN4" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2025-10-27" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Mobitech Solutions</strong> <span class="username">@Mobitech Solutions</span></span>
+    <span class="time">2025-10-27 17:03 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 3a FRP Skip Without SIM | Works on Nothing 1, 2, 2a, 3, 3a &amp;amp; CMF | FRP Must Be Done
+
+Nothing 3a ka setup SIM ke bina kaise karein? Is video me aapko full process dikhaya gaya hai jisse aap SIM insert kiye bina hi ...</div>
+  <div class="mention-footer">
+    <span>❤ 910</span><span>🔄 0</span><span>💬 576</span>
+    <a href="https://www.youtube.com/watch?v=6nENKwSi22k" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2025-06-26" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Mobitech Solutions</strong> <span class="username">@Mobitech Solutions</span></span>
+    <span class="time">2025-06-26 23:35 UTC</span>
+  </div>
+  <div class="mention-text">Nothing CMF Phone 1 FRP Unlock Android 15 | All MTK Tools Failed | 100% Working
+
+All MTK tools failed... but FRP unlock ho gaya! This is the first successful FRP bypass on Nothing CMF Phone 1 (Android 15) using ...</div>
+  <div class="mention-footer">
+    <span>❤ 747</span><span>🔄 0</span><span>💬 72</span>
+    <a href="https://www.youtube.com/watch?v=adTNwbJCgNw" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2025-06-11" data-tags="#Gmail #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>QuickFix </strong> <span class="username">@QuickFix </span></span>
+    <span class="time">2025-06-11 10:18 UTC</span>
+  </div>
+  <div class="mention-text">✅ Nothing Phone 3a Pro FRP Unlock | Google Account Bypass | Nothing OS 3.0
+
+Nothing Phone 3a Pro FRP Unlock | Google Account Bypass | Nothing OS 3.0 don&#39;t forget to like share comment and subscribe ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 2</span>
+    <a href="https://www.youtube.com/watch?v=9O80OL_4F7Y" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2024-10-18" data-tags="#Gmail #FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
@@ -941,6 +1166,51 @@ Nothing Phone 1 FRP Bypass Android 13 | Nothing Phone 1 Google Account Bypass Wi
   <div class="mention-footer">
     <span>❤ 480</span><span>🔄 0</span><span>💬 107</span>
     <a href="https://www.youtube.com/watch?v=Fp5ZXih-pbk" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2023-03-29" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>ELM Telecom</strong> <span class="username">@ELM Telecom</span></span>
+    <span class="time">2023-03-29 22:25 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone FRP Bypass Android 13 | Open Chrome | TalBack Not Working/No SIM Card/Without Pc 2023
+
+Like | Comment share and | Subscribe Nothing Phone FRP Bypass Android 13 | Open Chrome | TalBack Not Working/No SIM ...</div>
+  <div class="mention-footer">
+    <span>❤ 70</span><span>🔄 0</span><span>💬 15</span>
+    <a href="https://www.youtube.com/watch?v=pSQ5wFQT1NM" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-11-04" data-tags="#Gmail #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Kunwar Mobile Technical</strong> <span class="username">@Kunwar Mobile Technical</span></span>
+    <span class="time">2022-11-04 03:59 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 1 Frp Bypass || Android 12 Update || Google Account Bypass Without Pc 100% Free
+
+Namaskaar Dosto, yeh ek bahut hi important video hai jaha pe maine aapse baat ki hai Nothing Phone (1) ke Google account ...</div>
+  <div class="mention-footer">
+    <span>❤ 180</span><span>🔄 0</span><span>💬 44</span>
+    <a href="https://www.youtube.com/watch?v=JbB9hdp-T-U" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="positive" data-date="2022-10-17" data-tags="#密码 #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-positive">😊 正面</span> <span class="topic-tag">#密码</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>BD TECH ZoNE</strong> <span class="username">@BD TECH ZoNE</span></span>
+    <span class="time">2022-10-17 10:42 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone (1) FRP Bypass FAST &amp;amp; EASY Method....
+
+Subscribe BD TECH ZoNE: https://bit.ly/2trSQtn Welcome to BD TECH ZoNE I&#39;m PINTU DAS, i&#39;m from BANGLADESH. I enjoy ...</div>
+  <div class="mention-footer">
+    <span>❤ 56</span><span>🔄 0</span><span>💬 6</span>
+    <a href="https://www.youtube.com/watch?v=0wNer0gq9TM" target="_blank" class="source-link">查看原文 →</a>
   </div>
 </div>
 <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2022-08-10" data-tags="#验证 #FRP">
