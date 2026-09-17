@@ -25,17 +25,17 @@ from config import MAX_RESULTS
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "")
 
 SEARCH_QUERIES = [
-    # 精确品牌+账号组合搜索，减少噪音
-    '"Nothing Phone" account',
-    '"Nothing Phone" login',
-    '"Nothing Phone" sign in',
-    '"Nothing OS" account',
-    '"Nothing OS" login',
-    '"Nothing" account delete',
-    '"Nothing" account problem',
-    '"Nothing" FRP bypass',
-    '"Nothing Phone" FRP',
-    'NothingOS account',
+    # 品牌+账号组合搜索（YouTube API 不支持引号精确匹配，靠 _is_relevant 三层过滤保证精度）
+    "Nothing Phone account",
+    "Nothing Phone login",
+    "Nothing Phone sign in",
+    "Nothing OS account",
+    "Nothing OS login",
+    "Nothing account delete",
+    "Nothing account problem",
+    "Nothing FRP bypass",
+    "Nothing Phone FRP",
+    "NothingOS account",
 ]
 
 # 品牌关键词（必须命中至少一个）

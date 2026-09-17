@@ -36,14 +36,17 @@ jobs:
           X_PASSWORD: ${{ secrets.X_PASSWORD }}
         run: python run.py
 
-      - name: Commit updated data back
+      - name: Commit data + dashboard back to master
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add social-monitor/data/mentions.json social-monitor/data/latest_*.json social-monitor/data/twitter_cookies.json
-          git diff --cached --quiet || git commit -m "Auto: update mentions data [skip ci]"
-          git pull --rebase origin master
-          git push origin master
+          git add social-monitor/data/mentions.json docs/index.html
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto: update mentions + dashboard [skip ci]"
+            git push origin master
+          else
+            echo "No changes to commit"
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
