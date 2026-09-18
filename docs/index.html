@@ -74,10 +74,10 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-09-17 08:09 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-09-18 04:47 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>📦 累计 75 条（2022-07-19 ~ 2026-09-15）；📅 今日暂无新数据；📊 近7天: 5 条（负面 0，正面 0）；📆 最近活跃: 2026-09-15, 2026-09-13, 2026-09-12。</div>
-<div class="status-bar"><span class="status-chip">🔴 Reddit: 73天前</span><span class="status-chip">🔴 Nothing Community: 11天前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 8天前</span></div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>📦 累计 77 条（2022-07-19 ~ 2026-09-18）；📅 今日 2026-09-18: 1 条（负面 1）；📊 近7天: 7 条（负面 1，正面 0）；📆 最近活跃: 2026-09-18, 2026-09-17, 2026-09-15。</div>
+<div class="status-bar"><span class="status-chip">🔴 Reddit: 73天前</span><span class="status-chip">🔴 Nothing Community: 12天前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 9天前</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
   <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
@@ -92,16 +92,46 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">75</div><div class="label">累计抓取</div></div>
-  <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">5</div><div class="label">本周 <span class="trend-down">↓ -17%</span> (上周 6)</div></div>
-  <div class="stat-card"><div class="number" style="color:#111">28.0%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 56</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 2</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 14</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
+  <div class="stat-card"><div class="number">77</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">1</div><div class="label">今日负面</div></div>
+  <div class="stat-card"><div class="number">7</div><div class="label">本周 <span class="trend-up">↑ +40%</span> (上周 5)</div></div>
+  <div class="stat-card"><div class="number" style="color:#111">28.6%</div><div class="label">负面占比</div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 58</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 2</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 14</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-11</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-12</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-13</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-14</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">09-15</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-16</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-17</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-12</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">09-13</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-14</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">09-15</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">09-16</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">09-17</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">09-18</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">75</span> 条)</h3>
-  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-15" data-tags="#FRP">
+  <h3>📋 最新提及 (<span id="mentionCount">77</span> 条)</h3>
+  <div class="mention-card" data-platform="YouTube" data-sentiment="negative" data-date="2026-09-18" data-tags="#Gmail #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Smart Mobile Tech</strong> <span class="username">@Smart Mobile Tech</span></span>
+    <span class="time">2026-09-18 04:08 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 3A Lite 5G Frp Bypass || Google Account Bypass || Email 🆔 Lock 🔐 #3ALite5gfrpbypass
+
+Nothing Phone 3A Lite 5G Frp Bypass Google Account Bypass Email Lock Google Account Lock Problem Nothing Phone 3A ...</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=xg3wSKpNVos" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-17" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Albviral</strong> <span class="username">@Albviral</span></span>
+    <span class="time">2026-09-17 19:30 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 2 (A065) FRP Bypass / Google Lock Removal (September 2026)
+
+How to remove FRP/Google lock on Nothing phone 2 model A065. This phone has Qualcomm chipset and the process is ...</div>
+  <div class="mention-footer">
+    <span>❤ 2</span><span>🔄 0</span><span>💬 2</span>
+    <a href="https://www.youtube.com/watch?v=eKORVE_PfGo" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-09-15" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
     <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
