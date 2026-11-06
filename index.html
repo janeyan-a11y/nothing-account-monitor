@@ -74,10 +74,10 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 <body>
 <div class="container">
 <h1>🔍 Nothing Account 社媒舆情看板</h1>
-<div class="subtitle">最后更新: 2026-11-05 06:50 UTC · 4平台监控 · 每日自动刷新</div>
+<div class="subtitle">最后更新: 2026-11-06 06:50 UTC · 4平台监控 · 每日自动刷新</div>
 <div class="translate-bar"><button class="btn-translate" id="btnTranslate" onclick="toggleTranslate()">🌐 翻译成中文</button></div>
-<div class="daily-summary"><strong>📝 今日摘要：</strong>📦 累计 130 条（2022-07-19 ~ 2026-11-04）；📅 今日暂无新数据；📊 近7天: 7 条（负面 1，正面 0）；📆 最近活跃: 2026-11-04, 2026-11-01, 2026-10-31。</div>
-<div class="status-bar"><span class="status-chip">🔴 Reddit: 121天前</span><span class="status-chip">🔴 Nothing Community: 6天前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 57天前</span></div>
+<div class="daily-summary"><strong>📝 今日摘要：</strong>📦 累计 133 条（2022-07-19 ~ 2026-11-06）；📅 今日 2026-11-06: 1 条；📊 近7天: 7 条（负面 1，正面 0）；📆 最近活跃: 2026-11-06, 2026-11-05, 2026-11-04。</div>
+<div class="status-bar"><span class="status-chip">🔴 Reddit: 122天前</span><span class="status-chip">🟢 Nothing Community: 1分钟前</span><span class="status-chip">🟢 YouTube: 1分钟前</span><span class="status-chip">🔴 Bluesky: 58天前</span></div>
 <div class="toolbar">
   <input type="text" id="searchInput" placeholder="🔍 搜索关键词..." oninput="applyFilters()">
   <select id="timeFilter" onchange="applyFilters()"><option value="all">全部时间</option><option value="7">近 7 天</option><option value="30">近 30 天</option><option value="1">今天</option></select>
@@ -92,16 +92,71 @@ h1{font-size:1.8rem;margin-bottom:4px;color:#111}
 </div>
 
 <div class="stats-grid">
-  <div class="stat-card"><div class="number">130</div><div class="label">累计抓取</div></div>
+  <div class="stat-card"><div class="number">133</div><div class="label">累计抓取</div></div>
   <div class="stat-card"><div class="number">0</div><div class="label">今日负面</div></div>
-  <div class="stat-card"><div class="number">4</div><div class="label">本周 <span class="trend-down">↓ -33%</span> (上周 6)</div></div>
-  <div class="stat-card"><div class="number" style="color:#111">22.3%</div><div class="label">负面占比</div></div>
-  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 107</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 18</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 2</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
+  <div class="stat-card"><div class="number">6</div><div class="label">本周 <span class="trend-down">↓ -14%</span> (上周 7)</div></div>
+  <div class="stat-card"><div class="number" style="color:#111">22.6%</div><div class="label">负面占比</div></div>
+  <div class="stat-card" style="flex:2;min-width:280px;"><div class="label" style="margin-top:4px;">平台分布</div><div style="margin-top:8px;"><span class="stat-chip pfilter" data-p="YouTube" onclick="filterPlatform('YouTube')">YouTube: 109</span><span class="stat-chip pfilter" data-p="Nothing Community" onclick="filterPlatform('Nothing Community')">Nothing Community: 19</span><span class="stat-chip pfilter" data-p="Bluesky" onclick="filterPlatform('Bluesky')">Bluesky: 2</span><span class="stat-chip pfilter" data-p="Reddit" onclick="filterPlatform('Reddit')">Reddit: 3</span></div></div>
 </div>
-<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">10-30</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">10-31</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">11-01</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">11-02</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">11-03</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">11-04</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">11-05</div></div></div></div>
+<div class="trend-section"><h3>📊 近 7 天趋势</h3><div class="bar-chart"><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">10-31</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">11-01</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">11-02</div></div><div class="bar-col"><div class="bar-value">0</div><div class="bar-fill" style="height:4%"></div><div class="bar-label">11-03</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">11-04</div></div><div class="bar-col"><div class="bar-value">2</div><div class="bar-fill" style="height:100%"></div><div class="bar-label">11-05</div></div><div class="bar-col"><div class="bar-value">1</div><div class="bar-fill" style="height:50%"></div><div class="bar-label">11-06</div></div></div></div>
 <div class="mentions-section">
-  <h3>📋 最新提及 (<span id="mentionCount">130</span> 条)</h3>
-  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-11-04" data-tags="#FRP">
+  <h3>📋 最新提及 (<span id="mentionCount">133</span> 条)</h3>
+  <div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-11-06" data-tags="#Gmail #FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#Gmail</span><span class="topic-tag">#FRP</span>
+    <span class="author"><strong>DJ Mobile Care</strong> <span class="username">@DJ Mobile Care</span></span>
+    <span class="time">2026-11-06 01:31 UTC</span>
+  </div>
+  <div class="mention-text">Nothing 3A Pro 5G FRP Bypass 2026 | New Security Google Account Lock Remove Trick (100% Working)
+
+Nothing3APro #FRPBypass #GoogleAccountLock #NothingPhone #NewSecurity2026 #AndroidFRP #TechHindi #MobileUnlock ...</div>
+  <div class="mention-footer">
+    <span>❤ 1</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=-Vl33921j1M" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-11-05" data-tags="#FRP">
+  <div class="mention-header">
+    <span class="platform-badge platform-youtube">YouTube</span>
+    <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
+    <span class="author"><strong>Gsm Platform</strong> <span class="username">@Gsm Platform</span></span>
+    <span class="time">2026-11-05 20:08 UTC</span>
+  </div>
+  <div class="mention-text">Nothing Phone 3a FRP Unlock FREE TOOL Android15 | How to Flash All Nothing Phones 💯 Done Nothing Frp
+
+</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 0</span>
+    <a href="https://www.youtube.com/watch?v=L0f4BtTs50A" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="Nothing Community" data-sentiment="negative" data-date="2026-11-05" data-tags="#其他">
+  <div class="mention-header">
+    <span class="platform-badge platform-community">Nothing Community</span>
+    <span class="sent-badge sent-negative">🔴 负面</span> <span class="topic-tag">#其他</span>
+    <span class="author"><strong>g_leprince</strong> <span class="username">@g_leprince</span></span>
+    <span class="time">2026-11-05 13:22 UTC</span>
+  </div>
+  <div class="mention-text">Can&#39;t receive SMS from my bank account
+
+Hi all, I have a strange problem with the SMS. My bank try to send me sms for security purposes and I don’t receive them.
+
+I put my chip in my wife’s Iphone and everything works fine.
+
+When a friend or my mobile operator send me SMS I receive them with no problem.
+
+There must be a security parameter somewhere but unfortunately I don’t know where to look at !
+
+Any gues ?
+
+kind regards</div>
+  <div class="mention-footer">
+    <span>❤ 0</span><span>🔄 0</span><span>💬 3</span>
+    <a href="https://nothing.community/d/64453-64453-cant-receive-sms-from-my-bank-account" target="_blank" class="source-link">查看原文 →</a>
+  </div>
+</div>
+<div class="mention-card" data-platform="YouTube" data-sentiment="neutral" data-date="2026-11-04" data-tags="#FRP">
   <div class="mention-header">
     <span class="platform-badge platform-youtube">YouTube</span>
     <span class="sent-badge sent-neutral">➖ 中性</span> <span class="topic-tag">#FRP</span>
